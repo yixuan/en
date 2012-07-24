@@ -40,8 +40,8 @@ points, resulting in the following figure.
 
 The dots in the figure have normalized orders of 0.02, 0.04,
 0.06, ..., 1, at which the x and y coordinates are obtained by
-interpolation. Therefore, we could use r = (x, y) where
-x = (x_1, x_2, ..., x_{50})' and y = (y_1, y_2, ..., y_{50})' to
+interpolation. Therefore, we could use $r = (x, y)$ where
+$x = (x\_1, x\_2, ..., x\_{50})'$ and $y = (y\_1, y\_2, ..., y\_{50})'$ to
 represent the information of the number 2 I have drawn. Somewhat
 confused by the operations above? Well, the idea behind this
 normalization and interpolation is simple: use 50 "uniformly
@@ -54,22 +54,22 @@ given trace with each one in the training set and find out which
 number resembles it most.
 
 Several criteria could be used to measure the similarity, but some 
-important rules should be considered. We still use r = (x, y) to 
-represent the recording points of a trace, and use Sim(r_1, r_2) to 
+important rules should be considered. We still use $r = (x, y)$ to 
+represent the recording points of a trace, and use $Sim(r\_1, r\_2)$ to 
 stand for the similarity between two traces. Notice that this 
 similarity should not be sensitive to the scale and location of 
 traces. That is, if I draw a number in another location in the 
 window, or in a larger or smaller size, the recognition should not be 
 influenced. In mathematics, this could be expressed by
 
-Sim(r_1, r_2) = Sim(k_1 r_1 + b_1, k_2 r_2 + b_2)
+$$Sim(r_1, r_2) = Sim(k_1 r_1 + b_1, k_2 r_2 + b_2)$$
 
-where k_1 > 0, k_2 > 0, b_1, b_2 are real numbers.
+where $k\_1 > 0$, $k\_2 > 0$, $b\_1$, $b\_2$ are real numbers.
 
 In my code, I simply define the similarity as the sum of Pearson 
 correlation coefficients of x and y, that is,
 
-Sim(r_1, r_2) = Corr(r_1.x, r_2.x) + Corr(r_1.y, r_2.y)
+$$Sim(r_1, r_2) = Corr(r_1.x, r_2.x) + Corr(r_1.y, r_2.y)$$
 
 The whole source code is (note that I use 500 recording points 
 instead of 50):
