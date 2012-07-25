@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Windows binary of RMySQL
-category: [Programming, R]
+categories: [Programming, R]
 tags: [binary, MySQL, package, R, RMySQL, Windows]
 ---
 {% include JB/setup %}

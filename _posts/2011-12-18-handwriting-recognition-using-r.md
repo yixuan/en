@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Handwriting recognition using R
-category: [Programming, R, Statistics]
+categories: [Programming, R, Statistics]
 tags: [correlation, similarity, handwriting recognition, meachine learning, R]
 ---
 {% include JB/setup %}
