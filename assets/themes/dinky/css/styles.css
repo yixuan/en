@@ -28,9 +28,9 @@ time, mark, audio, video {
 body {
   padding:0 50px 0 0;
   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 14px;
+	font-size: 15px;
 	color: #232323;
-	background-color: #FBFAF7;
+	background-color: #F7FAF0;
 	margin: 0;
 	line-height: 1.4em;
 	-webkit-font-smoothing: antialiased;
@@ -145,7 +145,7 @@ img {
   margin: 0 auto;
   max-width: 650px;
   padding: 5px;
-  margin: 10px 0 32px 0;
+  margin: 5px 0 5px 0;
   border: 1px solid #ccc;
 }
 
@@ -156,6 +156,8 @@ code, pre {
 	font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   font-size:14px;
 }
+
+p code { border: 1px solid #111111; }
 
 pre {
 	padding: 4px 12px;
@@ -303,6 +305,8 @@ a.buttons:hover {
 	color: #fff;
 	text-decoration: none;
 }
+
+h4.header { color:#FFFFFF }
 
 
 /* Section - for main page content */
