@@ -26,13 +26,13 @@ time, mark, audio, video {
 /* Base text styles */
 
 body {
-  padding:10px 50px 0 0;
+  padding:0 50px 0 0;
   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	color: #232323;
 	background-color: #FBFAF7;
 	margin: 0;
-	line-height: 1.8em;
+	line-height: 1.4em;
 	-webkit-font-smoothing: antialiased;
 	
 }
@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p, ul, ol, table, dl {
-  margin:0 0 22px;
+  margin:0 0 15px;
 }
 
 h1, h2, h3 {
@@ -216,8 +216,8 @@ header {
 	-moz-border-radius-bottomright: 4px;
 	border-top-right-radius: 4px;
 	border-bottom-right-radius: 4px;
-	padding: 34px 25px 22px 50px;
-	margin: 30px 25px 0 0;
+	padding: 20px 25px 20px 50px;
+	margin: 0 25px 0 0;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -320,8 +320,8 @@ footer {
   width:170px;
   float:left;
   position:fixed;
-  bottom:10px;
-	padding-left: 50px;
+  bottom:0px;
+  padding-left: 50px;
 }
 
 @media print, screen and (max-width: 960px) {
