@@ -1,0 +1,12 @@
+
+http://yixuan.github.com/en/pages.html
+http://yixuan.github.com/en/index.html
+http://yixuan.github.com/en/archive.html
+http://yixuan.github.com/en/categories.html
+http://yixuan.github.com/en/sitemap.txt
+http://yixuan.github.com/en/tags.html
+http://yixuan.github.com/en/atom.xml
+
+http://yixuan.github.com/en/2011/12/jekyll-introduction
+http://yixuan.github.com/en/2011/12/handwriting-recognition-using-r
+http://yixuan.github.com/en/2011/10/windows-binary-of-rmysql
