@@ -1,0 +1,22 @@
+<section>
+  <header id="article-header" class="entry-header">
+    <h1 class="entry-title">
+      <a href="{{ page.url }}" title="{{ page.title }}" rel="bookmark">{{ page.title }}</a>
+    </h1>
+    
+    {% if page.date %}  
+    <div class="entry-meta">
+      <span class="sep">Posted on </span><a href="http://localhost/wordpress/?p=1" title="3:43 am" rel="bookmark"><time class="entry-date" datetime="2012-09-03T03:43:35+00:00" pubdate="">{{ page.date | date: "%B %d, %Y" }}</time></a>
+    </div><!-- .entry-meta -->
+    {% endif %}
+  </header><!-- .entry-header -->
+
+  <div class="entry-content">
+    {{ content }}
+  </div><!-- .entry-content -->
+            
+  <footer class="entry-meta">
+    {% include JB/comments %}
+  </footer><!-- #entry-meta -->
+            
+</section>
