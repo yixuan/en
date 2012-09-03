@@ -1,46 +1,24 @@
 ---
-layout: page
-title: Hello World!
-tagline: Supporting tagline
+layout: page_no_comment
+title: Yixuan's Blog
+tagline: Statistics, Programming, and ...?
 ---
 {% include JB/setup %}
 
-Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
+<img src="http://i.imgur.com/jTtRJ.png" class="alignright"/>
 
-Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
+This is my personal homepage written in English (and in [Markdown](http://daringfireball.net/projects/markdown/)), a site mainly to record my study in Statistics and some other related topics.
 
-## Update Author Attributes
+Some years ago when I read the book *Statistics And Truth*, I found the statements in its preface quite interesting:
 
-In `_config.yml` remember to specify your own data:
-    
-    title : My Blog =)
-    
-    author :
-      name : Name Lastname
-      email : blah@email.test
-      github : username
-      twitter : username
+> All knowledge is, in final analysis, history.
 
-The theme should reference these variables whenever needed.
-    
-## Sample Posts
+> All sciences are, in the abstract, mathematics.
 
-This blog contains sample posts which help stage pages and blog data.
-When you don't need the samples anymore just delete the `_posts/core-samples` folder.
+> All judgements are, in their rationale, statistics.
 
-    $ rm -rf _posts/core-samples
+If you are curious about these sorts of judgements, you may be interested in some of my [blogs](http://yixuan.github.com/en/blogs.html). I also post articles on programming techniques, especially for the [R](http://r-project.org/) language.
 
-Here's a sample "posts list".
+This site is driven by [Jekyll Bootstrap](http://jekyllbootstrap.com/). You can find the source code of this site in my [GitHub page](https://github.com/yixuan/). The theme is modified from a [WordPress](http://wordpress.org/) template called [Hum](http://wordpress.org/extend/themes/hum/).
 
-<ul class="posts">
-  {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
-
-## To-Do
-
-This theme is still unfinished. If you'd like to be added as a contributor, [please fork](http://github.com/plusjade/jekyll-bootstrap)!
-We need to clean up the themes, make theme usage guides with theme-specific markup examples.
-
-
+I also have a Chinese homepage. Please [come here](http://yixuan.cos.name/cn).
