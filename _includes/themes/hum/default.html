@@ -13,7 +13,11 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
+{% if page.tagline %}
 <title>{{ page.title }} | {{ page.tagline }}</title>
+{% else %}
+<title>{{ page.title }}</title>
+{% endif %}
 <link rel="stylesheet" type="text/css" media="all" href="{{ ASSET_PATH }}/css/style.css">
 <!-- Highlight support -->
 <link href="{{ ASSET_PATH }}/css/highlight.css" rel="stylesheet">

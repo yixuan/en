@@ -1,0 +1,15 @@
+{% if categories_list.first[0] == null %}
+  {% for category in categories_list %} 
+    <li>
+      <span class="entry-meta"><a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category }}-ref">{{ category | join: "/" }}</a></span><span> &times; {{ site.categories[category].size }}</span>
+  	</li>
+  {% endfor %}
+{% else %}
+  {% for category in categories_list %} 
+    <li>
+      <span class="entry-meta"><a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category[0] }}-ref">{{ category[0] | join: "/" }}</a></span><span> &times; {{ category[1].size }}</span>
+  	</li>
+  {% endfor %}
+{% endif %}
+
+{% assign categories_list = nil %}

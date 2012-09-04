@@ -505,9 +505,11 @@ audio {
     font-family: "Open Sans";
     font-size: 15px;
 }
-.post-tags {
+a.post-tags {
     /* background-color: #CBD2E3; */
     background-color: #EBEBEB;
+    font-weight: 400;
+    padding: 0 5px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;

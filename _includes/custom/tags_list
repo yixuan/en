@@ -1,0 +1,14 @@
+{% if tags_list.first[0] == null %}
+  {% for tag in tags_list %} 
+    <li>
+      <span class="entry-meta"><a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag }}-ref" class="post-tags">{{ tag }}</a></span><span> &times; {{ site.tags[tag].size }}</span>
+    </li>
+  {% endfor %}
+{% else %}
+  {% for tag in tags_list %} 
+    <li>
+      <span class="entry-meta"><a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag[0] }}-ref" class="post-tags">{{ tag[0] }}</a></span><span> &times; {{ tag[1].size }}</span></li>
+  {% endfor %}
+{% endif %}
+
+{% assign tags_list = nil %}
