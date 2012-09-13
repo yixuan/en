@@ -12,7 +12,7 @@ I'm Yixuan Qiu, currently a first-year PhD student in the
 Find it difficult to pronounce my name? Well, just treat "x" as "sh" and "Q" as
 "Ch", something like [iʃʊən tʃəʊ].
 
-I graduated from Renmin University of China, where I obtained B.A. and M.A. in 
+I graduated from [Renmin University of China](http://en.ruc.edu.cn/), where I obtained B.A. and M.A. in 
 Statistics and Actuarial Science. There I stayed for six years in the city
 of Beijing. That's a good memory.
 
