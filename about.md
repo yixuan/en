@@ -34,4 +34,4 @@ languages. [GitHub](https://github.com/) is a nice place to find these stuffs,
 and even this blog is open source hosted in my [GitHub page](https://github.com/yixuan).
 
 You can always reach me through email, [yixuanq [at] gmail [dot] com](#). Feel free to send
-me mails or leave comments here.
+me emails or leave comments here.
