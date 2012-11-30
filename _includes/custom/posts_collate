@@ -1,0 +1,32 @@
+{% for post in posts_collate  %}
+    {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+    {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
+    {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+    {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
+  
+    {% if forloop.first %}
+        <h2>{{this_year}}</h2>
+    {% endif %}
+  
+    {% if forloop.last %}
+        <div style="margin-bottom: 30px">
+          <span style="margin-right: 10px">{{ post.date | date: "%Y-%m-%d" }}</span>&raquo;
+          <span style="margin-left: 10px"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></span>
+        </div>  
+    {% else %}
+        {% if this_year != next_year %}
+            <div style="margin-bottom: 15px">
+              <span style="margin-right: 10px">{{ post.date | date: "%Y-%m-%d" }}</span>&raquo;
+              <span style="margin-left: 10px"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></span>
+            </div>
+        <h2>{{next_year}}</h2>
+        {% else %}
+            <div>
+              <span style="margin-right: 10px">{{ post.date | date: "%Y-%m-%d" }}</span>&raquo;
+              <span style="margin-left: 10px"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></span>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+{% assign posts_collate = nil %}
