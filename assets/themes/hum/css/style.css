@@ -1069,3 +1069,13 @@ section.recent-posts .other-recent-posts a[rel="bookmark"]:hover {
 	}
 
 }
+
+/* Added by Yixuan */
+/* Blog list */
+.blog-list-date {
+	margin: 0 10px 0 20px;
+}
+.blog-list-title {
+	margin: 0 0 0 10px;
+}
+/* Added by Yixuan */
