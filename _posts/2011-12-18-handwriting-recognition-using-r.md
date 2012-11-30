@@ -138,4 +138,6 @@ To run the code, you must load the "training set", the file
 
 Have fun!
 
+[Download: Source code and training dataset](https://github.com/downloads/yixuan/en/Handwriting_recognition.zip)
+
 

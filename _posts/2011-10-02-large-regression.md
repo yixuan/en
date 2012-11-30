@@ -182,4 +182,4 @@ Furthermore, you may have noticed that the computation of
 simultaneously, so if you have a multi-processor server, you may drastically reduce the time
 after some arrangement.
 
-The whole source code could be [downloaded here](http://yixuan.cos.name/en/wp-content/uploads/2011/10/DB_regression.tar.gz).
+The whole source code could be [downloaded here](https://github.com/downloads/yixuan/en/DB_regression.tar.gz).

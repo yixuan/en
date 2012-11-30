@@ -8,7 +8,7 @@ tags: [binary, MySQL, package, R, RMySQL, Windows]
 
 This binary package supports R 2.13.x (32-bit/64-bit) and MySQL 5.5.16 (32-bit/64-bit).
 
-[RMySQL 0.8-0 for MySQL 5.5.16](http://yixuan.cos.name/en/wp-content/uploads/2011/10/RMySQL_0.8-0_for_MySQL_5.5.16.zip)
+[RMySQL 0.8-0 for MySQL 5.5.16](https://github.com/downloads/yixuan/en/RMySQL_0.8-0.zip)
 
 
 
