@@ -42,7 +42,8 @@ title: STAT 301 Lab
 # SPSS Tips
 - When you enter categorical variables into SPSS, you must specify the type as **string** in variable view.
 - **Only** enter the variable I specify for #5-6 and #7-8.
-- Make sure to **weight cases** for #7-8
+- For #5-6, enter the **original data**, i.e., one column.
+- For #7-8, enter the **summarized data**, one column for names of categories, another column for counts. Make sure to **weight cases**.
 - Copy the graph for #5 into Word document **before** doing #6. Same with #7-8.
-- This slide is available at http://statr.me/courses/stat301/lab2.
+- This slide is available at http://statr.me/courses.html.
 
