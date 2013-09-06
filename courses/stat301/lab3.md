@@ -44,6 +44,17 @@ title: STAT 301 Lab
 
 ---
 = data-x='4000' data-y='1000' data-rotate=90
+# Detecting Outliers
+- Interquartile range
+  - IQR = Q3 - Q1
+- Suspected outlier
+  - < Q1 - 1.5 * IQR, **OR**
+  - > Q3 + 1.5 * IQR
+
+
+
+---
+= data-x='4000' data-y='2000' data-rotate=90
 # Choosing a Summary
 - Five-number summary
   - Skewed distribution, or with outliers
