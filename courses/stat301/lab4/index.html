@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>STAT 301 Lab</title>
+    <link href="../css/reset.css" rel="stylesheet" />
+    <meta name="author" content="Yixuan Qiu">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="../css/favicon.png" />
+    <link rel="apple-touch-icon" href="../css/apple-touch-icon.png" />
+    <!-- Code Prettifier: -->
+<link href="../css/highlight.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="../css/style.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,800italic,300,400,800' rel='stylesheet' type='text/css'>    
+
+    <!-- MathJax support -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+  </head>
+
+  <body>
+  <div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+  </div>
+    <div id="impress">
+    <div class='step' >
+    
+<h1>STAT 301</h1>
+
+<h2>Lab 4: Normal Distribution</h2>
+
+<h2>T.A.: Yixuan Qiu</h2>
+</div>
+      <div class='step'  data-x='2000'>
+    
+<h1>Important Concepts</h1>
+
+<ul>
+<li>The overall pattern of a distribution can be described by a <strong>density curve</strong></li>
+<li><strong>Normal distributions</strong> are a kind of bell-shaped, symmetric, unimodal density curves</li>
+<li>A Normal distribution with mean $\mu$ and standard deviation $\sigma$ is usually denote by $N(\mu, \sigma^2)$</li>
+</ul>
+</div>
+      <div class='step'  data-x='3000'>
+    
+<h1>Standardize</h1>
+
+<ul>
+<li>If you know some variable $X$ follows $N(\mu, \sigma^2)$, you can <strong>standardize</strong> it
+$$Z=\frac{X-\mu}{\sigma}$$</li>
+<li>Why? Because <strong>any</strong> probability related to $X$ can be calculated using $Z$, which is available in the
+<strong>standard Normal table</strong></li>
+</ul>
+</div>
+      <div class='step'  data-x='4000'>
+    
+<h1>Normal Table</h1>
+
+<ul>
+<li>How to read normal table?</li>
+<li>If we want to find the probability that $Z$ is <strong>less</strong> than 0.95
+<img src="normal_table.png" alt=""></li>
+<li>If we know the probability but want to find the location, the procedure is reversed</li>
+</ul>
+</div>
+      <div class='step'  data-x='4000' data-y='1000' data-rotate=90>
+    
+<h1>Prob. Calculation</h1>
+
+<ul>
+<li>For a general Normal distribution $X \sim N(\mu, \sigma^2)$, we want to find the probability that
+
+<ul>
+<li>$X &lt; a$</li>
+<li>$X &gt; b$</li>
+<li>$a &lt; X &lt; b$</li>
+</ul></li>
+<li>$P(X &lt; a) = P(\frac{X-\mu}{\sigma} &lt; \frac{a-\mu}{\sigma}) = P(Z &lt; \frac{a-\mu}{\sigma})$</li>
+<li>$P(X &gt; b) = 1 - P(X &lt; b)$</li>
+<li>$P(a &lt; X &lt; b) = P(X &lt; b) - P(X &lt; a)$</li>
+</ul>
+</div>
+      <div class='step'  data-x='4000' data-y='2000' data-rotate=90>
+    
+<h1>Sampling Distribution</h1>
+
+<ul>
+<li>If we draw many samples from the population and calculate their mean values, then the mean also has a distribution</li>
+<li>If population follows Normal distribution $N(\mu, \sigma^2)$, then the mean follows $N(\mu, \sigma^2/n)$</li>
+<li>Sample means are <strong>less</strong> variable than individual observations</li>
+</ul>
+
+      </div>
+    <script src="../js/impress.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>
+    
