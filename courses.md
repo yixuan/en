@@ -11,4 +11,6 @@ I'm TA for the STAT 301 Lab in Fall 2013 semester. Below are the slides for each
 - Lab 2 (08/30/2013): [Type of Variables](http://statr.me/courses/stat301/lab2/)
 - Lab 3 (09/06/2013): [Numerical Summaries](http://statr.me/courses/stat301/lab3/)
 - Lab 4 (09/13/2013): [Normal Distribution](http://statr.me/courses/stat301/lab4/)
+- Lab 5 (09/27/2013): [Statistical Inference](http://statr.me/courses/stat301/lab5/)
+
 
