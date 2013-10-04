@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>STAT 301 Lab</title>
+    <link href="../css/reset.css" rel="stylesheet" />
+    <meta name="author" content="Yixuan Qiu">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="../css/favicon.png" />
+    <link rel="apple-touch-icon" href="../css/apple-touch-icon.png" />
+    <!-- Code Prettifier: -->
+<link href="../css/highlight.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="../css/style.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,800italic,300,400,800' rel='stylesheet' type='text/css'>    
+
+
+<!-- MathJax support -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+  </head>
+
+  <body>
+  <div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+  </div>
+    <div id="impress">
+    <div class='step' >
+    
+<h1>STAT 301</h1>
+
+<h2>Lab 6: Inference for the Mean</h2>
+
+<h2>T.A.: Yixuan Qiu</h2>
+</div>
+      <div class='step'  data-x='2000'>
+    
+<h1>Review of $z$-Test</h1>
+
+<ul>
+<li>$H_0:\mu=\mu_0$</li>
+<li>$H_a:\mu&lt;\mu_0$ <strong>OR</strong> $H_a:\mu&gt;\mu_0$ <strong>OR</strong> $H_a:\mu\neq\mu_0$</li>
+<li>First, calculate test statistic
+$$z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}$$</li>
+<li>Second, calculate P-value
+
+<ul>
+<li>P-value = $P(Z&gt;z)$ if $H_a$ is $\mu&gt;\mu_0$</li>
+<li>P-value = $P(Z\le z)$ if $H_a$ is $\mu&lt;\mu_0$</li>
+<li>P-value = $2P(Z&gt;|z|)$ if $H_a$ is $\mu\neq\mu_0$</li>
+</ul></li>
+<li>Finally, compare P-value with $\alpha$</li>
+</ul>
+</div>
+      <div class='step'  data-x='2000' data-y='2000' data-rotate=90>
+    
+<h1>Moving to <em>t</em> Test</h1>
+
+<ul>
+<li>When the population std. $\sigma$ is <strong>UNKNOWN</strong>, we use <strong><em>t</em> test</strong> instead.</li>
+<li>The population std. is replaced by sample std.
+$$t=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}$$</li>
+<li>Use SPSS to calculate the P-value.</li>
+</ul>
+</div>
+      <div class='step'  data-x='2000' data-y='3000' data-rotate=90>
+    
+<h1>Robustness Guidelines</h1>
+
+<ul>
+<li>When is <em>t</em> test appropriate?</li>
+<li>If $n&lt;15$, data should be Normally distributed with no outliers or skewness.</li>
+<li>If $15\le n &lt; 40$, data should be fairly symmetric, Normally distributed with no outliers or heavy skewness.</li>
+<li>If $n\ge 40$, as long as no outliers.</li>
+</ul>
+
+      </div>
+    <script src="../js/impress.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>
+    
