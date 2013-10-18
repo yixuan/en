@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>STAT 301 Lab</title>
+    <link href="../css/reset.css" rel="stylesheet" />
+    <meta name="author" content="Yixuan Qiu">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="../css/favicon.png" />
+    <link rel="apple-touch-icon" href="../css/apple-touch-icon.png" />
+    <!-- Code Prettifier: -->
+<link href="../css/highlight.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="../css/style.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,800italic,300,400,800' rel='stylesheet' type='text/css'>     
+
+
+<!-- MathJax support -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+  </head>
+
+  <body>
+  <div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+  </div>
+    <div id="impress">
+    <div class='step' >
+    
+<h1>STAT 301</h1>
+
+<h2>Lab 8: One-Way ANOVA</h2>
+
+<h2>T.A.: Yixuan Qiu</h2>
+</div>
+      <div class='step'  data-x='2000'>
+    
+<h1>From 2-sample <em>t</em> Test to ANOVA</h1>
+
+<ul>
+<li>2-sample <em>t</em> test compares the means of <strong>two</strong> populations</li>
+<li>ANOVA generalizes this to <strong>more than two</strong> populations</li>
+<li>$H_0:\mu_1=\mu_1=\cdots=\mu_I$, i.e., all the <strong>population</strong> means are the same</li>
+<li>$H_a:$ <strong>not all</strong> of the $\mu_i$ are equal</li>
+<li>$H_a$ is <strong>NOT</strong> $\mu_1\neq\mu_1\neq\cdots\neq\mu_I$</li>
+</ul>
+</div>
+      <div class='step'  data-x='2000' data-y='2000' data-rotate=90>
+    
+<h1>The Pooled Variance</h1>
+
+<ul>
+<li>We usually assume that the (population) variances for each group are the same. To check this,
+use the following rule:</li>
+<li>If the largest std. is less than twice the smallest standard deviation, we can use methods
+based on the assumption of equal std.</li>
+</ul>
+</div>
+      <div class='step'  data-x='2000' data-y='3000' data-rotate=90>
+    
+<h1>Multiple Comparisons</h1>
+
+<ul>
+<li>If $H_0$ is rejected, we only know that <strong>some</strong> of the means are different.</li>
+<li>To find out the pairs that have significant differences, we need to do the multiple comparisons using
+<strong>Bonferroni</strong> method.</li>
+<li>P-value less than $\alpha$ means that the corresponding pair has significant difference.</li>
+</ul>
+</div>
+      <div class='step'  data-x='3000'>
+    
+<h1>In SPSS</h1>
+
+<ul>
+<li>Data format for ANOVA is similar to 2-sample <em>t</em> test: one column for data, one column for group.
+<img src="anova-data.PNG" alt=""></li>
+<li>Download and open file &quot;beetles.sav&quot;.</li>
+<li>Input number code for each color, e.g. 1 for yellow, 2 for white, 3 for green, 4 for blue.</li>
+<li><a href="http://statr.me/courses.html">http://statr.me/courses.html</a></li>
+</ul>
+
+      </div>
+    <script src="../js/impress.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>
+    

@@ -14,4 +14,5 @@ I'm TA for the STAT 301 Lab in Fall 2013 semester. Below are the slides for each
 - Lab 5 (09/27/2013): [Statistical Inference](http://statr.me/courses/stat301/lab5/)
 - Lab 6 (10/03/2013): [Inference for the Mean](http://statr.me/courses/stat301/lab6/)
 - Lab 7 (10/10/2013): [Comparison of Means](http://statr.me/courses/stat301/lab7/)
+- Lab 8 (10/17/2013): [One-Way ANOVA](http://statr.me/courses/stat301/lab8/)
 
