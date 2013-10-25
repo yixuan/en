@@ -12,7 +12,8 @@ I'm TA for the STAT 301 Lab in Fall 2013 semester. Below are the slides for each
 - Lab 3 (09/06/2013): [Numerical Summaries](http://statr.me/courses/stat301/lab3/)
 - Lab 4 (09/13/2013): [Normal Distribution](http://statr.me/courses/stat301/lab4/)
 - Lab 5 (09/27/2013): [Statistical Inference](http://statr.me/courses/stat301/lab5/)
-- Lab 6 (10/03/2013): [Inference for the Mean](http://statr.me/courses/stat301/lab6/)
-- Lab 7 (10/10/2013): [Comparison of Means](http://statr.me/courses/stat301/lab7/)
-- Lab 8 (10/17/2013): [One-Way ANOVA](http://statr.me/courses/stat301/lab8/)
+- Lab 6 (10/04/2013): [Inference for the Mean](http://statr.me/courses/stat301/lab6/)
+- Lab 7 (10/11/2013): [Comparison of Means](http://statr.me/courses/stat301/lab7/)
+- Lab 8 (10/18/2013): [One-Way ANOVA](http://statr.me/courses/stat301/lab8/)
+- Lab 9 (10/25/2013): [Two-Way ANOVA](http://statr.me/courses/stat301/lab9/)
 

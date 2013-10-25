@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>STAT 301 Lab</title>
+    <link href="../css/reset.css" rel="stylesheet" />
+    <meta name="author" content="Yixuan Qiu">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="../css/favicon.png" />
+    <link rel="apple-touch-icon" href="../css/apple-touch-icon.png" />
+    <!-- Code Prettifier: -->
+<link href="../css/highlight.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="../css/style.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,800italic,300,400,800' rel='stylesheet' type='text/css'>      
+
+
+  </head>
+
+  <body>
+  <div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+  </div>
+    <div id="impress">
+    <div class='step' >
+    
+<h1>STAT 301</h1>
+
+<h2>Lab 9: Two-Way ANOVA</h2>
+
+<h2>T.A.: Yixuan Qiu</h2>
+</div>
+      <div class='step'  data-x='2000'>
+    
+<h1>What&#39;s Two-way ANOVA?</h1>
+
+<ul>
+<li>The purpose is similar to One-way ANOVA, but now we have two factors.</li>
+<li>Example: Is the amount of weekly physical activity of college students different in
+three states for male and female?</li>
+<li>Two factors: state, gender.</li>
+</ul>
+</div>
+      <div class='step'  data-x='3000'>
+    
+<h1>What we want to test?</h1>
+
+<ul>
+<li>Main effect
+
+<ul>
+<li>Will the state influence the amount?</li>
+<li>Will gender influence the amount?</li>
+</ul></li>
+<li>Interaction
+
+<ul>
+<li>Is the influence of state the same for male and female?</li>
+</ul></li>
+</ul>
+</div>
+      <div class='step'  data-x='3000' data-y='1000' data-rotate=90>
+    
+<h1>How do you know whether there is interaction?</h1>
+
+<ul>
+<li>If any lines cross each other, then you <strong>have</strong> an interaction.</li>
+<li>If the lines are all fairly parallel to each other, then you <strong>do not have</strong> an interaction.</li>
+<li>If the lines aren&#39;t parallel but don&#39;t cross each other either, then you <strong>might have</strong> an interaction.</li>
+</ul>
+</div>
+      <div class='step'  data-x='3000' data-y='1000' data-rotate=90>
+    
+<p><img src="interaction.png" alt=""></p>
+</div>
+      <div class='step'  data-x='4000'>
+    
+<h1>Check the assumption</h1>
+
+<ul>
+<li>Need independent SRSs</li>
+<li>Population should be Normal with the same standard deviation
+
+<ul>
+<li>Largest std. &lt; 2 * smallest std.</li>
+</ul></li>
+</ul>
+</div>
+      <div class='step'  data-x='5000'>
+    
+<h1>Interpret the result</h1>
+
+<p><img src="table.png" alt=""></p>
+
+      </div>
+    <script src="../js/impress.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>
+    
