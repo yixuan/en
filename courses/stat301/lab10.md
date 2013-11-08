@@ -65,6 +65,17 @@ title: STAT 301 Lab
 ---
 = data-x='6000'
 # Residual Plot
+- Residual = $y$ - $\hat{y}$
 ![](residual.png)
 
+
+
+---
+= data-x='6000'
+# Correction
+- 11: The first question should be
+  
+  "Do the points follow the 45-degree angle line?"
+
+- http://statr.me/courses.html
 
