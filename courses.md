@@ -16,4 +16,5 @@ I'm TA for the STAT 301 Lab in Fall 2013 semester. Below are the slides for each
 - Lab 7 (10/11/2013): [Comparison of Means](http://statr.me/courses/stat301/lab7/)
 - Lab 8 (10/18/2013): [One-Way ANOVA](http://statr.me/courses/stat301/lab8/)
 - Lab 9 (10/25/2013): [Two-Way ANOVA](http://statr.me/courses/stat301/lab9/)
+- Lab 10 (11/08/2013): [Least Squares Regression](http://statr.me/courses/stat301/lab10/)
 
