@@ -18,4 +18,5 @@ I'm TA for the STAT 301 Lab in Fall 2013 semester. Below are the slides for each
 - Lab 9 (10/25/2013): [Two-Way ANOVA](http://statr.me/courses/stat301/lab9/)
 - Lab 10 (11/08/2013): [Least Squares Regression](http://statr.me/courses/stat301/lab10/)
 - Lab 11 (11/15/2013): [Multiple Linear Regression](http://statr.me/courses/stat301/lab11/)
+- Lab 12 (11/22/2013): [Analysis of Two-Way Tables](http://statr.me/courses/stat301/lab12/)
 
