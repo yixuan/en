@@ -6,7 +6,7 @@ group: navigation
 
 <p><a href="http://i.imgur.com/qaqnR.jpg" title="Purdue University"><img src="http://i.imgur.com/qaqnR.jpg" alt="Purdue University" class="aligncenter" width="500"/></a></p>
 
-I'm Yixuan Qiu, currently a first-year PhD student in the
+I'm Yixuan Qiu, currently a second-year PhD student in the
 [Department of Statistics](http://www.stat.purdue.edu/), [Purdue University](http://www.purdue.edu/).
 
 Find it difficult to pronounce my name? Well, just treat "x" as "sh" and "Q" as
