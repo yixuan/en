@@ -11,7 +11,7 @@ title: STAT 301 Lab
 ---
 = data-x='1000'
 # Reminder
-- Recall how many texts you sent last week
+- **Recall how many texts you sent last week**
 - Fill in the table on the front computer
 - Pick up handout and your previous lab paper
 - Open Blackboard and download SPSS instructions
