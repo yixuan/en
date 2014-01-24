@@ -8,4 +8,5 @@ group: navigation
 I'm a TA for the STAT 301 Lab in Spring 2014 semester. Below are the slides for each lab that will be continuously updated during this semester.
 
 - Lab 1 (01/17/2014): [Introduction](http://statr.me/courses/stat301/lab1/)
+- Lab 2 (01/24/2014): [Type of Bias](http://statr.me/courses/stat301/lab2/)
 
