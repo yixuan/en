@@ -75,3 +75,14 @@ title: STAT 301 Lab
 - Modes
   - Unimodal: One major peak
   - Multimodal: More than one peaks
+
+
+
+---
+= data-x='5000'
+![](dist1.png)
+![](dist2.png)
+
+![](dist3.png)
+![](dist4.png)
+
