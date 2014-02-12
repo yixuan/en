@@ -12,3 +12,8 @@ I'm a TA for the STAT 301 Lab in Spring 2014 semester. Below are the slides for 
 - Lab 3 (01/31/2014): [Type of Variables](http://statr.me/courses/stat301/lab3/)
 - Lab 4 (02/07/2014): [Numerical Summaries](http://statr.me/courses/stat301/lab4/)
 
+## STAT 598 FDA
+Below are my presentation slide for the STAT 598 course in functional data analysis.
+
+- [Introduction to Generalized $p$-value](http://statr.me/courses/stat598fda/gpvalue.pdf)
+
