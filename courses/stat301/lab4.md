@@ -3,7 +3,7 @@ author: Yixuan Qiu
 title: STAT 301 Lab
 ---
 # STAT 301 Lab
-## Lab 3: Numerical Summaries
+## Lab 4: Numerical Summaries
 ## T.A.: Yixuan Qiu
 
 

@@ -11,6 +11,7 @@ I'm a TA for the STAT 301 Lab in Spring 2014 semester. Below are the slides for 
 - Lab 2 (01/24/2014): [Type of Bias](http://statr.me/courses/stat301/lab2/)
 - Lab 3 (01/31/2014): [Type of Variables](http://statr.me/courses/stat301/lab3/)
 - Lab 4 (02/07/2014): [Numerical Summaries](http://statr.me/courses/stat301/lab4/)
+- Lab 5 (02/14/2014): [Normal Distribution](http://statr.me/courses/stat301/lab5/)
 
 ## STAT 598 FDA
 Below are my presentation slide for the STAT 598 course in functional data analysis.

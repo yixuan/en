@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>STAT 301 Lab</title>
+    <link href="../css/reset.css" rel="stylesheet" />
+    <meta name="author" content="Yixuan Qiu">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="../css/favicon.png" />
+    <link rel="apple-touch-icon" href="../css/apple-touch-icon.png" />
+    <!-- Code Prettifier: -->
+<link href="../css/highlight.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="../css/style.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,800italic,300,400,800' rel='stylesheet' type='text/css'>    
+
+    <!-- MathJax support -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+  </head>
+
+  <body>
+  <div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+  </div>
+    <div id="impress">
+    <div class='step' >
+    
+<h1>STAT 301 Lab</h1>
+
+<h2>Lab 5: Normal Distribution</h2>
+
+<h2>T.A.: Yixuan Qiu</h2>
+</div>
+      <div class='step'  data-x='1000'>
+    
+<h1>Probability Statement</h1>
+
+<ul>
+<li>We have some quantity $X$ that is a random variable</li>
+<li>$P(X&gt;60)$ reads as &quot;the probability that $X$ is greater than 60&quot;</li>
+<li>You also need to know how to transform statements back to mathematical formulas</li>
+</ul>
+</div>
+      <div class='step'  data-x='2000'>
+    
+<h1>Normal Distribution</h1>
+
+<ul>
+<li>Normal distribution helps us to calculate those probabilities</li>
+<li>It has a bell-shaped, symmetric, unimodal density curve</li>
+<li>A Normal distribution with mean $\mu$ and standard deviation $\sigma$ is usually denote by $N(\mu, \sigma^2)$</li>
+</ul>
+</div>
+      <div class='step'  data-x='3000' data-y='1000' data-rotate=90>
+    
+<h1>Typical Problems</h1>
+
+<ul>
+<li>You are give that some quantity $X$ that follows a normal distribution with mean $\mu$
+and standard deviation $\sigma$</li>
+<li>$\mu$ and $\sigma$ are given in concrete numbers</li>
+<li>Calculate
+
+<ul>
+<li>$P(X&lt;x_0)$ for some number $x_0$</li>
+<li>$P(X&gt;x_0)$</li>
+<li>Find $x_0$ such that it is in the top $\alpha$% of the population</li>
+</ul></li>
+</ul>
+</div>
+      <div class='step'  data-x='3000' data-y='2000' data-rotate=90>
+    
+<h1>$P(X&lt;x_0)$</h1>
+
+<ul>
+<li>Calculate $z$-score
+$$z=\frac{x_0-\mu}{\sigma}$$</li>
+<li>Look into the Normal Table</li>
+</ul>
+</div>
+      <div class='step'  data-x='3000' data-y='2000' data-rotate=90>
+    
+<h1>Example</h1>
+
+<ul>
+<li>Find the probability if $z=0.95$
+<img src="normal_table.png" alt=""></li>
+</ul>
+</div>
+      <div class='step'  data-x='3000' data-y='3000' data-rotate=90>
+    
+<h1>Graph</h1>
+
+<p><img src="dnorm.png" alt="">
+<img src="dnorm2.png" alt=""></p>
+</div>
+      <div class='step'  data-x='3000' data-y='4000' data-rotate=90>
+    
+<h1>$P(X&gt;x_0)$</h1>
+
+<ul>
+<li>$P(X&gt;x_0)=1-P(X&lt;x_0)$</li>
+<li>Follow the previous slides to calculate $P(X&lt;x_0)$, and then subtract that number from 1</li>
+</ul>
+</div>
+      <div class='step'  data-x='3000' data-y='5000' data-rotate=90>
+    
+<h1>Find $x_0$</h1>
+
+<ul>
+<li>Look up Normal Table to find a $z$ with corresponding probability closest to $\alpha$%</li>
+<li>$x_0=z\sigma+\mu$</li>
+</ul>
+</div>
+      <div class='step'  data-x='4000'>
+    
+<h1>Sampling Distribution</h1>
+
+<ul>
+<li>If we draw many samples from the population and calculate their mean values, then the mean also has a distribution</li>
+<li>If population follows Normal distribution $N(\mu, \sigma^2)$, then the mean follows $N(\mu, \sigma^2/n)$</li>
+<li>Sample means are <strong>less</strong> variable than individual observations</li>
+<li>For normal distribution, the density curve will be <strong>taller</strong> and <strong>narrower</strong> if it is less variable</li>
+</ul>
+
+      </div>
+    <script src="../js/impress.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>
+    
