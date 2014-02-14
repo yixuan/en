@@ -52,6 +52,8 @@ $$z=\frac{x\_0-\mu}{\sigma}$$
 # Example
 - Find the probability if $z=0.95$
 ![](normal_table.png)
+- $z<-3.4$, $P(X<x\_0)\approx 0$
+- $z>3.4$, $P(X<x\_0)\approx 1$
 
 
 
@@ -73,7 +75,7 @@ $$z=\frac{x\_0-\mu}{\sigma}$$
 ---
 = data-x='3000' data-y='5000' data-rotate=90
 # Find $x\_0$
-- Look up Normal Table to find a $z$ with corresponding probability closest to $\alpha$%
+- Look up Normal Table to find a $z$ with corresponding probability closest to $1-\alpha$%
 - $x\_0=z\sigma+\mu$
 
 
