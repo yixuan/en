@@ -14,7 +14,7 @@ I'm a TA for the STAT 301 Lab in Spring 2014 semester. Below are the slides for 
 - Lab 5 (02/14/2014): [Normal Distribution](http://statr.me/courses/stat301/lab5/)
 
 ## STAT 598 FDA
-Below are my presentation slide for the STAT 598 course in functional data analysis.
+Below is my presentation slide for the STAT 598 course in functional data analysis.
 
 - [Introduction to Generalized $p$-value](http://statr.me/courses/stat598fda/gpvalue.pdf)
 
