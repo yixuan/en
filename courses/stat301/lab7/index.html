@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>STAT 301 Lab</title>
+    <link href="../css/reset.css" rel="stylesheet" />
+    <meta name="author" content="Yixuan Qiu">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="../css/favicon.png" />
+    <link rel="apple-touch-icon" href="../css/apple-touch-icon.png" />
+    <!-- Code Prettifier: -->
+<link href="../css/highlight.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="../css/style.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,800italic,300,400,800' rel='stylesheet' type='text/css'>    
+
+    <!-- MathJax support -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+  </head>
+
+  <body>
+  <div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+  </div>
+    <div id="impress">
+    <div class='step' >
+    
+<h1>STAT 301 Lab</h1>
+
+<h2>Lab 7: Comparison of Means</h2>
+
+<h2>T.A.: Yixuan Qiu</h2>
+</div>
+      <div class='step'  data-x='2000'>
+    
+<h1>Two types of <em>t</em> procedures</h1>
+
+<ul>
+<li><strong>Matched pairs <em>t</em> test</strong>
+
+<ul>
+<li>We measure the <strong>same</strong> unit twice</li>
+<li>e.g. &quot;before&quot; and &quot;after&quot; for the same person</li>
+</ul></li>
+<li><strong>2-sample <em>t</em> test</strong>
+
+<ul>
+<li>We have 2 <strong>seperate</strong> populations and hence 2 independent samples</li>
+<li>e.g. men vs. women</li>
+</ul></li>
+</ul>
+</div>
+      <div class='step'  data-x='2000' data-y='2000' data-rotate=90>
+    
+<h1>How to do in SPSS</h1>
+
+<ul>
+<li><strong>Matched pairs <em>t</em> test</strong>
+
+<ul>
+<li>Create two <strong>numeric</strong> variables representing the pair</li>
+<li>Variable view:
+<img src="matched-var.PNG" alt=""></li>
+<li>Data view:
+<img src="matched-data.PNG" alt=""></li>
+</ul></li>
+</ul>
+</div>
+      <div class='step'  data-x='2000' data-y='3000' data-rotate=90>
+    
+<h1>How to do in SPSS</h1>
+
+<ul>
+<li><strong>Two-sample <em>t</em> test</strong>
+
+<ul>
+<li>Create one <strong>numeric</strong> variable containing all the data (both samples), and one <strong>string</strong> variable labeling the group (e.g. &quot;A&quot; and &quot;B&quot;)</li>
+<li>Variable view:
+<img src="2-sample-var.PNG" alt=""></li>
+<li>Data view:
+<img src="2-sample-data.PNG" alt=""></li>
+</ul></li>
+</ul>
+</div>
+      <div class='step'  data-x='3000'>
+    
+<h1>Remarks</h1>
+
+<ul>
+<li>Always use SPSS to solve <em>t</em> test problems</li>
+<li>In 2-sample comparison of means output, <strong>ALWAYS</strong> use the bottom row (equal variances <strong>NOT</strong> assumed)</li>
+<li>In matched pairs, we only have one $\mu$ ($\mu_{diff}$) in the null hypothesis, e.g. $H_0:\mu_{diff}=0$. State what &quot;diff&quot; stands for.</li>
+<li>In 2-sample <em>t</em> test, we have two $\mu$&#39;s, e.g., $\mu_A=\mu_B$. State what &quot;A&quot; and &quot;B&quot; stand for.</li>
+<li><a href="http://statr.me/courses.html">http://statr.me/courses.html</a></li>
+</ul>
+
+      </div>
+    <script src="../js/impress.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>
+    
