@@ -14,6 +14,7 @@ I'm a TA for the STAT 301 Lab in Spring 2014 semester. Below are the slides for 
 - Lab 5 (02/14/2014): [Normal Distribution](http://statr.me/courses/stat301/lab5/)
 - Lab 6 (02/28/2014): [Statistical Inference](http://statr.me/courses/stat301/lab6/)
 - Lab 7 (03/07/2014): [Comparison of Means](http://statr.me/courses/stat301/lab7/)
+- Lab 8 (03/14/2014): [One-Way ANOVA](http://statr.me/courses/stat301/lab8/)
 
 ## STAT 598 FDA
 Below is my presentation slide for the STAT 598 course in functional data analysis.
