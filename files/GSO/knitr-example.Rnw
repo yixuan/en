@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+\begin{document}
+\title{A Minimal Demo of knitr}
+\maketitle
+
+Some random numbers:
+
+<<>>=
+set.seed(123)
+rpois(5, 3)
+@
+
+Do you know $e^\pi-\pi\approx$ \Sexpr{exp(pi) - pi}?
+
+Now let's create a fancy plot:
+
+<<fig.height=5, fig.align='center', out.width='.7\\linewidth', fig.cap='Perspective Plot', fig.pos='h'>>=
+par(mar = c(0, 0, 0, 0))
+z <- 2 * volcano        # Exaggerate the relief
+x <- 10 * (1:nrow(z))   # 10 meter spacing (S to N)
+y <- 10 * (1:ncol(z))   # 10 meter spacing (E to W)
+persp(x, y, z, theta = 135, phi = 30, col = "green3", scale = FALSE,
+      ltheta = -120, shade = 0.75, border = NA, box = FALSE)
+@
+
+\end{document}

@@ -1,0 +1,299 @@
+---
+title: "Dynamic Document with knitr ---<br>More Expressive, More impressive"
+author: "Yixuan Qiu"
+date: "April 3, 2014"
+output:
+  ioslides_presentation:
+    self_contained: no
+  beamer_presentation: default
+  revealjs_presentation: default
+---
+
+## What is Dynamic Document? {.build}
+
+Recall how you finished a STAT 526 Homework:
+
+> - Type in something about your idea
+- Write a piece of code
+- Run the code to get output and graph
+- Copy and paste them to your document processor
+- Repeat steps above
+
+Can we make life a little bit easier?
+
+> - Human language and code in the same document
+- Code can be excuted and replaced by its output
+- Focus more on content, less on format
+
+
+## A minimal example
+
+Source code
+
+![](images/minimal-code.png)
+
+After compiling
+
+![](images/minimal-output.png)
+
+
+## A minimal example (plots)
+
+Source code
+
+![](images/minimal-plot-code.png)
+
+
+## A minimal example (plots)
+
+After compiling
+
+![](images/minimal-plot-output.png)
+
+
+## Basic idea
+
+![](images/doc.png)
+
+
+## Tools
+
+Early stage -- Sweave
+
+- To "weave" S
+- Developed by R Core, very powerful
+
+Today -- knitr
+
+- To "knit" R
+- Pronounced as "neater", and neater indeed
+- Developed by [Yihui Xie](http://yihui.name/), even more powerful (almost surely)
+- [http://yihui.name/knitr](http://yihui.name/knitr)
+
+![](images/knitr-logo.png)
+
+## Structure
+
+![](images/structure.png)
+
+
+## Most useful options (output)
+
+- Default option, show both source code and output
+```{r eval=FALSE}
+<<>>=
+x <- seq(1, 6, by = 0.5)
+x
+sin(x)
+@
+```
+- Show R source code only
+```{r eval=FALSE}
+<<eval=FALSE>>=
+@
+```
+- Show code output only
+```{r eval=FALSE}
+<<echo=FALSE>>=
+@
+```
+
+
+## Most useful options (output)
+
+- Whether to format the code or not
+```{r eval=FALSE}
+<<tidy=FALSE>>=
+x<-                 seq(1,6,
+    by=0.5)
+x
+@
+```
+- Only evaluate the code, do not show anything. Mainly used to create variables for later use.
+```{r eval=FALSE}
+<<include=FALSE>>=
+dat = rnorm(100)
+@
+```
+
+
+## Most useful options (plot)
+
+- Figure width and height (in R side)
+```{r eval=FALSE}
+<<fig.width=6, fig.height=6>>=
+plot(density(dat))
+@
+```
+- Figure width and height (in output document side)
+```{r eval=FALSE}
+<<out.width='0.7\\textwidth'>>=
+plot(density(dat))
+@
+```
+- Alignment and caption
+```{r eval=FALSE}
+<<fig.align='center', fig.cap="A density plot">>=
+plot(density(dat))
+@
+```
+
+## From $\LaTeX$ to Markdown {.build}
+
+$\LaTeX$ is a powerful language to write document, but...
+
+> - Not easy to get started
+- Complicated, typing too many commands
+- Restricted output file format (mainly for PDF)
+
+Another friend of knitr – Markdown
+
+> - So... another language to learn?
+- Yes, but...
+- Much, much, much easier than $\LaTeX$
+- Can be converted into $\LaTeX$, HTML, Word etc.
+
+
+## An overview of Markdown+knitr
+
+![](images/markdown.png)
+
+
+## Markdown basics
+
+- Headers
+```{r eval=FALSE}
+## Methodology 
+In this section we introduce our methodology.
+
+### Algorithm
+The algorithm is blablabla...
+
+### Simulation
+Now we show our simulation result.
+```
+- Similar to `\section{}` and `\subsection{}` in $\LaTeX$
+
+
+## Markdown basics
+- Decorations (bold, italic, etc.)
+```{r eval=FALSE}
+You should **NEVER** claim to _accept_ a null hypothesis
+
+You just say **_do not reject_**
+```
+- Rendered result
+
+You should **NEVER** claim to _accept_ a null hypothesis
+
+You just say **_do not reject_**
+
+
+## Markdown basics
+
+- Code
+```{r eval=FALSE}
+There is some inline code: `print(x)`
+
+And code blocks:
+`` `
+x <- rnorm(100)
+summary(x)
+`` `
+```
+- Rendered result
+
+There is some inline code: `print(x)`
+
+And code blocks:
+```
+x <- rnorm(100)
+summary(x)
+```
+
+## Markdown basics
+
+- Math formulas
+```{r eval=FALSE}
+The series $\sum_i \frac{1}{n}$ is divergent, i.e.,
+$$\sum_i \frac{1}{n}=\infty$$
+```
+- Rendered result
+
+The series $\sum_i \frac{1}{n}$ is divergent, i.e.,
+
+$$\sum_i \frac{1}{n}=\infty$$
+
+
+## Markdown basics
+
+- Item lists
+```{r eval=FALSE}
+There are three kinds of lies:
+
+- Lies
+- Damned lies
+- Statistics
+    - Frequentists
+    - Bayesian
+```
+
+There are three kinds of lies:
+
+- Lies
+- Damned lies
+- Statistics
+    - Frequentists
+    - Bayesian
+
+
+## Markdown basics
+
+- Links and images
+```{r eval=FALSE}
+[A 5-minute tutorial of Markdown](http://goo.gl/JqhpOf)
+
+The talk is boring, but please wake up! ![](images/tuzki31.gif)
+```
+- Rendered result
+
+[A 5-minute tutorial of Markdown](http://goo.gl/JqhpOf)
+
+The talk is boring, but please wake up! ![](images/tuzki31.gif)
+
+
+## knitr with Markdown
+
+![](images/structure-markdown.png)
+
+
+## More expressive, more impressive
+
+- 3-D interactive plots
+    - [Demo](knitr-webgl.html)
+- Animation
+    - [Demo](knitr-animation.html)
+- Slides
+    - Did I tell you this slide was written using Markdown+knitr?
+- More data analysis reports at [RPubs](http://rpubs.com/)
+- More visualization examples at [Vistat](http://vis.supstat.com/)
+
+
+## Resources
+
+- [Official website of knitr](http://yihui.name/knitr/) of knitr @ Yihui
+- [100+ examples of knitr](https://github.com/yihui/knitr-examples)
+- [A 5-minute tutorial of Markdown](http://goo.gl/JqhpOf)
+- [Details about Markdown](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html)
+
+
+## Acknowledgement
+
+![](images/yihui.png)
+
+Thanks to Yihui Xie, the creator of knitr, for creating this wonderful tool, and for providing me lots of help in using knitr.
+
+## Thanks for your patience!
+
+Questions?
+

@@ -1,0 +1,19 @@
+```{r setup, include=FALSE}
+library(knitr)
+library(R2SWF)
+library(Cairo)
+opts_knit$set(animation.fun = hook_r2swf)
+```
+
+A demonstration of a 2-D Brownian motion:
+
+```{r dev='CairoPNG', fig.width=7, fig.height=7, fig.show='animate', interval=.1, out.height='480px', out.width='480px'}
+set.seed(123)
+x = rnorm(5)
+y = rnorm(5)
+for(i in 1:100) {
+    plot(x <- x + 0.1 * rnorm(5), y <- y + 0.1 * rnorm(5),
+        xlim = c(-3, 3), ylim = c(-3, 3), col = "steelblue",
+        pch = 16, cex = 2, xlab = "x", ylab = "y")
+}
+```

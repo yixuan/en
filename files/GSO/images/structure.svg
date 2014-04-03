@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2985"
+   version="1.1"
+   inkscape:version="0.48.2 r9819"
+   width="695"
+   height="460"
+   xml:space="preserve"
+   sodipodi:docname="structure.svg"><metadata
+     id="metadata2991"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
+     id="defs2989" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
+     id="namedview2987"
+     showgrid="false"
+     inkscape:zoom="0.95353535"
+     inkscape:cx="450.85062"
+     inkscape:cy="212.03479"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g2993"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><g
+     id="g2993"
+     inkscape:groupmode="layer"
+     inkscape:label="structure"
+     transform="matrix(1.25,0,0,-1.25,-47.372,906.92501)"><g
+   id="g2997"
+   transform="translate(80,732.8)"><path
+     inkscape:connector-curvature="0"
+     id="path2999"
+     style="fill:#e6e6e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+     d="m 25.78,-136.36 446.33,0 0,103.35 -446.33,0 0,-103.35 z" /></g><text
+   id="text3001"
+   transform="scale(1,-1)"
+   x="114.73999"
+   y="-683.25983"><tspan
+     id="tspan3003"
+     sodipodi:role="line"
+     y="-683.25983"
+     x="114.73999 120.71779 126.69559 132.67342 138.65123 144.62903 150.60683 156.58463 162.56242 168.54024 174.51804 180.49583 186.47363 192.45143 198.42923 204.40703 210.38483 216.36263 222.34044 228.31824 234.29604 240.27383 246.25163"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">\documentclass{article}</tspan><tspan
+     id="tspan3005"
+     sodipodi:role="line"
+     y="-671.30981"
+     x="114.73999 120.71779 126.69559 132.67342 138.65123 144.62903 150.60683 156.58463 162.56242 168.54024 174.51804 180.49583 186.47363 192.45143 198.42923 204.40703 210.38483 216.36263 222.34044 228.31824 234.29604"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">\usepackage{geometry}</tspan><tspan
+     id="tspan3007"
+     sodipodi:role="line"
+     y="-659.34979"
+     x="114.73999 120.71779 126.69559 132.67342 138.65123 144.62903 150.60683 156.58463 162.56242 168.54024 174.51804 180.49583 186.47363 192.45143 198.42923 204.40703 210.38483 216.36263 222.34044 228.31824 234.29604 240.27383 246.25163 252.22943 258.20721 264.18503 270.16284 276.14063 282.11844 288.09622 294.07404 300.05182 306.02963 312.00742 317.98523 323.96304 329.94083 335.91864 341.89642 347.87424 353.85202 359.82983 365.80762 371.78543 377.76321 383.74103 389.71881 395.69662 401.67441 407.65222 413.63004 419.60782 425.58563 431.56342 437.54123 443.51901 449.49683 455.47461 461.45242 467.43021 473.40802 479.38583 485.36362 491.34143 497.31921 503.29703"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">\geometry{tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}</tspan><tspan
+     id="tspan3009"
+     sodipodi:role="line"
+     y="-647.39978"
+     x="114.73999 120.71779 126.69559 132.67342 138.65123 144.62903 150.60683 156.58463 162.56242 168.54024 174.51804 180.49583 186.47363 192.45143 198.42923 204.40703"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">\begin{document}</tspan><tspan
+     id="tspan3011"
+     sodipodi:role="line"
+     y="-635.43982"
+     x="114.73999 120.71779 126.69559 132.67342 138.65123 144.62903 150.60683 156.58463 168.54024 174.51804 180.49583 186.47363 192.45143 198.42923 204.40703 216.36263 222.34044 228.31824 234.29604 246.25163 252.22943 264.18503 270.16284 276.14063 282.11844 288.09622 294.07404"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">\title{AMinimalDemoofknitr}</tspan><tspan
+     id="tspan3013"
+     sodipodi:role="line"
+     y="-623.4798"
+     x="114.73999 120.71779 126.69559 132.67342 138.65123 144.62903 150.60683 156.58463 162.56242 168.54024"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">\maketitle</tspan><tspan
+     id="tspan3015"
+     sodipodi:role="line"
+     y="-605.5498"
+     x="114.73999 120.71779 126.69559 132.67342 144.62903 150.60683 156.58463 162.56242 168.54024 174.51804 186.47363 192.45143 198.42923 204.40703 210.38483 216.36263 222.34044 228.31824"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">Somerandomnumbers:</tspan></text>
+
+<g
+   id="g3017"
+   transform="translate(80,732.8)"><path
+     inkscape:connector-curvature="0"
+     id="path3019"
+     style="fill:#dbbfff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+     d="m 25.78,-197.99 446.33,0 0,60.64 -446.33,0 0,-60.64 z" /></g><text
+   id="text3021"
+   transform="scale(1,-1)"
+   x="114.73999"
+   y="-580.51978"><tspan
+     id="tspan3023"
+     sodipodi:role="line"
+     y="-580.51978"
+     x="114.73999 120.71779 126.69559 132.67342 138.65123"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">&lt;&lt;&gt;&gt;=</tspan></text>
+
+<text
+   id="text3025"
+   transform="scale(1,-1)"
+   x="114.73999"
+   y="-568.56982"><tspan
+     id="tspan3027"
+     sodipodi:role="line"
+     y="-568.56982"
+     x="114.73999 120.71779 126.69559 132.67342 138.65123 144.62903 150.60683 156.58463 162.56242 168.54024 174.51804 180.49583 186.47363"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">set.seed(123)</tspan><tspan
+     id="tspan3029"
+     sodipodi:role="line"
+     y="-556.6098"
+     x="114.73999 120.71779 126.69559 132.67342 138.65123 144.62903 150.60683 156.58463 168.54024 174.51804"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">rpois(5,3)</tspan></text>
+
+<text
+   id="text3031"
+   transform="scale(1,-1)"
+   x="114.73999"
+   y="-544.65979"><tspan
+     id="tspan3033"
+     y="-544.65979"
+     x="114.73999"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">@</tspan></text>
+
+<g
+   id="g3035"
+   transform="translate(80,732.8)"><path
+     inkscape:connector-curvature="0"
+     id="path3037"
+     style="fill:#e6e6e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+     d="m 25.78,-244.82 446.33,0 0,45.83 -446.33,0 0,-45.83 z" /></g><text
+   id="text3039"
+   transform="scale(1,-1)"
+   x="114.73999"
+   y="-517.26996"><tspan
+     id="tspan3041"
+     sodipodi:role="line"
+     y="-517.26996"
+     x="114.73999 120.71779 132.67342 138.65123 144.62903 156.58463 162.56242 168.54024 174.51804 186.47363 192.45143 198.42923 204.40703 210.38483 216.36263 222.34044 228.31824 234.29604 240.27383 246.25163 252.22943 258.20721 264.18503 270.16284 276.14063 282.11844 288.09622"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">Doyouknow$e^\pi-\pi\approx$</tspan></text>
+
+<text
+   id="text3043"
+   transform="scale(1,-1)"
+   x="300.08002"
+   y="-517.26996"><tspan
+     id="tspan3045"
+     sodipodi:role="line"
+     y="-517.26996"
+     x="300.08002 306.05783 312.03564 318.01343 323.99124 329.96902 335.94684 341.92462 347.90244 353.88022 359.85803 365.83582 371.81363 377.79144 389.74704 401.70264 407.68042 413.65823 419.63602"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#cc00ff;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">\Sexpr{exp(pi)-pi}?</tspan></text>
+
+<text
+   id="text3047"
+   transform="scale(1,-1)"
+   x="114.73999"
+   y="-499.34006"><tspan
+     id="tspan3049"
+     sodipodi:role="line"
+     y="-499.34006"
+     x="114.73999 120.71779 126.69559 138.65123 144.62903 150.60683 156.58463 162.56242 174.51804 180.49583 186.47363 192.45143 198.42923 204.40703 216.36263 228.31824 234.29604 240.27383 246.25163 252.22943 264.18503 270.16284 276.14063 282.11844 288.09622"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">Nowlet'screateafancyplot:</tspan></text>
+
+<g
+   id="g3051"
+   transform="translate(80,732.8)"><path
+     inkscape:connector-curvature="0"
+     id="path3053"
+     style="fill:#dbbfff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+     d="m 25.78,-343.99 446.33,0 0,98.17 -446.33,0 0,-98.17 z" /></g><text
+   id="text3055"
+   transform="scale(1,-1)"
+   x="114.73999"
+   y="-470.40005"><tspan
+     id="tspan3057"
+     sodipodi:role="line"
+     y="-470.40005"
+     x="114.73999 120.71779"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">&lt;&lt;</tspan></text>
+
+<text
+   id="text3059"
+   transform="scale(1,-1)"
+   x="126.7"
+   y="-470.40005"><tspan
+     id="tspan3061"
+     sodipodi:role="line"
+     y="-470.40005"
+     x="126.7 132.67781 138.65562 144.63342 150.61124 156.58904 162.56683 168.54463 174.52243 180.50023 186.47803 192.45583 198.43362 210.38924 216.36703 222.34483 228.32263 234.30043 240.27823 246.25603 252.23383 258.21161 264.18942 270.16724 276.14505 282.12283 288.10065 294.07843 300.05624 306.03403 312.01184 317.98962 329.94522 335.92303 341.90085 347.87863 353.85645 359.83423 365.81204 371.78983 377.76764 383.74545 389.72324 395.70105 401.67883 407.65665 413.63443 419.61224 425.59006 431.56784 437.54565 443.52344 449.50125 455.47903 461.45685 467.43463 473.41245"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#0000ff;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">fig.height=6,fig.align='center',out.width='.7\\linewidth'</tspan></text>
+
+<text
+   id="text3063"
+   transform="scale(1,-1)"
+   x="479.44003"
+   y="-470.40005"><tspan
+     id="tspan3065"
+     sodipodi:role="line"
+     y="-470.40005"
+     x="479.44003 485.41782 491.39563"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">&gt;&gt;=</tspan></text>
+
+<text
+   id="text3067"
+   transform="scale(1,-1)"
+   x="114.73999"
+   y="-458.44006"><tspan
+     id="tspan3069"
+     sodipodi:role="line"
+     y="-458.44006"
+     x="114.73999 126.69559 132.67342 144.62903 156.58463 168.54024 174.51804 180.49583 186.47363 192.45143 198.42923 204.40703 216.36263 228.3282 234.306 240.2838 246.2616 252.2394 258.21719 264.19498 270.17279 276.1506 282.12839 294.08398 300.0618 306.03958 317.99518 323.97299 329.95081 335.92859 341.9064 347.88419"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">z&lt;-2*volcano#Exaggeratetherelief</tspan><tspan
+     id="tspan3071"
+     sodipodi:role="line"
+     y="-446.49005"
+     x="114.73999 126.69559 132.67342 144.62903 150.60683 162.56242 174.51804 180.49583 186.47363 192.45143 198.42923 204.40703 210.38483 216.36263 222.34044 228.31824 234.29604 246.25163 258.21719 264.19498 276.1506 282.12839 288.1062 294.08398 300.0618 312.0174 317.99518 323.97299 329.95081 335.92859 341.9064 347.88419 359.83978 365.8176 377.77319 383.75098 395.70657 401.68439"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">x&lt;-10*(1:nrow(z))#10meterspacing(StoN)</tspan><tspan
+     id="tspan3073"
+     sodipodi:role="line"
+     y="-434.53006"
+     x="114.73999 126.69559 132.67342 144.62903 150.60683 162.56242 174.51804 180.49583 186.47363 192.45143 198.42923 204.40703 210.38483 216.36263 222.34044 228.31824 234.29604 246.25163 258.21719 264.19498 276.1506 282.12839 288.1062 294.08398 300.0618 312.0174 317.99518 323.97299 329.95081 335.92859 341.9064 347.88419 359.83978 365.8176 377.77319 383.75098 395.70657 401.68439"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">y&lt;-10*(1:ncol(z))#10meterspacing(EtoW)</tspan><tspan
+     id="tspan3075"
+     sodipodi:role="line"
+     y="-422.58005"
+     x="114.73999 120.71779 126.69559 132.67342 138.65123 144.62903 150.60683 156.58463 168.54024 174.51804 186.47363 192.45143 204.40703 210.38483 216.36263 222.34044 228.31824 240.27383 252.22943 258.20721 264.18503 270.16284 282.12839 288.1062 294.08398 306.03958 317.99518 323.97299 329.95081 341.9064 347.88419 353.862 365.8176 377.77319 383.75098 389.72879 395.70657 401.68439 407.66217 413.63998 419.6178 425.59558 437.55118 443.52899 449.50677 455.48459 461.46237 473.41797 485.3736 491.35138 497.32919 503.30698 509.28479 515.26251"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">persp(x,y,z,theta=135,phi=30,col=&quot;green3&quot;,scale=FALSE,</tspan><tspan
+     id="tspan3077"
+     sodipodi:role="line"
+     y="-410.62006"
+     x="154.60004 160.57784 166.55563 172.53343 178.51123 184.48903 196.43466 208.39027 214.36807 220.34586 226.32367 232.30147 244.25708 250.23488 256.21268 262.19046 268.16827 280.12387 292.08942 298.06723 304.04501 310.02283 316.00064 327.95624 333.93402 339.91183 345.88962 351.86743 357.84521 369.80084 381.75641 387.73422 393.71201 405.66763 411.64542 417.62323 429.57883 441.53442 447.51221 453.49002 459.46783 465.44562 471.42343"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">ltheta=-120,shade=0.75,border=NA,box=FALSE)</tspan></text>
+
+<text
+   id="text3079"
+   transform="scale(1,-1)"
+   x="114.73999"
+   y="-398.66003"><tspan
+     id="tspan3081"
+     y="-398.66003"
+     x="114.73999"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">@</tspan></text>
+
+<g
+   id="g3083"
+   transform="translate(80,732.8)"><path
+     inkscape:connector-curvature="0"
+     id="path3085"
+     style="fill:#e6e6e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+     d="m 25.78,-372.06 446.33,0 0,27.08 -446.33,0 0,-27.08 z" /></g><text
+   id="text3087"
+   transform="scale(1,-1)"
+   x="114.73999"
+   y="-371.28006"><tspan
+     id="tspan3089"
+     sodipodi:role="line"
+     y="-371.28006"
+     x="114.73999 120.71779 126.69559 132.67342 138.65123 144.62903 150.60683 156.58463 162.56242 168.54024 174.51804 180.49583 186.47363 192.45143"
+     style="font-size:9.9630003px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:WenQuanYi Micro Hei Mono;-inkscape-font-specification:WenQuanYiMicroHeiMono">\end{document}</tspan></text>
+
+<path
+   sodipodi:type="arc"
+   style="fill:#e6e6e6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+   id="path3097"
+   sodipodi:cx="280.53497"
+   sodipodi:cy="43.522243"
+   sodipodi:rx="9.962924"
+   sodipodi:ry="9.962924"
+   d="m 290.4979,43.522243 a 9.962924,9.962924 0 1 1 -19.92585,0 9.962924,9.962924 0 1 1 19.92585,0 z"
+   transform="matrix(0.40989499,0,0,-0.40989499,317.25024,736.57433)" /><text
+   xml:space="preserve"
+   style="font-size:20.768013px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;font-family:Sans"
+   x="332.05219"
+   y="-714.37891"
+   id="text3138"
+   sodipodi:linespacing="125%"
+   transform="scale(1,-1)"><tspan
+     sodipodi:role="line"
+     id="tspan3140"
+     x="332.05219"
+     y="-714.37891"
+     style="font-size:12.4608078px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#999999;fill-opacity:1;font-family:Myriad Pro;-inkscape-font-specification:Myriad Pro">LaTeX commands</tspan></text>
+
+<path
+   style="fill:none;stroke:#e6e6e6;stroke-width:1.55760098;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+   d="m 432.51236,718.73477 22.05226,0 0,-28.85851"
+   id="path3142"
+   inkscape:connector-curvature="0" /><path
+   sodipodi:type="arc"
+   style="fill:#dbbfff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+   id="path3097-5"
+   sodipodi:cx="280.53497"
+   sodipodi:cy="43.522243"
+   sodipodi:rx="9.962924"
+   sodipodi:ry="9.962924"
+   d="m 290.4979,43.522243 a 9.962924,9.962924 0 1 1 -19.92585,0 9.962924,9.962924 0 1 1 19.92585,0 z"
+   transform="matrix(0.41035184,0,0,-0.41035184,456.4765,597.26638)" /><path
+   style="fill:none;stroke:#dbbfff;stroke-width:1.21392179;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+   d="m 549.52544,558.4487 22.07684,0 0,17.50891"
+   id="path3142-1"
+   inkscape:connector-curvature="0" /><text
+   xml:space="preserve"
+   style="font-size:20.79116058px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ac91cc;fill-opacity:1;stroke:none;font-family:Sans"
+   x="555.5592"
+   y="-604.92712"
+   id="text3138-7"
+   sodipodi:linespacing="125%"
+   transform="scale(1,-1)"><tspan
+     sodipodi:role="line"
+     id="tspan3140-1"
+     x="555.5592"
+     y="-604.92712"
+     style="font-size:12.47469616px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ac91cc;fill-opacity:1;font-family:Myriad Pro;-inkscape-font-specification:Myriad Pro">Code</tspan><tspan
+     sodipodi:role="line"
+     x="555.5592"
+     y="-589.33374"
+     style="font-size:12.47469616px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ac91cc;fill-opacity:1;font-family:Myriad Pro;-inkscape-font-specification:Myriad Pro"
+     id="tspan3998">chunk</tspan></text>
+
+<path
+   sodipodi:type="arc"
+   style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+   id="path3097-5-1"
+   sodipodi:cx="280.53497"
+   sodipodi:cy="43.522243"
+   sodipodi:rx="9.962924"
+   sodipodi:ry="9.962924"
+   d="m 290.4979,43.522243 a 9.962924,9.962924 0 1 1 -19.92585,0 9.962924,9.962924 0 1 1 19.92585,0 z"
+   transform="matrix(0.41282628,0,0,-0.41282628,-46.408448,601.56998)" /><path
+   style="fill:none;stroke:#ff0000;stroke-width:1.74836946;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+   d="m 103.3446,583.63965 -33.791175,0 12.692294,0 0,-35.69287 21.593391,0"
+   id="path4032"
+   inkscape:connector-curvature="0" /><text
+   xml:space="preserve"
+   style="font-size:20.91653061px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;font-family:Sans"
+   x="40.645805"
+   y="-606.51477"
+   id="text3138-2"
+   sodipodi:linespacing="125%"
+   transform="scale(1,-1)"><tspan
+     sodipodi:role="line"
+     id="tspan3140-7"
+     x="40.645805"
+     y="-606.51477"
+     style="font-size:12.54991913px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ff0000;fill-opacity:1;font-family:Myriad Pro;-inkscape-font-specification:Myriad Pro">Code chunk</tspan><tspan
+     sodipodi:role="line"
+     x="40.645805"
+     y="-590.82739"
+     style="font-size:12.54991913px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ff0000;fill-opacity:1;font-family:Myriad Pro;-inkscape-font-specification:Myriad Pro"
+     id="tspan4055">identifiers</tspan></text>
+
+<path
+   sodipodi:type="arc"
+   style="fill:#0000ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+   id="path3097-5-4"
+   sodipodi:cx="280.53497"
+   sodipodi:cy="43.522243"
+   sodipodi:rx="9.962924"
+   sodipodi:ry="9.962924"
+   d="m 290.4979,43.522243 a 9.962924,9.962924 0 1 1 -19.92585,0 9.962924,9.962924 0 1 1 19.92585,0 z"
+   transform="matrix(0.410269,0,0,-0.410269,-43.019431,489.90125)" /><text
+   xml:space="preserve"
+   style="font-size:20.78696251px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;font-family:Sans"
+   x="41.433403"
+   y="-457.89374"
+   id="text3138-7-3"
+   sodipodi:linespacing="125%"
+   transform="scale(1,-1)"><tspan
+     sodipodi:role="line"
+     x="41.433403"
+     y="-457.89374"
+     style="font-size:12.47217846px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#0000ff;fill-opacity:1;font-family:Myriad Pro;-inkscape-font-specification:Myriad Pro"
+     id="tspan3998-2">Code chunk</tspan><tspan
+     sodipodi:role="line"
+     x="41.433403"
+     y="-442.30353"
+     style="font-size:12.47217846px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#0000ff;fill-opacity:1;font-family:Myriad Pro;-inkscape-font-specification:Myriad Pro"
+     id="tspan4112">options</tspan><tspan
+     sodipodi:role="line"
+     x="41.433403"
+     y="-426.71329"
+     style="font-size:12.47217846px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#0000ff;fill-opacity:1;font-family:Myriad Pro;-inkscape-font-specification:Myriad Pro"
+     id="tspan4213">(The only</tspan><tspan
+     sodipodi:role="line"
+     x="41.433403"
+     y="-411.12308"
+     style="font-size:12.47217846px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#0000ff;fill-opacity:1;font-family:Myriad Pro;-inkscape-font-specification:Myriad Pro"
+     id="tspan4215">new stuff)</tspan></text>
+
+<path
+   style="fill:none;stroke:#0000ff;stroke-width:2.01989722;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+   d="m 199.44867,481.40231 0,8.17496 -127.163643,0 0,-19.0749"
+   id="path4108"
+   inkscape:connector-curvature="0" /><path
+   sodipodi:type="arc"
+   style="fill:#cc00ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+   id="path3097-5-16"
+   sodipodi:cx="280.53497"
+   sodipodi:cy="43.522243"
+   sodipodi:rx="9.962924"
+   sodipodi:ry="9.962924"
+   d="m 290.4979,43.522243 a 9.962924,9.962924 0 1 1 -19.92585,0 9.962924,9.962924 0 1 1 19.92585,0 z"
+   transform="matrix(0.40944654,0,0,-0.40944654,445.96338,501.41205)" /><text
+   xml:space="preserve"
+   style="font-size:20.74529076px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#cc00ff;fill-opacity:1;stroke:none;font-family:Sans"
+   x="554.76514"
+   y="-466.77023"
+   id="text3138-7-8"
+   sodipodi:linespacing="125%"
+   transform="scale(1,-1)"><tspan
+     sodipodi:role="line"
+     x="554.76514"
+     y="-466.77023"
+     style="font-size:12.44717503px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#cc00ff;fill-opacity:1;font-family:Myriad Pro;-inkscape-font-specification:Myriad Pro"
+     id="tspan3998-7">Inline R</tspan><tspan
+     sodipodi:role="line"
+     x="554.76514"
+     y="-451.21127"
+     style="font-size:12.44717503px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#cc00ff;fill-opacity:1;font-family:Myriad Pro;-inkscape-font-specification:Myriad Pro"
+     id="tspan4160">code</tspan></text>
+
+<path
+   style="fill:none;stroke:#cc00ff;stroke-width:1.83286595;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+   d="m 369.63322,512.14581 0,-8.07657 191.06915,0 0,-18.84533"
+   id="path4162"
+   inkscape:connector-curvature="0" /></g></svg>

@@ -1,0 +1,48 @@
+---
+title: "simply-markdown"
+author: "Yixuan"
+date: "04/03/2014"
+output: html_document
+---
+
+## 1. The first part
+Today we will talk about blablabla...
+
+### What is dynamic document?
+Dynamic document is ...
+
+### How can we create it?
+Use **knitr**.
+
+## 2. Second part, about statistics
+
+You should **NEVER** claim to _accept_ a null hypothesis.
+
+You just say **_do not reject_**.
+
+## 3. Coding
+The code to calculate sum is `sum(x)`
+
+If you want to write a loop
+```
+s = 0
+for(i in 1:length(x))
+{
+    s = s + x[i]
+}
+```
+
+## 4. Math
+The series $\sum_i \frac{1}{n}$ is divergent, i.e.,
+$$\sum_i \frac{1}{n}=\infty$$
+
+## 5. Lies
+There are three kinds of lies:
+
+- Lies
+- Damned lies
+- Statistics
+    - Frequentists
+    - Bayesian
+
+

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic Document with knitr —More Expressive, More impressive</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="generator" content="pandoc" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="stylesheet" media="all" href="GSO-knitr-new_files/ioslides-13.5.1/fonts/fonts.css">
+
+  <link rel="stylesheet" media="all" href="GSO-knitr-new_files/ioslides-13.5.1/theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="GSO-knitr-new_files/ioslides-13.5.1/theme/css/phone.css">
+
+  <base target="_blank">
+
+  <script type="text/javascript">
+    var SLIDE_CONFIG = {
+      // Slide settings
+      settings: {
+                title: 'Dynamic Document with knitr —<br>More Expressive, More impressive',
+                        useBuilds: true,
+        usePrettify: true,
+        enableSlideAreas: true,
+        enableTouch: true,
+              },
+
+      // Author information
+      presenters: [
+            {
+        name: 'Yixuan Qiu'
+      },
+            ]
+    };
+  </script>
+
+  <style type="text/css">
+
+    b, strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    slides > slide {
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .auto-fadein {
+      -webkit-transition: opacity 0.6s ease-in;
+      -webkit-transition-delay: 0.4s;
+      -moz-transition: opacity 0.6s ease-in 0.4s;
+      -o-transition: opacity 0.6s ease-in 0.4s;
+      transition: opacity 0.6s ease-in 0.4s;
+      opacity: 0;
+    }
+
+  </style>
+
+
+
+</head>
+
+<body style="opacity: 0">
+
+<slides>
+
+  <slide class="title-slide segue nobackground">
+        <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+            <p style="margin-top: 6px; margin-left: -2px;">April 3, 2014</p>
+          </hgroup>
+  </slide>
+
+<slide class=''><hgroup><h2>What is Dynamic Document?</h2></hgroup><article  id="what-is-dynamic-document" class="build">
+
+<p>Recall how you finished a STAT 526 Homework:</p>
+
+<ul class = 'build'>
+<li>Type in something about your idea</li>
+<li>Write a piece of code</li>
+<li>Run the code to get output and graph</li>
+<li>Copy and paste them to your document processor</li>
+<li>Repeat steps above</li>
+</ul>
+
+<p>Can we make life a little bit easier?</p>
+
+<ul class = 'build'>
+<li>Human language and code in the same document</li>
+<li>Code can be excuted and replaced by its output</li>
+<li>Focus more on content, less on format</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>A minimal example</h2></hgroup><article  id="a-minimal-example">
+
+<p>Source code</p>
+
+<img src='images/minimal-code.png' title=''/>
+
+<p>After compiling</p>
+
+<img src='images/minimal-output.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>A minimal example (plots)</h2></hgroup><article  id="a-minimal-example-plots">
+
+<p>Source code</p>
+
+<img src='images/minimal-plot-code.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>A minimal example (plots)</h2></hgroup><article  id="a-minimal-example-plots-1">
+
+<p>After compiling</p>
+
+<img src='images/minimal-plot-output.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>Basic idea</h2></hgroup><article  id="basic-idea">
+
+<img src='images/doc.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>Tools</h2></hgroup><article  id="tools">
+
+<p>Early stage &#8211; Sweave</p>
+
+<ul>
+<li>To &quot;weave&quot; S</li>
+<li>Developed by R Core, very powerful</li>
+</ul>
+
+<p>Today &#8211; knitr</p>
+
+<ul>
+<li>To &quot;knit&quot; R</li>
+<li>Pronounced as &quot;neater&quot;, and neater indeed</li>
+<li>Developed by <a href='http://yihui.name/' title=''>Yihui Xie</a>, even more powerful (almost surely)</li>
+<li><a href='http://yihui.name/knitr' title=''><a href='http://yihui.name/knitr' title=''>http://yihui.name/knitr</a></a></li>
+</ul>
+
+<img src='images/knitr-logo.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>Structure</h2></hgroup><article  id="structure">
+
+<img src='images/structure.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>Most useful options (output)</h2></hgroup><article  id="most-useful-options-output">
+
+<ul>
+<li>Default option, show both source code and output</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>&lt;&lt;&gt;&gt;=
+x &lt;- seq(1, 6, by = 0.5)
+x
+sin(x)
+@</pre>
+
+<ul>
+<li>Show R source code only</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>&lt;&lt;eval=FALSE&gt;&gt;=
+@</pre>
+
+<ul>
+<li>Show code output only</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>&lt;&lt;echo=FALSE&gt;&gt;=
+@</pre>
+
+</article></slide><slide class=''><hgroup><h2>Most useful options (output)</h2></hgroup><article  id="most-useful-options-output-1">
+
+<ul>
+<li>Whether to format the code or not</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>&lt;&lt;tidy=FALSE&gt;&gt;=
+x&lt;-                 seq(1,6,
+    by=0.5)
+x
+@</pre>
+
+<ul>
+<li>Only evaluate the code, do not show anything. Mainly used to create variables for later use.</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>&lt;&lt;include=FALSE&gt;&gt;=
+dat = rnorm(100)
+@</pre>
+
+</article></slide><slide class=''><hgroup><h2>Most useful options (plot)</h2></hgroup><article  id="most-useful-options-plot">
+
+<ul>
+<li>Figure width and height (in R side)</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>&lt;&lt;fig.width=6, fig.height=6&gt;&gt;=
+plot(density(dat))
+@</pre>
+
+<ul>
+<li>Figure width and height (in output document side)</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>&lt;&lt;out.width=&#39;0.7\\textwidth&#39;&gt;&gt;=
+plot(density(dat))
+@</pre>
+
+<ul>
+<li>Alignment and caption</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>&lt;&lt;fig.align=&#39;center&#39;, fig.cap=&quot;A density plot&quot;&gt;&gt;=
+plot(density(dat))
+@</pre>
+
+</article></slide><slide class=''><hgroup><h2>From \(\LaTeX\) to Markdown</h2></hgroup><article  id="from-latex-to-markdown" class="build">
+
+<p>\(\LaTeX\) is a powerful language to write document, but&#8230;</p>
+
+<ul class = 'build'>
+<li>Not easy to get started</li>
+<li>Complicated, typing too many commands</li>
+<li>Restricted output file format (mainly for PDF)</li>
+</ul>
+
+<p>Another friend of knitr – Markdown</p>
+
+<ul class = 'build'>
+<li>So&#8230; another language to learn?</li>
+<li>Yes, but&#8230;</li>
+<li>Much, much, much easier than \(\LaTeX\)</li>
+<li>Can be converted into \(\LaTeX\), HTML, Word etc.</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>An overview of Markdown+knitr</h2></hgroup><article  id="an-overview-of-markdownknitr">
+
+<img src='images/markdown.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>Markdown basics</h2></hgroup><article  id="markdown-basics">
+
+<ul>
+<li>Headers</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>## Methodology 
+In this section we introduce our methodology.
+
+### Algorithm
+The algorithm is blablabla...
+
+### Simulation
+Now we show our simulation result.</pre>
+
+<ul>
+<li>Similar to <code>\section{}</code> and <code>\subsection{}</code> in \(\LaTeX\)</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Markdown basics</h2></hgroup><article  id="markdown-basics-1">
+
+<ul>
+<li>Decorations (bold, italic, etc.)</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>You should **NEVER** claim to _accept_ a null hypothesis
+
+You just say **_do not reject_**</pre>
+
+<ul>
+<li>Rendered result</li>
+</ul>
+
+<p>You should <strong>NEVER</strong> claim to <em>accept</em> a null hypothesis</p>
+
+<p>You just say <strong><em>do not reject</em></strong></p>
+
+</article></slide><slide class=''><hgroup><h2>Markdown basics</h2></hgroup><article  id="markdown-basics-2">
+
+<ul>
+<li>Code</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>There is some inline code: `print(x)`
+
+And code blocks:
+```
+x &lt;- rnorm(100)
+summary(x)
+```</pre>
+
+<ul>
+<li>Rendered result</li>
+</ul>
+
+<p>There is some inline code: <code>print(x)</code></p>
+
+<p>And code blocks:</p>
+
+<pre >x &lt;- rnorm(100)
+summary(x)</pre>
+
+</article></slide><slide class=''><hgroup><h2>Markdown basics</h2></hgroup><article  id="markdown-basics-3">
+
+<ul>
+<li>Math formulas</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>The series $\sum_i \frac{1}{n}$ is divergent, i.e.,
+$$\sum_i \frac{1}{n}=\infty$$</pre>
+
+<ul>
+<li>Rendered result</li>
+</ul>
+
+<p>The series \(\sum_i \frac{1}{n}\) is divergent, i.e.,</p>
+
+<p>\[\sum_i \frac{1}{n}=\infty\]</p>
+
+</article></slide><slide class=''><hgroup><h2>Markdown basics</h2></hgroup><article  id="markdown-basics-4">
+
+<ul>
+<li>Item lists</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>There are three kinds of lies:
+
+- Lies
+- Damned lies
+- Statistics
+    - Frequentists
+    - Bayesian</pre>
+
+<p>There are three kinds of lies:</p>
+
+<ul>
+<li>Lies</li>
+<li>Damned lies</li>
+<li>Statistics
+
+<ul>
+<li>Frequentists</li>
+<li>Bayesian</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Markdown basics</h2></hgroup><article  id="markdown-basics-5">
+
+<ul>
+<li>Links and images</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>[A 5-minute tutorial of Markdown](http://goo.gl/JqhpOf)
+
+The talk is boring, but please wake up! ![](images/tuzki31.gif)</pre>
+
+<ul>
+<li>Rendered result</li>
+</ul>
+
+<p><a href='http://goo.gl/JqhpOf' title=''>A 5-minute tutorial of Markdown</a></p>
+
+<p>The talk is boring, but please wake up! <img src='images/tuzki31.gif' title=''/></p>
+
+</article></slide><slide class=''><hgroup><h2>knitr with Markdown</h2></hgroup><article  id="knitr-with-markdown">
+
+<img src='images/structure-markdown.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>More expressive, more impressive</h2></hgroup><article  id="more-expressive-more-impressive">
+
+<ul>
+<li>3-D interactive plots
+
+<ul>
+<li><a href='knitr-webgl.html' title=''>Demo</a></li>
+</ul></li>
+<li>Animation
+
+<ul>
+<li><a href='knitr-animation.html' title=''>Demo</a></li>
+</ul></li>
+<li>Slides
+
+<ul>
+<li>Did I tell you this slide was written using Markdown+knitr?</li>
+</ul></li>
+<li>More data analysis reports at <a href='http://rpubs.com/' title=''>RPubs</a></li>
+<li>More visualization examples at <a href='http://vis.supstat.com/' title=''>Vistat</a></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Resources</h2></hgroup><article  id="resources">
+
+<ul>
+<li><a href='http://yihui.name/knitr/' title=''>Official website of knitr</a> of knitr @ Yihui</li>
+<li><a href='https://github.com/yihui/knitr-examples' title=''>100+ examples of knitr</a></li>
+<li><a href='http://goo.gl/JqhpOf' title=''>A 5-minute tutorial of Markdown</a></li>
+<li><a href='http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html' title=''>Details about Markdown</a></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Acknowledgement</h2></hgroup><article  id="acknowledgement">
+
+<img src='images/yihui.png' title=''/>
+
+<p>Thanks to Yihui Xie, the creator of knitr, for creating this wonderful tool, and for providing me lots of help in using knitr.</p>
+
+</article></slide><slide class=''><hgroup><h2>Thanks for your patience!</h2></hgroup><article  id="thanks-for-your-patience">
+
+<p>Questions?</p></article></slide>
+
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script src="GSO-knitr-new_files/ioslides-13.5.1/js/modernizr.custom.45394.js"></script>
+<script src="GSO-knitr-new_files/ioslides-13.5.1/js/prettify/prettify.js"></script>
+<script src="GSO-knitr-new_files/ioslides-13.5.1/js/prettify/lang-r.js"></script>
+<script src="GSO-knitr-new_files/ioslides-13.5.1/js/prettify/lang-yaml.js"></script>
+<script src="GSO-knitr-new_files/ioslides-13.5.1/js/hammer.js"></script>
+<script src="GSO-knitr-new_files/ioslides-13.5.1/js/slide-controller.js"></script>
+<script src="GSO-knitr-new_files/ioslides-13.5.1/js/slide-deck.js"></script>
+
+<!-- dynamically load mathjax for compatibility with --self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
