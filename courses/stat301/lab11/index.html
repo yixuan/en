@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>STAT 301 Lab</title>
+    <link href="../css/reset.css" rel="stylesheet" />
+    <meta name="author" content="Yixuan Qiu">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="../css/favicon.png" />
+    <link rel="apple-touch-icon" href="../css/apple-touch-icon.png" />
+    <!-- Code Prettifier: -->
+<link href="../css/highlight.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="../css/style.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,800italic,300,400,800' rel='stylesheet' type='text/css'>    
+
+    <!-- MathJax support -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+  </head>
+
+  <body>
+  <div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+  </div>
+    <div id="impress">
+    <div class='step' >
+    
+<h1>STAT 301 Lab</h1>
+
+<h2>Lab 11: Multiple Linear Regression</h2>
+
+<h2>T.A.: Yixuan Qiu</h2>
+</div>
+      <div class='step'  data-x='1000'>
+    
+<h1>Multiple Linear Regression</h1>
+
+<ul>
+<li>Multiple linear regression is a generalization to simple linear regression</li>
+<li><strong>One</strong> Response v.s. <strong>multiple</strong> predictors</li>
+<li>$y=\beta_0+\beta_1x_1+\beta_2x_2+\cdots+\beta_px_p+\varepsilon$</li>
+</ul>
+</div>
+      <div class='step'  data-x='2000'>
+    
+<h1>Scatterplot Matrix</h1>
+
+<ul>
+<li>A convenient way to draw scatterplots for many variables</li>
+<li>Each cell is a scatterplot for the two corresponding variables
+<img src="scatterplotmat.png" alt=""></li>
+</ul>
+</div>
+      <div class='step'  data-x='3000' data-y='1000' data-rotate=90>
+    
+<h1>Fitting the Model</h1>
+
+<ul>
+<li>Model summary
+<img src="summary.png" alt=""></li>
+<li>Coefficients
+<img src="coef.png" alt=""></li>
+</ul>
+</div>
+      <div class='step'  data-x='3000' data-y='1000' data-rotate=90>
+    
+<h1>Fitting the Model</h1>
+
+<ul>
+<li>ANOVA
+<img src="anova.png" alt=""></li>
+</ul>
+</div>
+      <div class='step'  data-x='5000'>
+    
+<h1>Refine the Model</h1>
+
+<ul>
+<li>Drop insignificant variables
+<img src="refine.png" alt=""></li>
+<li>$R^2$ not decreasing much
+
+<ul>
+<li>Before: <strong>0.581</strong>; After: <strong>0.575</strong></li>
+</ul></li>
+<li>Std. error not increasing much
+
+<ul>
+<li>Before: <strong>0.93273</strong>; After: <strong>0.93478</strong></li>
+</ul></li>
+</ul>
+</div>
+      <div class='step'  data-x='6000'>
+    
+<h1>Prediction and residual</h1>
+
+<ul>
+<li>Using the regression equation to do prediction</li>
+</ul>
+
+<p>$\hat{y}=0.302+1.151*Var1+0.155*Var2$</p>
+
+<ul>
+<li>Residual = True value - predicted value
+
+<ul>
+<li>Look into original data to find the true value</li>
+<li>Use the predicted value above</li>
+</ul></li>
+</ul>
+
+      </div>
+    <script src="../js/impress.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>
+    

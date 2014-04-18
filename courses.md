@@ -17,6 +17,7 @@ I'm a TA for the STAT 301 Lab in Spring 2014 semester. Below are the slides for 
 - Lab 8 (03/14/2014): [One-Way ANOVA](http://statr.me/courses/stat301/lab8/)
 - Lab 9 (03/28/2014): [Two-Way ANOVA](http://statr.me/courses/stat301/lab9/)
 - Lab 10 (04/11/2014): [Least Squares Regression](http://statr.me/courses/stat301/lab10/)
+- Lab 11 (04/18/2014): [Multiple Linear Regression](http://statr.me/courses/stat301/lab11/)
 
 ## STAT 598 FDA
 Below is my presentation slide for the STAT 598 course in functional data analysis.
