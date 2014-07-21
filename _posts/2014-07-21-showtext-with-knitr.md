@@ -12,7 +12,7 @@ Thanks to the [issue report](https://github.com/yihui/knitr/issues/799) by
 from version 1.6.10 (development version), **knitr** starts to support using
 [**showtext**](https://github.com/yixuan/showtext)
 to change fonts in R plots. To demonstrate its usage, this document
-itself serves as an example. ([Rmd source code](http://statr.me/files/showtext-knitr.Rmd))
+itself serves as an example. ([Rmd source code](https://github.com/yixuan/en/blob/gh-pages/files/showtext-knitr.Rmd))
 
 We first do some setup work, mainly about setting options that control
 the appearance of the plots. Notice that if you create plots in PNG
@@ -22,8 +22,10 @@ the latter one could produce quite ugly plots when using **showtext**.
 
 
 {% highlight r %}
+```{r setup}
 knitr::opts_chunk$set(dev="CairoPNG", fig.width=7, fig.height=7, dpi = 72)
 options(digits = 4)
+```
 {% endhighlight %}
 
 Then we can load **showtext** package and add fonts to it. Details about
@@ -40,8 +42,10 @@ the family name that will be used in R plots.
 
 
 {% highlight r %}
+```{r fonts, message=FALSE}
 library(showtext)
 font.add.google("Lobster", "lobster")
+```
 {% endhighlight %}
 
 After adding fonts, simply set the `fig.showtext` option in the code block
@@ -50,8 +54,10 @@ just added.
 
 
 {% highlight r %}
+```{r fig.showtext=TRUE, fig.align='center'}
 plot(1, pch = 16, cex = 3)
 text(1, 1.1, "A fancy dot", family = "lobster", col = "steelblue", cex = 3)
+```
 {% endhighlight %}
 
 <div align="center">
