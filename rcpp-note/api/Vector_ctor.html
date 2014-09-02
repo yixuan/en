@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Vector (Typedefs and Constructors) &mdash; Rcpp Notes 0.11.2 documentation</title>
+    
+    <link rel="stylesheet" href="../static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.11.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Rcpp Notes 0.11.2 documentation" href="../index.html" />
+    <link rel="up" title="API Classes" href="../apiclass.html" />
+    <link rel="next" title="Vector (Member Functions)" href="Vector_funs.html" />
+    <link rel="prev" title="RObject" href="RObject.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Vector_funs.html" title="Vector (Member Functions)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="RObject.html" title="RObject"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Rcpp Notes 0.11.2 documentation</a> &raquo;</li>
+          <li><a href="../apiclass.html" accesskey="U">API Classes</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="vector-typedefs-and-constructors">
+<h1>Vector (Typedefs and Constructors)<a class="headerlink" href="#vector-typedefs-and-constructors" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>Vector</strong> class in Rcpp is a template class that represent various types of
+vectors (integer, numeric, character, list, etc.) in R. It&#8217;s also the foundation of
+<strong>Matrix</strong> and higher dimensional array structures. The <strong>Vector</strong> class accepts one
+major template parameter, <tt class="docutils literal"><span class="pre">RTYPE</span></tt>, to indicate the type of its elements.</p>
+<div class="section" id="type-definitions">
+<h2>Type Definitions<a class="headerlink" href="#type-definitions" title="Permalink to this headline">¶</a></h2>
+<dl class="type">
+<dt id="ComplexVector">
+<em class="property">type </em><tt class="descname">ComplexVector</tt><a class="headerlink" href="#ComplexVector" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Vector&lt;CPLXSXP&gt; ComplexVector;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="IntegerVector">
+<em class="property">type </em><tt class="descname">IntegerVector</tt><a class="headerlink" href="#IntegerVector" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Vector&lt;INTSXP&gt; IntegerVector;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="LogicalVector">
+<em class="property">type </em><tt class="descname">LogicalVector</tt><a class="headerlink" href="#LogicalVector" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Vector&lt;LGLSXP&gt; LogicalVector;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="NumericVector">
+<em class="property">type </em><tt class="descname">NumericVector</tt><a class="headerlink" href="#NumericVector" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Vector&lt;REALSXP&gt; NumericVector;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="DoubleVector">
+<em class="property">type </em><tt class="descname">DoubleVector</tt><a class="headerlink" href="#DoubleVector" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Vector&lt;REALSXP&gt; DoubleVector;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="RawVector">
+<em class="property">type </em><tt class="descname">RawVector</tt><a class="headerlink" href="#RawVector" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Vector&lt;RAWSXP&gt; RawVector;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="CharacterVector">
+<em class="property">type </em><tt class="descname">CharacterVector</tt><a class="headerlink" href="#CharacterVector" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Vector&lt;STRSXP&gt; CharacterVector;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="StringVector">
+<em class="property">type </em><tt class="descname">StringVector</tt><a class="headerlink" href="#StringVector" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Vector&lt;STRSXP&gt; StringVector;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="GenericVector">
+<em class="property">type </em><tt class="descname">GenericVector</tt><a class="headerlink" href="#GenericVector" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Vector&lt;VECSXP&gt; GenericVector;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="List">
+<em class="property">type </em><tt class="descname">List</tt><a class="headerlink" href="#List" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Vector&lt;VECSXP&gt; List;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="ExpressionVector">
+<em class="property">type </em><tt class="descname">ExpressionVector</tt><a class="headerlink" href="#ExpressionVector" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Vector&lt;EXPRSXP&gt; ExpressionVector;
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="public-member-functions">
+<h2>Public Member Functions<a class="headerlink" href="#public-member-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="constructors">
+<h3>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="Vector">
+ <tt class="descname">Vector</tt><big>(</big><big>)</big><a class="headerlink" href="#Vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default constructor. This creates a vector of the appropriate type and zero length.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Vector__VectorCR">
+ <tt class="descname">Vector</tt><big>(</big>const Vector&amp; <em>other</em><big>)</big><a class="headerlink" href="#Vector__VectorCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy constructor. Resulting object will share the SEXP data with <em>other</em>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Vector__SEXP">
+ <tt class="descname">Vector</tt><big>(</big>SEXP <em>x</em><big>)</big><a class="headerlink" href="#Vector__SEXP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrap a given vector. A type conversion will be conducted if types don&#8217;t match.</p>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">Proxy&gt;</span></tt></p>
+<dl class="function">
+<dt id="Vector__GenericProxy:Proxy:CR">
+ <tt class="descname">Vector</tt><big>(</big>const GenericProxy&lt;Proxy&gt;&amp; <em>proxy</em><big>)</big><a class="headerlink" href="#Vector__GenericProxy:Proxy:CR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create vector from a proxy, such as attribute, slot, field, etc.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Vector__no_initCR">
+ <tt class="descname">Vector</tt><big>(</big>const no_init&amp; <em>obj</em><big>)</big><a class="headerlink" href="#Vector__no_initCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector without initializating the values. An example:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">noinit</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="n">Rcpp</span><span class="o">::</span><span class="n">no_init</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Vector__iCR.stored_typeCR">
+ <tt class="descname">Vector</tt><big>(</big>const int&amp; <em>size</em>, const stored_type&amp; <em>u</em><big>)</big><a class="headerlink" href="#Vector__iCR.stored_typeCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector of length <em>size</em>, and fill it with value <em>u</em>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Vector__iCR.Func">
+ <tt class="descname">Vector</tt><big>(</big>const int&amp; <em>size</em>, Func <em>gen</em><big>)</big><a class="headerlink" href="#Vector__iCR.Func" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first"><em>size</em>: length of the vector.</p>
+</li>
+<li><p class="first"><em>gen</em>: a function that takes no argument and returns a number of the
+same type of the vector, with the signature</p>
+<p>stored_type <strong>gen</strong>()</p>
+</li>
+</ul>
+<p>Create a vector of length <em>size</em>, and use function <em>gen</em> to fill the elements.
+An example:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="kt">double</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mf">2.0</span><span class="p">;</span> <span class="p">}</span>
+<span class="n">SEXP</span> <span class="nf">vec2</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// a vector of length 10 filled with 2.0</span>
+    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">f</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Vector__iCR">
+ <tt class="descname">Vector</tt><big>(</big>const int&amp; <em>size</em><big>)</big><a class="headerlink" href="#Vector__iCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector of length <em>size</em>, and fill it with zeros (of the proper type).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Vector__DimensionCR">
+ <tt class="descname">Vector</tt><big>(</big>const Dimension&amp; <em>dims</em><big>)</big><a class="headerlink" href="#Vector__DimensionCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector with the given dimension, and fill it with zeros. The <strong>Dimension</strong>
+class is defined in <tt class="docutils literal"><span class="pre">&lt;Rcpp/Dimension.h&gt;</span></tt>. An example:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">array3d</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Rcpp</span><span class="o">::</span><span class="n">Dimension</span> <span class="n">dim</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="c1">// a 2x3x4 array</span>
+    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="n">dim</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">U&gt;</span></tt></p>
+<dl class="function">
+<dt id="Vector__DimensionCR.UCR">
+ <tt class="descname">Vector</tt><big>(</big>const Dimension&amp; <em>dims</em>, const U&amp; <em>u</em><big>)</big><a class="headerlink" href="#Vector__DimensionCR.UCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector with the given dimension, and fill it with value <em>u</em>. Type will
+be converted if necessary.</p>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;bool</span> <span class="pre">NA,</span> <span class="pre">typename</span> <span class="pre">VEC&gt;</span></tt></p>
+<dl class="function">
+<dt id="Vector__VectorBase:RTYPE.NA.VEC:CR">
+ <tt class="descname">Vector</tt><big>(</big>const VectorBase&lt;RTYPE, NA, VEC&gt;&amp; <em>other</em><big>)</big><a class="headerlink" href="#Vector__VectorBase:RTYPE.NA.VEC:CR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector from another object that is also derived from the <strong>VectorBase</strong> class.
+Typically <em>other</em> is an Rcpp sugar expression, in which case the expression is evaluated
+and copied to the created vector. If <em>other</em> is actually a vector of the same element type,
+this function is equivalent to a copy constructor.</p>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">U&gt;</span></tt></p>
+<dl class="function">
+<dt id="Vector__iCR.UCR">
+ <tt class="descname">Vector</tt><big>(</big>const int&amp; <em>size</em>, const U&amp; <em>u</em><big>)</big><a class="headerlink" href="#Vector__iCR.UCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector of length <em>size</em>, and fill it with value <em>u</em>. Type will
+be converted if necessary.</p>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;bool</span> <span class="pre">NA,</span> <span class="pre">typename</span> <span class="pre">T&gt;</span></tt></p>
+<dl class="function">
+<dt id="Vector__sugar::SingleLogicalResult:NA.T:CR">
+ <tt class="descname">Vector</tt><big>(</big>const sugar::SingleLogicalResult&lt;NA, T&gt;&amp; <em>obj</em><big>)</big><a class="headerlink" href="#Vector__sugar::SingleLogicalResult:NA.T:CR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector of length 1 from an object of class <strong>SingleLogicalResult</strong>, usually the result
+returned by <tt class="docutils literal"><span class="pre">Rcpp::all()</span></tt> or <tt class="docutils literal"><span class="pre">Rcpp::any()</span></tt>.</p>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">U1&gt;</span></tt></p>
+<dl class="function">
+<dt id="Vector__iCR.Func.U1CR">
+ <tt class="descname">Vector</tt><big>(</big>const int&amp; <em>siz</em>, Func <em>gen</em>, const U1&amp; <em>u1</em><big>)</big><a class="headerlink" href="#Vector__iCR.Func.U1CR" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first"><em>gen</em> is a function with the signature</p>
+<p>stored_type <strong>gen</strong>(U1)</p>
+</li>
+</ul>
+<p>Create a vector of length <em>siz</em>, and fill it with the function call <tt class="docutils literal"><span class="pre">gen(u1)</span></tt>.
+An example:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">my_rexp</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Rcpp</span><span class="o">::</span><span class="n">RNGScope</span> <span class="n">scp</span><span class="p">;</span>
+    <span class="c1">// 10 exponential random numbers of mean 1</span>
+    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">R</span><span class="o">::</span><span class="n">rexp</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">U1,</span> <span class="pre">typename</span> <span class="pre">U2&gt;</span></tt></p>
+<dl class="function">
+<dt id="Vector__iCR.Func.U1CR.U2CR">
+ <tt class="descname">Vector</tt><big>(</big>const int&amp; <em>siz</em>, Func <em>gen</em>, const U1&amp; <em>u1</em>, const U2&amp; <em>u2</em><big>)</big><a class="headerlink" href="#Vector__iCR.Func.U1CR.U2CR" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first"><em>gen</em> is a function with the signature</p>
+<p>stored_type <strong>gen</strong>(U1, U2)</p>
+</li>
+</ul>
+<p>Create a vector of length <em>siz</em>, and fill it with the function call <tt class="docutils literal"><span class="pre">gen(u1,</span> <span class="pre">u2)</span></tt>.
+An example:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">my_rnorm</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Rcpp</span><span class="o">::</span><span class="n">RNGScope</span> <span class="n">scp</span><span class="p">;</span>
+    <span class="c1">// 10 normal random numbers of mean 1 and sd 0.5</span>
+    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">R</span><span class="o">::</span><span class="n">rnorm</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">U1,</span> <span class="pre">typename</span> <span class="pre">U2,</span> <span class="pre">typename</span> <span class="pre">U3&gt;</span></tt></p>
+<dl class="function">
+<dt id="Vector__iCR.Func.U1CR.U2CR.U3CR">
+ <tt class="descname">Vector</tt><big>(</big>const int&amp; <em>siz</em>, Func <em>gen</em>, const U1&amp; <em>u1</em>, const U2&amp; <em>u2</em>, const U3&amp; <em>u3</em><big>)</big><a class="headerlink" href="#Vector__iCR.Func.U1CR.U2CR.U3CR" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first"><em>gen</em> is a function with the signature</p>
+<p>stored_type <strong>gen</strong>(U1, U2, U3)</p>
+</li>
+</ul>
+<p>Create a vector of length <em>siz</em>, and fill it with the function call <tt class="docutils literal"><span class="pre">gen(u1,</span> <span class="pre">u2,</span> <span class="pre">u3)</span></tt>.</p>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">InputIterator&gt;</span></tt></p>
+<dl class="function">
+<dt id="Vector__InputIterator.InputIterator">
+ <tt class="descname">Vector</tt><big>(</big>InputIterator <em>first</em>, InputIterator <em>last</em><big>)</big><a class="headerlink" href="#Vector__InputIterator.InputIterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy the data between iterators <em>first</em> and <em>last</em> to the created vector.
+An example:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">copy_vec</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">src</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">};</span>
+    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">src</span> <span class="o">+</span> <span class="mi">5</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">InputIterator&gt;</span></tt></p>
+<dl class="function">
+<dt id="Vector__InputIterator.InputIterator.i">
+ <tt class="descname">Vector</tt><big>(</big>InputIterator <em>first</em>, InputIterator <em>last</em>, int <em>n</em><big>)</big><a class="headerlink" href="#Vector__InputIterator.InputIterator.i" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector of length <em>n</em>, and copy the data between iterators <em>first</em> and <em>last</em>
+to the created vector. <em>n</em> should be greater than or equal to the distance betwen
+<em>first</em> and <em>last</em>. An example:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">copy_vec2</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">src</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">};</span>
+    <span class="c1">// last five values are uninitialized</span>
+    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">src</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p id="ctor-trans"><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">InputIterator,</span> <span class="pre">typename</span> <span class="pre">Func&gt;</span></tt></p>
+<dl class="function">
+<dt id="Vector__InputIterator.InputIterator.Func">
+ <tt class="descname">Vector</tt><big>(</big>InputIterator <em>first</em>, InputIterator <em>last</em>, Func <em>func</em><big>)</big><a class="headerlink" href="#Vector__InputIterator.InputIterator.Func" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><em>func</em> is a unary function that takes one argument of the type pointed by
+<strong>InputIterator</strong>, and returns a number convertible to the type of the vector.</li>
+</ul>
+<p>Apply function <em>func</em> to each element in the range [<em>first</em>, <em>last</em>),
+and use the resulting values to create the vector. An example:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="kt">double</span> <span class="nf">dsqrt</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="p">}</span>
+<span class="n">SEXP</span> <span class="nf">sqrt_init</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">src</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">};</span>
+    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">src</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">dsqrt</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">InputIterator,</span> <span class="pre">typename</span> <span class="pre">Func&gt;</span></tt></p>
+<dl class="function">
+<dt id="Vector__InputIterator.InputIterator.Func.i">
+ <tt class="descname">Vector</tt><big>(</big>InputIterator <em>first</em>, InputIterator <em>last</em>, Func <em>func</em>, int <em>n</em><big>)</big><a class="headerlink" href="#Vector__InputIterator.InputIterator.Func.i" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><em>func</em> is a unary function that takes one argument of the type pointed by
+<strong>InputIterator</strong>, and returns a number convertible to the type of the vector.</li>
+</ul>
+<p>Create a vector of length <em>n</em>, and fill the first few elements using the rule
+as in the previous constructor. <em>n</em> should be greater than or equal to the
+distance between <em>first</em> and <em>last</em>.</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Vector (Typedefs and Constructors)</a><ul>
+<li><a class="reference internal" href="#type-definitions">Type Definitions</a></li>
+<li><a class="reference internal" href="#public-member-functions">Public Member Functions</a><ul>
+<li><a class="reference internal" href="#constructors">Constructors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="RObject.html"
+                        title="previous chapter">RObject</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Vector_funs.html"
+                        title="next chapter">Vector (Member Functions)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../sources/api/Vector_ctor.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Vector_funs.html" title="Vector (Member Functions)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="RObject.html" title="RObject"
+             >previous</a> |</li>
+        <li><a href="../index.html">Rcpp Notes 0.11.2 documentation</a> &raquo;</li>
+          <li><a href="../apiclass.html" >API Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Yixuan Qiu.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

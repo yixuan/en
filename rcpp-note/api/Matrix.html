@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Matrix &mdash; Rcpp Notes 0.11.2 documentation</title>
+    
+    <link rel="stylesheet" href="../static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.11.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Rcpp Notes 0.11.2 documentation" href="../index.html" />
+    <link rel="up" title="API Classes" href="../apiclass.html" />
+    <link rel="next" title="Environment" href="Environment.html" />
+    <link rel="prev" title="Vector (Member Functions)" href="Vector_funs.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Environment.html" title="Environment"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Vector_funs.html" title="Vector (Member Functions)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Rcpp Notes 0.11.2 documentation</a> &raquo;</li>
+          <li><a href="../apiclass.html" accesskey="U">API Classes</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="matrix">
+<h1>Matrix<a class="headerlink" href="#matrix" title="Permalink to this headline">¶</a></h1>
+<p>A <strong>Matrix</strong> in Rcpp is a <strong>Vector</strong> with dimension attributes.
+It supports all operations defined in <strong>Vector</strong>, and additionally,
+it provides new subsetters to retrieve a row, a column or a submatrix.</p>
+<div class="section" id="type-definitions">
+<h2>Type Definitions<a class="headerlink" href="#type-definitions" title="Permalink to this headline">¶</a></h2>
+<dl class="type">
+<dt id="ComplexMatrix">
+<em class="property">type </em><tt class="descname">ComplexMatrix</tt><a class="headerlink" href="#ComplexMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Matrix&lt;CPLXSXP&gt; ComplexMatrix;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="IntegerMatrix">
+<em class="property">type </em><tt class="descname">IntegerMatrix</tt><a class="headerlink" href="#IntegerMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Matrix&lt;INTSXP&gt; IntegerMatrix;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="LogicalMatrix">
+<em class="property">type </em><tt class="descname">LogicalMatrix</tt><a class="headerlink" href="#LogicalMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Matrix&lt;LGLSXP&gt; LogicalMatrix;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="NumericMatrix">
+<em class="property">type </em><tt class="descname">NumericMatrix</tt><a class="headerlink" href="#NumericMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Matrix&lt;REALSXP&gt; NumericMatrix;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="RawMatrix">
+<em class="property">type </em><tt class="descname">RawMatrix</tt><a class="headerlink" href="#RawMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Matrix&lt;RAWSXP&gt; RawMatrix;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="CharacterMatrix">
+<em class="property">type </em><tt class="descname">CharacterMatrix</tt><a class="headerlink" href="#CharacterMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Matrix&lt;STRSXP&gt; CharacterMatrix;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="StringMatrix">
+<em class="property">type </em><tt class="descname">StringMatrix</tt><a class="headerlink" href="#StringMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Matrix&lt;STRSXP&gt; StringMatrix;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="GenericMatrix">
+<em class="property">type </em><tt class="descname">GenericMatrix</tt><a class="headerlink" href="#GenericMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Matrix&lt;VECSXP&gt; GenericMatrix;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="ListMatrix">
+<em class="property">type </em><tt class="descname">ListMatrix</tt><a class="headerlink" href="#ListMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Matrix&lt;VECSXP&gt; ListMatrix;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="type">
+<dt id="ExpressionMatrix">
+<em class="property">type </em><tt class="descname">ExpressionMatrix</tt><a class="headerlink" href="#ExpressionMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>typedef Matrix&lt;EXPRSXP&gt; ExpressionMatrix;
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="public-member-functions">
+<h2>Public Member Functions<a class="headerlink" href="#public-member-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="constructors">
+<h3>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="Matrix">
+ <tt class="descname">Matrix</tt><big>(</big><big>)</big><a class="headerlink" href="#Matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a matrix with zero row and zero column.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Matrix__MatrixCR">
+ <tt class="descname">Matrix</tt><big>(</big>const Matrix&amp; <em>other</em><big>)</big><a class="headerlink" href="#Matrix__MatrixCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy constructor. Resulting object will share the SEXP data with <em>other</em>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Matrix__SEXP">
+ <tt class="descname">Matrix</tt><big>(</big>SEXP <em>x</em><big>)</big><a class="headerlink" href="#Matrix__SEXP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrap a given Matrix. A type conversion will be conducted if types don&#8217;t match.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Matrix__DimensionCR">
+ <tt class="descname">Matrix</tt><big>(</big>const Dimension&amp; <em>dims</em><big>)</big><a class="headerlink" href="#Matrix__DimensionCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Matrix with the given dimension, and fill it with zeros. The <strong>Dimension</strong>
+class is defined in <tt class="docutils literal"><span class="pre">&lt;Rcpp/Dimension.h&gt;</span></tt>. An example:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">gen_matrix</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Rcpp</span><span class="o">::</span><span class="n">Dimension</span> <span class="n">dim</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+    <span class="c1">// a 6x7 matrix</span>
+    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericMatrix</span><span class="p">(</span><span class="n">dim</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Matrix__iCR.iCR">
+ <tt class="descname">Matrix</tt><big>(</big>const int&amp; <em>nrows_</em>, const int&amp; <em>ncols</em><big>)</big><a class="headerlink" href="#Matrix__iCR.iCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Matrix with <em>nrows_</em> rows and <em>ncols</em> columns, and fill it with zeros.</p>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre>template &lt;typename Iterator&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt id="Matrix__iCR.iCR.Iterator">
+ <tt class="descname">Matrix</tt><big>(</big>const int&amp; <em>nrows_</em>, const int&amp; <em>ncols</em>, Iterator <em>start</em><big>)</big><a class="headerlink" href="#Matrix__iCR.iCR.Iterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Matrix with <em>nrows_</em> rows and <em>ncols</em> columns, and fill it with data starting from <em>start</em>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Matrix__iCR">
+ <tt class="descname">Matrix</tt><big>(</big>const int&amp; <em>n</em><big>)</big><a class="headerlink" href="#Matrix__iCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a diagonal Matrix with <em>n</em> rows and <em>n</em> columns, and fill it with zeroes.</p>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre>template &lt;bool NA, typename MAT&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt id="Matrix__MatrixBase:RTYPE.NA.MAT:CR">
+ <tt class="descname">Matrix</tt><big>(</big>const MatrixBase&lt;RTYPE, NA, MAT&gt;&amp; <em>other</em><big>)</big><a class="headerlink" href="#Matrix__MatrixBase:RTYPE.NA.MAT:CR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a matrix from another object that is also derived from the <strong>MatrixBase</strong> class.
+Typically <em>other</em> is an Rcpp sugar expression, such as the example below:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">matrix_from_sugar</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+    <span class="n">NumericMatrix</span> <span class="n">x</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">IntegerMatrix</span> <span class="n">y</span> <span class="o">=</span> <span class="n">col</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="c1">// rhs is a sugar expression</span>
+    <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Matrix__SubMatrix:RTYPE:CR">
+ <tt class="descname">Matrix</tt><big>(</big>const SubMatrix&lt;RTYPE&gt;&amp; <em>sub</em><big>)</big><a class="headerlink" href="#Matrix__SubMatrix:RTYPE:CR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a matrix from a submatrix.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="defined-in-matrix">
+<h3>Defined in <strong>Matrix</strong><a class="headerlink" href="#defined-in-matrix" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="ncolC">
+int <tt class="descname">ncol</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#ncolC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of columns.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nrowC">
+int <tt class="descname">nrow</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#nrowC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of rows.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="colsC">
+int <tt class="descname">cols</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#colsC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias of <tt class="docutils literal"><span class="pre">ncol()</span></tt>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rowsC">
+int <tt class="descname">rows</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#rowsC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias of <tt class="docutils literal"><span class="pre">nrow()</span></tt>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="row__i">
+Row <tt class="descname">row</tt><big>(</big>int <em>i</em><big>)</big><a class="headerlink" href="#row__i" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the <em>i</em>-th row (0-based).</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+Column <tt class="descname">row</tt><big>(</big>int <em>i</em><big>)</big></dt>
+<dd><p>Return the <em>i</em>-th column (0-based).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="begin">
+iterator <tt class="descname">begin</tt><big>(</big><big>)</big><a class="headerlink" href="#begin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an iterator pointing to the first element of the matrix.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="end">
+iterator <tt class="descname">end</tt><big>(</big><big>)</big><a class="headerlink" href="#end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an iterator pointing to the <em>past-the-end</em> element of the matrix.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="beginC">
+const_iterator <tt class="descname">begin</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#beginC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an iterator pointing to the first element of the matrix.
+Read-only.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="endC">
+const_iterator <tt class="descname">end</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#endC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an iterator pointing to the <em>past-the-end</em> element of the matrix.
+Read-only.</p>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre>template &lt;typename U&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt id="fill_diag__UCR">
+void <tt class="descname">fill_diag</tt><big>(</big>const U&amp; <em>u</em><big>)</big><a class="headerlink" href="#fill_diag__UCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill the diagonal elements of this matrix with <em>u</em>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="subscript-operator__i">
+Proxy <tt class="descname">operator[]</tt><big>(</big>int <em>i</em><big>)</big><a class="headerlink" href="#subscript-operator__i" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the reference of the <em>i</em>-th element (0-based) of the matrix <strong>without</strong>
+bound check.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="subscript-operator__iC">
+const_Proxy <tt class="descname">operator[]</tt><big>(</big>int <em>i</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#subscript-operator__iC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <em>i</em>-th element of the vector <strong>without</strong> bound check. Read-only.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="call-operator__sCR.sCR">
+Proxy <tt class="descname">operator()</tt><big>(</big>const size_t&amp; <em>i</em>, const size_t&amp; <em>j</em><big>)</big><a class="headerlink" href="#call-operator__sCR.sCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the reference of the element in <em>i</em>-th row and <em>j</em>-th column (both 0-based)
+with bound check.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="call-operator__sCR.sCRC">
+const_Proxy <tt class="descname">operator()</tt><big>(</big>const size_t&amp; <em>i</em>, const size_t&amp; <em>j</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#call-operator__sCR.sCRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the element in <em>i</em>-th row and <em>j</em>-th column (both 0-based) with bound check.
+Read-only.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="call-operator__i.X">
+Row <tt class="descname">operator()</tt><big>(</big>int <em>i</em>, <em>internal::NamedPlaceHolder</em><big>)</big><a class="headerlink" href="#call-operator__i.X" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <em>i</em>-th row of the matrix (0-based). The symbol <tt class="docutils literal"><span class="pre">_</span></tt> can be used as a placeholder
+for the second argument. For example:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">get_row</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+    <span class="n">NumericMatrix</span> <span class="n">x</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">fill_diag</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">NumericMatrix</span><span class="o">::</span><span class="n">Row</span> <span class="n">r</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">_</span><span class="p">);</span> <span class="c1">// extract the first row</span>
+    <span class="n">NumericVector</span> <span class="n">y</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span> <span class="c1">// copy to a vector</span>
+    <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// change the first element to 0</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// x is also changed</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="call-operator__X.i">
+Column <tt class="descname">operator()</tt><big>(</big><em>internal::NamedPlaceHolder</em>, int <em>i</em><big>)</big><a class="headerlink" href="#call-operator__X.i" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <em>i</em>-th column of the matrix. The symbol <tt class="docutils literal"><span class="pre">_</span></tt> can be used as a placeholder
+for the first argument.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="call-operator__X.iC">
+Column <tt class="descname">operator()</tt><big>(</big><em>internal::NamedPlaceHolder</em>, int <em>i</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#call-operator__X.iC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <em>i</em>-th column of the matrix. Read-only.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="call-operator__RangeCR.RangeCR">
+Sub <tt class="descname">operator()</tt><big>(</big>const Range&amp; <em>row_range</em>, const Range&amp; <em>col_range</em><big>)</big><a class="headerlink" href="#call-operator__RangeCR.RangeCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the submatrix specified by the row range and column range. An example:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">matrix_sub</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+    <span class="n">NumericMatrix</span> <span class="n">x</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+    <span class="n">NumericMatrix</span> <span class="n">y</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n">x</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="c1">// get the 2x3 matrix in the topleft corner</span>
+    <span class="n">NumericMatrix</span><span class="o">::</span><span class="n">Sub</span> <span class="n">sub</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">Range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">sub</span><span class="p">;</span> <span class="c1">// assign y to sub</span>
+    <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="call-operator__X.RangeCR">
+Sub <tt class="descname">operator()</tt><big>(</big><em>internal::NamedPlaceHolder</em>, const Range&amp; <em>col_range</em><big>)</big><a class="headerlink" href="#call-operator__X.RangeCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select several columns of this matrix.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="call-operator__RangeCR.X">
+Sub <tt class="descname">operator()</tt><big>(</big>const Range&amp; <em>row_range</em>, <em>internal::NamedPlaceHolder</em><big>)</big><a class="headerlink" href="#call-operator__RangeCR.X" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select several rows of this matrix.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="static-public-member-functions">
+<h2>Static Public Member Functions<a class="headerlink" href="#static-public-member-functions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>template &lt;typename U&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt id="diag__i.UCR">
+<em class="property">static</em> Matrix <tt class="descname">diag</tt><big>(</big>int <em>size</em>, const U&amp; <em>diag_value</em><big>)</big><a class="headerlink" href="#diag__i.UCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <em>size</em> by <em>size</em> diagonal matrix and fill the diagonal
+elements with <em>diag_value</em>.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Matrix</a><ul>
+<li><a class="reference internal" href="#type-definitions">Type Definitions</a></li>
+<li><a class="reference internal" href="#public-member-functions">Public Member Functions</a><ul>
+<li><a class="reference internal" href="#constructors">Constructors</a></li>
+<li><a class="reference internal" href="#defined-in-matrix">Defined in <strong>Matrix</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#static-public-member-functions">Static Public Member Functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Vector_funs.html"
+                        title="previous chapter">Vector (Member Functions)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Environment.html"
+                        title="next chapter">Environment</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../sources/api/Matrix.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Environment.html" title="Environment"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Vector_funs.html" title="Vector (Member Functions)"
+             >previous</a> |</li>
+        <li><a href="../index.html">Rcpp Notes 0.11.2 documentation</a> &raquo;</li>
+          <li><a href="../apiclass.html" >API Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Yixuan Qiu.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

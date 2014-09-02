@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Vector (Member Functions) &mdash; Rcpp Notes 0.11.2 documentation</title>
+    
+    <link rel="stylesheet" href="../static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.11.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Rcpp Notes 0.11.2 documentation" href="../index.html" />
+    <link rel="up" title="API Classes" href="../apiclass.html" />
+    <link rel="next" title="Environment" href="Environment.html" />
+    <link rel="prev" title="Vector (Typedefs and Constructors)" href="Vector_ctor.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Environment.html" title="Environment"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Vector_ctor.html" title="Vector (Typedefs and Constructors)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Rcpp Notes 0.11.2 documentation</a> &raquo;</li>
+          <li><a href="../apiclass.html" accesskey="U">API Classes</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="vector-member-functions">
+<h1>Vector (Member Functions)<a class="headerlink" href="#vector-member-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="public-member-functions">
+<h2>Public Member Functions<a class="headerlink" href="#public-member-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="defined-in-vector">
+<h3>Defined  in <strong>Vector</strong><a class="headerlink" href="#defined-in-vector" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="lengthC">
+R_len_t <tt class="descname">length</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#lengthC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the length of the vector.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sizeC">
+R_len_t <tt class="descname">size</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#sizeC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the length of the vector, alias of <tt class="docutils literal"><span class="pre">length()</span></tt>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="offset__sCR.sCRC">
+size_t <tt class="descname">offset</tt><big>(</big>const size_t&amp; <em>i</em>, const size_t&amp; <em>j</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#offset__sCR.sCRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>When this is actually a matrix, give the offset (i.e., the index) of the element
+in row <em>i</em> and column <em>j</em> (both 0-based).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="offset__sCRC">
+size_t <tt class="descname">offset</tt><big>(</big>const size_t&amp; <em>i</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#offset__sCRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the offset of the <em>i</em>-th element with bound check.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="offset__ssCRC">
+size_t <tt class="descname">offset</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#offset__ssCRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the offset of the element whose name is <em>name</em> in the vector. An example:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">test_offset</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+    <span class="n">NumericVector</span> <span class="n">x</span> <span class="o">=</span> <span class="n">NumericVector</span><span class="o">::</span><span class="n">create</span><span class="p">(</span>
+                          <span class="n">Named</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+                          <span class="n">Named</span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>
+                          <span class="mf">3.0</span>
+                      <span class="p">);</span>
+    <span class="k">return</span> <span class="n">wrap</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">offset</span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">));</span> <span class="c1">// should be 1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre>template &lt;typename U&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt id="fill__UCR">
+void <tt class="descname">fill</tt><big>(</big>const U&amp; <em>u</em><big>)</big><a class="headerlink" href="#fill__UCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill the vector with value <em>u</em>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="begin">
+iterator <tt class="descname">begin</tt><big>(</big><big>)</big><a class="headerlink" href="#begin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an iterator pointing to the first element of the vector.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="end">
+iterator <tt class="descname">end</tt><big>(</big><big>)</big><a class="headerlink" href="#end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an iterator pointing to the <em>past-the-end</em> element of the vector.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="beginC">
+const_iterator <tt class="descname">begin</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#beginC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an iterator pointing to the first element of the vector. Read-only.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="endC">
+const_iterator <tt class="descname">end</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#endC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an iterator pointing to the <em>past-the-end</em> element of the vector. Read-only.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="subscript-operator__i">
+Proxy <tt class="descname">operator[]</tt><big>(</big>int <em>i</em><big>)</big><a class="headerlink" href="#subscript-operator__i" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the reference of the <em>i</em>-th element (0-based) of the vector <strong>without</strong>
+bound check.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="subscript-operator__iC">
+const_Proxy <tt class="descname">operator[]</tt><big>(</big>int <em>i</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#subscript-operator__iC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <em>i</em>-th element of the vector <strong>without</strong> bound check. Read-only.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="call-operator__sCR">
+Proxy <tt class="descname">operator()</tt><big>(</big>const size_t&amp; <em>i</em><big>)</big><a class="headerlink" href="#call-operator__sCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the reference of the <em>i</em>-th element of the vector <strong>with</strong>
+bound check.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="call-operator__sCRC">
+const_Proxy <tt class="descname">operator()</tt><big>(</big>const size_t&amp; <em>i</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#call-operator__sCRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <em>i</em>-th element of the vector <strong>with</strong> bound check. Read-only.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="call-operator__sCR.sCR">
+Proxy <tt class="descname">operator()</tt><big>(</big>const size_t&amp; <em>i</em>, const size_t&amp; <em>j</em><big>)</big><a class="headerlink" href="#call-operator__sCR.sCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>When this is a matrix, get the reference of the element in row <em>i</em> and
+column <em>j</em> (both 0-based).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="call-operator__sCR.sCRC">
+const_Proxy <tt class="descname">operator()</tt><big>(</big>const size_t&amp; <em>i</em>, const size_t&amp; <em>j</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#call-operator__sCR.sCRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>When this is a matrix, get the the element in row <em>i</em> and column <em>j</em>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="subscript-operator__ssCR">
+NameProxy <tt class="descname">operator[]</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><a class="headerlink" href="#subscript-operator__ssCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the reference of the element whose name is <em>name</em> in the vector.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="call-operator__ssCR">
+NameProxy <tt class="descname">operator()</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><a class="headerlink" href="#call-operator__ssCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ditto.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="subscript-operator__ssCRC">
+NameProxy <tt class="descname">operator[]</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#subscript-operator__ssCRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the element whose name is <em>name</em> in the vector. Read-only.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="call-operator__ssCRC">
+NameProxy <tt class="descname">operator()</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#call-operator__ssCRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ditto.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="castto-RObject-operatorC">
+ <tt class="descname">operator</tt> RObject<big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#castto-RObject-operatorC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert to <strong>RObject</strong> object.</p>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre>template &lt;int RHS_RTYPE, bool RHS_NA, typename RHS_T&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt id="subscript-operator__VectorBase:RHS_RTYPE.RHS_NA.RHS_T:CR">
+SubsetProxy&lt;RTYPE, StoragePolicy, RHS_RTYPE, RHS_NA, RHS_T&gt; <tt class="descname">operator[]</tt><big>(</big>const VectorBase&lt;RHS_RTYPE, RHS_NA, RHS_T&gt;&amp; <em>rhs</em><big>)</big><a class="headerlink" href="#subscript-operator__VectorBase:RHS_RTYPE.RHS_NA.RHS_T:CR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use sugar expression to subset the vector.</p>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre>template &lt;int RHS_RTYPE, bool RHS_NA, typename RHS_T&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt id="subscript-operator__VectorBase:RHS_RTYPE.RHS_NA.RHS_T:CRC">
+const SubsetProxy&lt;RTYPE, StoragePolicy, RHS_RTYPE, RHS_NA, RHS_T&gt; <tt class="descname">operator[]</tt><big>(</big>const VectorBase&lt;RHS_RTYPE, RHS_NA, RHS_T&gt;&amp; <em>rhs</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#subscript-operator__VectorBase:RHS_RTYPE.RHS_NA.RHS_T:CRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use sugar expression to subset the vector. Read-only.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sort">
+Vector&amp; <tt class="descname">sort</tt><big>(</big><big>)</big><a class="headerlink" href="#sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort the vector in place in increasing order, and return the sorted vector.</p>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre>template &lt;typename InputIterator&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt id="assign__InputIterator.InputIterator">
+void <tt class="descname">assign</tt><big>(</big>InputIterator <em>first</em>, InputIterator <em>last</em><big>)</big><a class="headerlink" href="#assign__InputIterator.InputIterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy and assign the data between <em>first</em> and <em>last</em> to this vector. An example:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">test_assign</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span> <span class="n">x</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// originally of length 10</span>
+    <span class="kt">double</span> <span class="n">src</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">assign</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">src</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// now becomes c(1, 2, 3)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre>template &lt;typename T&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt id="push_back__TCR">
+void <tt class="descname">push_back</tt><big>(</big>const T&amp; <em>object</em><big>)</big><a class="headerlink" href="#push_back__TCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append a new element <em>object</em> to this vector.</p>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre>template &lt;typename T&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt id="push_back__TCR.ssCR">
+void <tt class="descname">push_back</tt><big>(</big>const T&amp; <em>object</em>, const std::string&amp; <em>name</em><big>)</big><a class="headerlink" href="#push_back__TCR.ssCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append a new element <em>object</em> with name <em>name</em> to this vector.</p>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre>template &lt;typename T&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt id="push_front__TCR">
+void <tt class="descname">push_front</tt><big>(</big>const T&amp; <em>object</em><big>)</big><a class="headerlink" href="#push_front__TCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new element <em>object</em> to the front of this vector.</p>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre>template &lt;typename T&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt>
+void <tt class="descname">push_back</tt><big>(</big>const T&amp; <em>object</em>, const std::string&amp; <em>name</em><big>)</big></dt>
+<dd><p>Add a new element <em>object</em> with name <em>name</em> to the front of this vector.</p>
+</dd></dl>
+
+<p>An example for the four functions above:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">add_element</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span> <span class="n">x</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s">&quot;ten&quot;</span><span class="p">);</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">push_front</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">push_front</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="s">&quot;nine&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// c(nine = 9, 2, 1, ten = 10)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>template &lt;typename T&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt id="insert__iterator.TCR">
+iterator <tt class="descname">insert</tt><big>(</big>iterator <em>position</em>, const T&amp; <em>object</em><big>)</big><a class="headerlink" href="#insert__iterator.TCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert new element <em>object</em> before the element pointed to by <em>position</em>.
+Return the pointer to the newly added element.</p>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre>template &lt;typename T&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt id="insert__i.TCR">
+iterator <tt class="descname">insert</tt><big>(</big>int <em>position</em>, const T&amp; <em>object</em><big>)</big><a class="headerlink" href="#insert__i.TCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert new element <em>object</em> before the <em>position</em>-th element (0-based).
+Return the pointer to the newly added element.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">vector_insert</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span> <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="o">*</span><span class="n">iter</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+    <span class="n">iter</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">iter</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">iter</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// c(3, 2.5, 2, 0)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="erase__i">
+iterator <tt class="descname">erase</tt><big>(</big>int <em>position</em><big>)</big><a class="headerlink" href="#erase__i" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the <em>position</em>-th element (0-based).
+Return the pointer to the new location of the element that followed the
+erased element.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="erase__iterator">
+iterator <tt class="descname">erase</tt><big>(</big>iterator <em>position</em><big>)</big><a class="headerlink" href="#erase__iterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the element pointed to by <em>position</em>.
+Return the pointer to the new location of the element that followed the
+erased element.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="erase__i.i">
+iterator <tt class="descname">erase</tt><big>(</big>int <em>first</em>, int <em>last</em><big>)</big><a class="headerlink" href="#erase__i.i" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the elements in the range [<em>first</em>, <em>last</em>).
+Return the pointer to the new location of the element that followed the
+last erased element.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="erase__iterator.iterator">
+iterator <tt class="descname">erase</tt><big>(</big>iterator <em>first</em>, iterator <em>last</em><big>)</big><a class="headerlink" href="#erase__iterator.iterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the elements in the range [<em>first</em>, <em>last</em>).
+Return the pointer to the new location of the element that followed the
+last erased element.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">vector_erase</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+    <span class="n">NumericVector</span> <span class="n">x</span> <span class="o">=</span> <span class="n">NumericVector</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="o">*</span><span class="n">iter</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">iter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">iter</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// remove 2 and 3</span>
+    <span class="c1">// now x becomes c(1, 4, 5, 6, 7)</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// remove 6 and 7</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// c(1, 4, 5)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="containsElementNamed__cCPC">
+bool <tt class="descname">containsElementNamed</tt><big>(</big>const char* <em>target</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#containsElementNamed__cCPC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether this vector contains an element with the target name.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="findName__ssCRC">
+int <tt class="descname">findName</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#findName__ssCRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the index of the element whose name is <em>name</em> in the vector.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="evalC">
+SEXP <tt class="descname">eval</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#evalC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the vector in global environment. It may only make sense for <strong>ExpressionVector</strong>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="eval__SEXPC">
+SEXP <tt class="descname">eval</tt><big>(</big>SEXP <em>env</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#eval__SEXPC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the vector in the environment given by <em>env</em>. It may only make sense for <strong>ExpressionVector</strong>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="inherited-from-namesproxypolicy">
+<h3>Inherited from <strong>NamesProxyPolicy</strong><a class="headerlink" href="#inherited-from-namesproxypolicy" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="names">
+NamesProxy <tt class="descname">names</tt><big>(</big><big>)</big><a class="headerlink" href="#names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the names of this vector. This can appear in
+the left hand side of assignment.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="namesC">
+const_NamesProxy <tt class="descname">names</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#namesC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the names of this vector. Read-only.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="inherited-from-other-classes">
+<h3>Inherited from other classes<a class="headerlink" href="#inherited-from-other-classes" title="Permalink to this headline">¶</a></h3>
+<p>See <a class="reference internal" href="RObject.html"><em>RObject</em></a>.</p>
+</div>
+</div>
+<div class="section" id="static-public-member-functions">
+<h2>Static Public Member Functions<a class="headerlink" href="#static-public-member-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="get_na">
+<em class="property">static</em> store_type <tt class="descname">get_na</tt><big>(</big><big>)</big><a class="headerlink" href="#get_na" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <tt class="docutils literal"><span class="pre">NA</span></tt> of the same type as elements in the vector.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="is_na__stored_type">
+<em class="property">static</em> bool <tt class="descname">is_na</tt><big>(</big>stored_type <em>x</em><big>)</big><a class="headerlink" href="#is_na__stored_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test whether <em>x</em> is <tt class="docutils literal"><span class="pre">NA</span></tt> (of the proper type).</p>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre>template &lt;typename InputIterator&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt id="import__InputIterator.InputIterator">
+<em class="property">static</em> Vector <tt class="descname">import</tt><big>(</big>InputIterator <em>first</em>, InputIterator <em>last</em><big>)</big><a class="headerlink" href="#import__InputIterator.InputIterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector filled with the data between <em>first</em> and <em>last</em>.</p>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre>template &lt;typename InputIterator, typename F&gt;
+</pre></div>
+</div>
+<dl class="function">
+<dt id="import_transform__InputIterator.InputIterator.F">
+<em class="property">static</em> Vector <tt class="descname">import_transform</tt><big>(</big>InputIterator <em>first</em>, InputIterator <em>last</em>, F <em>f</em><big>)</big><a class="headerlink" href="#import_transform__InputIterator.InputIterator.F" title="Permalink to this definition">¶</a></dt>
+<dd><p>A direct call to <a class="reference internal" href="Vector_ctor.html#ctor-trans"><em>Vector(InputIterator first, InputIterator last, Func func)</em></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="create">
+<em class="property">static</em> Vector <tt class="descname">create</tt><big>(</big><big>)</big><a class="headerlink" href="#create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector of zero length.</p>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">T1&gt;</span></tt></p>
+<dl class="function">
+<dt id="create__T1CR">
+<em class="property">static</em> Vector <tt class="descname">create</tt><big>(</big>const T1&amp; <em>t1</em><big>)</big><a class="headerlink" href="#create__T1CR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector containing element <em>t1</em>.</p>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">T1,</span> <span class="pre">typename</span> <span class="pre">T2&gt;</span></tt></p>
+<dl class="function">
+<dt id="create__T1CR.T2CR">
+<em class="property">static</em> Vector <tt class="descname">create</tt><big>(</big>const T1&amp; <em>t1</em>, const T2&amp; <em>t2</em><big>)</big><a class="headerlink" href="#create__T1CR.T2CR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector containing elements <em>t1</em> and <em>t2</em>.</p>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;...&gt;</span></tt></p>
+<dl class="function">
+<dt id="create__X">
+<em class="property">static</em> Vector <tt class="descname">create</tt><big>(</big><em>...</em><big>)</big><a class="headerlink" href="#create__X" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector containing the arguments passed in, up to 20 elements.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Vector (Member Functions)</a><ul>
+<li><a class="reference internal" href="#public-member-functions">Public Member Functions</a><ul>
+<li><a class="reference internal" href="#defined-in-vector">Defined  in <strong>Vector</strong></a></li>
+<li><a class="reference internal" href="#inherited-from-namesproxypolicy">Inherited from <strong>NamesProxyPolicy</strong></a></li>
+<li><a class="reference internal" href="#inherited-from-other-classes">Inherited from other classes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#static-public-member-functions">Static Public Member Functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Vector_ctor.html"
+                        title="previous chapter">Vector (Typedefs and Constructors)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Environment.html"
+                        title="next chapter">Environment</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../sources/api/Vector_funs.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Environment.html" title="Environment"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Vector_ctor.html" title="Vector (Typedefs and Constructors)"
+             >previous</a> |</li>
+        <li><a href="../index.html">Rcpp Notes 0.11.2 documentation</a> &raquo;</li>
+          <li><a href="../apiclass.html" >API Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Yixuan Qiu.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

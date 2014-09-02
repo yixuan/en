@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Function &mdash; Rcpp Notes 0.11.2 documentation</title>
+    
+    <link rel="stylesheet" href="../static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.11.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Rcpp Notes 0.11.2 documentation" href="../index.html" />
+    <link rel="up" title="API Classes" href="../apiclass.html" />
+    <link rel="next" title="S4" href="S4.html" />
+    <link rel="prev" title="Environment" href="Environment.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="S4.html" title="S4"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Environment.html" title="Environment"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Rcpp Notes 0.11.2 documentation</a> &raquo;</li>
+          <li><a href="../apiclass.html" accesskey="U">API Classes</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="function">
+<h1>Function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>Function</strong> class is the wrapper of R functions. An object from <strong>Function</strong> class
+can be &#8220;called&#8221; by the parenthesis operator <tt class="docutils literal"><span class="pre">()</span></tt>, with up to 20 arguments.</p>
+<div class="section" id="public-member-functions">
+<h2>Public Member Functions<a class="headerlink" href="#public-member-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="constructors">
+<h3>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="Function__FunctionCR">
+ <tt class="descname">Function</tt><big>(</big>const Function&amp; <em>other</em><big>)</big><a class="headerlink" href="#Function__FunctionCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy constructor. Resulting object will share the SEXP data with <em>other</em>.</p>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">Proxy&gt;</span></tt></p>
+<dl class="function">
+<dt id="Function__GenericProxy:Proxy:CR">
+ <tt class="descname">Function</tt><big>(</big>const GenericProxy&lt;Proxy&gt;&amp; <em>proxy</em><big>)</big><a class="headerlink" href="#Function__GenericProxy:Proxy:CR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create object from a proxy, such as attribute, slot, field, etc.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Function__SEXP">
+ <tt class="descname">Function</tt><big>(</big>SEXP <em>x</em><big>)</big><a class="headerlink" href="#Function__SEXP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrap a given R function.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Function__ssCR">
+ <tt class="descname">Function</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><a class="headerlink" href="#Function__ssCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look for an R function by its name. The search starts from the global environment,
+and then recursively goes to the parents.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="defined-in-function">
+<h3>Defined in <strong>Function</strong><a class="headerlink" href="#defined-in-function" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="environmentC">
+SEXP <tt class="descname">environment</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#environmentC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the enclosing environment (the environment where this function is defined)
+of this function.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bodyC">
+SEXP <tt class="descname">body</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#bodyC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the body of this function.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="call-operatorC">
+SEXP <tt class="descname">operator()</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#call-operatorC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call the function with no argument.</p>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">T1&gt;</span></tt></p>
+<dl class="function">
+<dt id="call-operator__T1CRC">
+SEXP <tt class="descname">operator()</tt><big>(</big>const T1&amp; <em>t1</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#call-operator__T1CRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call the function with argument <em>t1</em>.</p>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">T1,</span> <span class="pre">typename</span> <span class="pre">T2&gt;</span></tt></p>
+<dl class="function">
+<dt id="call-operator__T1CR.T2CRC">
+SEXP <tt class="descname">operator()</tt><big>(</big>const T1&amp; <em>t1</em>, const T2&amp; <em>t2</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#call-operator__T1CR.T2CRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call the function with arguments <em>t1</em> and <em>t2</em>.</p>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;...&gt;</span></tt></p>
+<dl class="function">
+<dt id="call-operator__XC">
+SEXP <tt class="descname">operator()</tt><big>(</big><em>...</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#call-operator__XC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call the function with up to 20 arguments. The arguments passed to this function
+should be &#8220;wrappable&#8221;.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="inherited-from-other-classes">
+<h3>Inherited from other classes<a class="headerlink" href="#inherited-from-other-classes" title="Permalink to this headline">¶</a></h3>
+<p>See <a class="reference internal" href="RObject.html"><em>RObject</em></a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Function</a><ul>
+<li><a class="reference internal" href="#public-member-functions">Public Member Functions</a><ul>
+<li><a class="reference internal" href="#constructors">Constructors</a></li>
+<li><a class="reference internal" href="#defined-in-function">Defined in <strong>Function</strong></a></li>
+<li><a class="reference internal" href="#inherited-from-other-classes">Inherited from other classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Environment.html"
+                        title="previous chapter">Environment</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="S4.html"
+                        title="next chapter">S4</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../sources/api/Function.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="S4.html" title="S4"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Environment.html" title="Environment"
+             >previous</a> |</li>
+        <li><a href="../index.html">Rcpp Notes 0.11.2 documentation</a> &raquo;</li>
+          <li><a href="../apiclass.html" >API Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Yixuan Qiu.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

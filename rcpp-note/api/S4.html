@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>S4 &mdash; Rcpp Notes 0.11.2 documentation</title>
+    
+    <link rel="stylesheet" href="../static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.11.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Rcpp Notes 0.11.2 documentation" href="../index.html" />
+    <link rel="up" title="API Classes" href="../apiclass.html" />
+    <link rel="next" title="Reference" href="Reference.html" />
+    <link rel="prev" title="Function" href="Function.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Reference.html" title="Reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Function.html" title="Function"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Rcpp Notes 0.11.2 documentation</a> &raquo;</li>
+          <li><a href="../apiclass.html" accesskey="U">API Classes</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="s4">
+<h1>S4<a class="headerlink" href="#s4" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>S4</strong> class is a wrapper of S4 objects in R.</p>
+<div class="section" id="public-member-functions">
+<h2>Public Member Functions<a class="headerlink" href="#public-member-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="constructors">
+<h3>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="S4">
+ <tt class="descname">S4</tt><big>(</big><big>)</big><a class="headerlink" href="#S4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default constructor. Resulting in <tt class="docutils literal"><span class="pre">R_NilValue</span></tt>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="S4__S4CR">
+ <tt class="descname">S4</tt><big>(</big>const S4&amp; <em>other</em><big>)</big><a class="headerlink" href="#S4__S4CR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy constructor. Resulting object will share the SEXP data with <em>other</em>.</p>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">Proxy&gt;</span></tt></p>
+<dl class="function">
+<dt id="S4__GenericProxy:Proxy:CR">
+ <tt class="descname">S4</tt><big>(</big>const GenericProxy&lt;Proxy&gt;&amp; <em>proxy</em><big>)</big><a class="headerlink" href="#S4__GenericProxy:Proxy:CR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create object from a proxy, such as attribute, slot, field, etc.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="S4__SEXP">
+ <tt class="descname">S4</tt><big>(</big>SEXP <em>x</em><big>)</big><a class="headerlink" href="#S4__SEXP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrap a given S4 object.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="S4__ssCR">
+ <tt class="descname">S4</tt><big>(</big>const std::string&amp; <em>klass</em><big>)</big><a class="headerlink" href="#S4__ssCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an S4 object of the requested class.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="defined-in-s4">
+<h3>Defined in <strong>S4</strong><a class="headerlink" href="#defined-in-s4" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="is__ssCRC">
+bool <tt class="descname">is</tt><big>(</big>const std::string&amp; <em>clazz</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#is__ssCRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether this object is an instance of the given S4 class.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="inherited-from-other-classes">
+<h3>Inherited from other classes<a class="headerlink" href="#inherited-from-other-classes" title="Permalink to this headline">¶</a></h3>
+<p>See <a class="reference internal" href="RObject.html"><em>RObject</em></a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">S4</a><ul>
+<li><a class="reference internal" href="#public-member-functions">Public Member Functions</a><ul>
+<li><a class="reference internal" href="#constructors">Constructors</a></li>
+<li><a class="reference internal" href="#defined-in-s4">Defined in <strong>S4</strong></a></li>
+<li><a class="reference internal" href="#inherited-from-other-classes">Inherited from other classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Function.html"
+                        title="previous chapter">Function</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Reference.html"
+                        title="next chapter">Reference</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../sources/api/S4.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Reference.html" title="Reference"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Function.html" title="Function"
+             >previous</a> |</li>
+        <li><a href="../index.html">Rcpp Notes 0.11.2 documentation</a> &raquo;</li>
+          <li><a href="../apiclass.html" >API Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Yixuan Qiu.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
