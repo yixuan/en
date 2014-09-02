@@ -197,6 +197,31 @@ major template parameter, <tt class="docutils literal"><span class="pre">RTYPE</
 </dd></dl>
 
 <dl class="function">
+<dt id="Vector__ssCR">
+ <tt class="descname">Vector</tt><big>(</big>const std::string&amp; <em>st</em><big>)</big><a class="headerlink" href="#Vector__ssCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector from a given string, as the example below shows:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">vector_ctor_string</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Rcpp</span><span class="o">::</span><span class="n">CharacterVector</span> <span class="n">x</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// a length one character vector</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This constructor as well as the next one, are intended to work
+on <strong>CharacterVector</strong>. Vectors of other types might encounter
+errors with these constructors.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Vector__cCP">
+ <tt class="descname">Vector</tt><big>(</big>const char* <em>st</em><big>)</big><a class="headerlink" href="#Vector__cCP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ditto.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="Vector__iCR.Func">
  <tt class="descname">Vector</tt><big>(</big>const int&amp; <em>size</em>, Func <em>gen</em><big>)</big><a class="headerlink" href="#Vector__iCR.Func" title="Permalink to this definition">¶</a></dt>
 <dd><ul>
