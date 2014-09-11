@@ -184,6 +184,36 @@ bool <tt class="descname">hasSlot</tt><big>(</big>const std::string&amp; <em>nam
 <dd><p>Whether this object has a slot given by <em>name</em>.</p>
 </dd></dl>
 
+<p>An example for the functions above, using <tt class="docutils literal"><span class="pre">Rcpp::cppFunction</span></tt>:</p>
+<div class="highlight-r"><div class="highlight"><pre>library<span class="p">(</span>Rcpp<span class="p">)</span>
+cppFunction<span class="p">(</span><span class="s">&#39;</span>
+
+<span class="s">    SEXP obj_slot(SEXP obj)</span>
+<span class="s">    {</span>
+<span class="s">        using namespace Rcpp;</span>
+<span class="s">        RObject robj(obj);</span>
+<span class="s">        if(!robj.isS4())</span>
+<span class="s">            return R_NilValue;</span>
+
+<span class="s">        if(robj.hasSlot(&quot;x&quot;))</span>
+<span class="s">        {</span>
+<span class="s">            RObject x = robj.slot(&quot;x&quot;);</span>
+<span class="s">            RObject x_original = clone(x);</span>
+<span class="s">            robj.slot(&quot;x&quot;) = NumericVector(5); // a vector of length 5 filled with 0</span>
+<span class="s">            return x_original;</span>
+<span class="s">        }</span>
+
+<span class="s">        return R_NilValue;</span>
+<span class="s">    }</span>
+
+<span class="s">&#39;</span><span class="p">)</span>
+
+library<span class="p">(</span>Matrix<span class="p">)</span>
+mat <span class="o">=</span> Matrix<span class="p">(</span>rnorm<span class="p">(</span><span class="m">4</span><span class="p">),</span> <span class="m">2</span><span class="p">)</span>
+obj_slot<span class="p">(</span>mat<span class="p">)</span>  <span class="c1">## return the original x slot</span>
+print<span class="p">(</span>mat<span class="p">)</span>     <span class="c1">## mat has been modified</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="inherited-from-attributeproxypolicy">
 <h3>Inherited from <strong>AttributeProxyPolicy</strong><a class="headerlink" href="#inherited-from-attributeproxypolicy" title="Permalink to this headline">¶</a></h3>
@@ -212,6 +242,22 @@ bool <tt class="descname">hasAttribute</tt><big>(</big>const std::string&amp; <e
 <dd><p>Whether this object has an attribute whose name is specified by <em>name</em>.</p>
 </dd></dl>
 
+<p>An example for the functions above:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">obj_attr</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+    <span class="n">NumericMatrix</span> <span class="n">mat</span> <span class="o">=</span> <span class="n">NumericMatrix</span><span class="o">::</span><span class="n">diag</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+    <span class="n">IntegerVector</span> <span class="n">mat_dim</span> <span class="o">=</span> <span class="n">mat</span><span class="p">.</span><span class="n">attr</span><span class="p">(</span><span class="s">&quot;dim&quot;</span><span class="p">);</span>
+    <span class="n">mat</span><span class="p">.</span><span class="n">attr</span><span class="p">(</span><span class="s">&quot;new_attr&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="s">&quot;some value&quot;</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">attr_names</span> <span class="o">=</span> <span class="n">mat</span><span class="p">.</span><span class="n">attributeNames</span><span class="p">();</span>
+    <span class="kt">bool</span> <span class="n">has_attr</span> <span class="o">=</span> <span class="n">mat</span><span class="p">.</span><span class="n">hasAttribute</span><span class="p">(</span><span class="s">&quot;new_attr&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">List</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="n">Named</span><span class="p">(</span><span class="s">&quot;mat&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">mat</span><span class="p">,</span>
+                        <span class="n">Named</span><span class="p">(</span><span class="s">&quot;mat_dim&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">mat_dim</span><span class="p">,</span>
+                        <span class="n">Named</span><span class="p">(</span><span class="s">&quot;attr_names&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">wrap</span><span class="p">(</span><span class="n">attr_names</span><span class="p">),</span>
+                        <span class="n">Named</span><span class="p">(</span><span class="s">&quot;has_attr&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">wrap</span><span class="p">(</span><span class="n">has_attr</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="inherited-from-robjectmethods">
 <h3>Inherited from <strong>RObjectMethods</strong><a class="headerlink" href="#inherited-from-robjectmethods" title="Permalink to this headline">¶</a></h3>
@@ -270,6 +316,30 @@ bool <tt class="descname">isS4</tt><big>(</big><big>)</big><tt class="descclassn
 <dd><p>Whether this is an S4 object in R.</p>
 </dd></dl>
 
+<p>An example for the functions above, using <tt class="docutils literal"><span class="pre">Rcpp::cppFunction</span></tt>:</p>
+<div class="highlight-r"><div class="highlight"><pre>library<span class="p">(</span>Rcpp<span class="p">)</span>
+cppFunction<span class="p">(</span><span class="s">&#39;</span>
+
+<span class="s">    SEXP obj_info(SEXP obj)</span>
+<span class="s">    {</span>
+<span class="s">        using namespace Rcpp;</span>
+<span class="s">        RObject robj(obj);</span>
+<span class="s">        return List::create(Named(&quot;is_null&quot;) = wrap(robj.isNULL()),</span>
+<span class="s">                            Named(&quot;type&quot;) = wrap(robj.sexp_type()),</span>
+<span class="s">                            Named(&quot;has_class&quot;) = wrap(robj.isObject()),</span>
+<span class="s">                            Named(&quot;is_S4&quot;) = wrap(robj.isS4()));</span>
+<span class="s">    }</span>
+
+<span class="s">&#39;</span><span class="p">)</span>
+
+obj_info<span class="p">(</span><span class="kc">NULL</span><span class="p">)</span>    <span class="c1">## NULL</span>
+obj_info<span class="p">(</span>y <span class="o">~</span> x<span class="p">)</span>   <span class="c1">## formula</span>
+
+setRefClass<span class="p">(</span><span class="s">&quot;Myclass&quot;</span><span class="p">,</span> fields <span class="o">=</span> list<span class="p">(</span>data <span class="o">=</span> <span class="s">&quot;list&quot;</span><span class="p">))</span>
+rc <span class="o">=</span> new<span class="p">(</span><span class="s">&quot;Myclass&quot;</span><span class="p">)</span>
+obj_info<span class="p">(</span>rc<span class="p">)</span>      <span class="c1">## Reference class is S4</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
