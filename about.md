@@ -20,7 +20,7 @@ of Beijing. That's a good memory.
 
 I'm presently doing research on Functional Data Analysis, and also have great interest
 in statistical computing, machine learning and data visualization.
-The [Projects](http://statr.me/projects.html) page
+The [Projects]({{ BASE_PATH }}/projects.html) page
 lists some open source software and other projects that I have done or am working on.
 
 As you will see, I'm pretty much a useR, since R is so naturally connected with Statistics.
