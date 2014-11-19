@@ -6,15 +6,16 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to Rcpp Notes! &mdash; Rcpp Notes 0.11.2 documentation</title>
+    <title>Welcome to Rcpp Note! &mdash; Rcpp Note 0.11.3 documentation</title>
     
     <link rel="stylesheet" href="static/nature.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="static/jquery-ui.min.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.11.2',
+        VERSION:     '0.11.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +25,19 @@
     <script type="text/javascript" src="static/underscore.js"></script>
     <script type="text/javascript" src="static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Rcpp Notes 0.11.2 documentation" href="#" />
+    <script type="text/javascript" src="static/jquery-ui.min.js"></script>
+    <script>
+      $( document ).ready(function() {
+          $(".highlight-cpp").wrap("<div class='accordion-box'></div>").before("<p class='accordion-header'>Show Example</p>");
+          $(".accordion-box").accordion({
+            active: false,
+            collapsible: true,
+            header: "p.accordion-header",
+            heightStyleType: "fill"
+          });
+      });
+    </script>
+    <link rel="top" title="Rcpp Note 0.11.3 documentation" href="#" />
     <link rel="next" title="Introduction" href="intro.html" /> 
   </head>
   <body>
@@ -37,7 +50,7 @@
         <li class="right" >
           <a href="intro.html" title="Introduction"
              accesskey="N">next</a> |</li>
-        <li><a href="#">Rcpp Notes 0.11.2 documentation</a> &raquo;</li> 
+        <li><a href="#">Rcpp Note 0.11.3 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -46,8 +59,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="welcome-to-rcpp-notes">
-<h1>Welcome to Rcpp Notes!<a class="headerlink" href="#welcome-to-rcpp-notes" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="welcome-to-rcpp-note">
+<h1>Welcome to Rcpp Note!<a class="headerlink" href="#welcome-to-rcpp-note" title="Permalink to this headline">¶</a></h1>
 <p>This project is an <strong>unofficial</strong> documentation of <a class="reference external" href="http://www.rcpp.org/">Rcpp</a>,
 an R package that provides a seamless integration of R and C++.
 The document here aims to provide a function-by-function reference of the most frequently
@@ -88,7 +101,7 @@ Feedbacks and pull requests are highly appreciated.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to Rcpp Notes!</a></li>
+<li><a class="reference internal" href="#">Welcome to Rcpp Note!</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 
@@ -126,12 +139,12 @@ Feedbacks and pull requests are highly appreciated.</p>
         <li class="right" >
           <a href="intro.html" title="Introduction"
              >next</a> |</li>
-        <li><a href="#">Rcpp Notes 0.11.2 documentation</a> &raquo;</li> 
+        <li><a href="#">Rcpp Note 0.11.3 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2014, Yixuan Qiu.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

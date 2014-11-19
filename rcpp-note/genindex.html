@@ -7,15 +7,16 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Index &mdash; Rcpp Notes 0.11.2 documentation</title>
+    <title>Index &mdash; Rcpp Note 0.11.3 documentation</title>
     
     <link rel="stylesheet" href="static/nature.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="static/jquery-ui.min.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.11.2',
+        VERSION:     '0.11.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +26,19 @@
     <script type="text/javascript" src="static/underscore.js"></script>
     <script type="text/javascript" src="static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Rcpp Notes 0.11.2 documentation" href="index.html" /> 
+    <script type="text/javascript" src="static/jquery-ui.min.js"></script>
+    <script>
+      $( document ).ready(function() {
+          $(".highlight-cpp").wrap("<div class='accordion-box'></div>").before("<p class='accordion-header'>Show Example</p>");
+          $(".accordion-box").accordion({
+            active: false,
+            collapsible: true,
+            header: "p.accordion-header",
+            heightStyleType: "fill"
+          });
+      });
+    </script>
+    <link rel="top" title="Rcpp Note 0.11.3 documentation" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,7 +47,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="#" title="General Index"
              accesskey="I">index</a></li>
-        <li><a href="index.html">Rcpp Notes 0.11.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Rcpp Note 0.11.3 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -634,12 +647,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="#" title="General Index"
              >index</a></li>
-        <li><a href="index.html">Rcpp Notes 0.11.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Rcpp Note 0.11.3 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2014, Yixuan Qiu.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>
