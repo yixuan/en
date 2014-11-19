@@ -181,7 +181,7 @@ major template parameter, <tt class="docutils literal"><span class="pre">RTYPE</
 <dl class="function">
 <dt id="Vector__SEXP">
  <tt class="descname">Vector</tt><big>(</big>SEXP <em>x</em><big>)</big><a class="headerlink" href="#Vector__SEXP" title="Permalink to this definition">¶</a></dt>
-<dd><p>Wrap a given vector. A type conversion will be conducted if types don&#8217;t match.</p>
+<dd><p>Wrap a given vector. A type conversion will be conducted if types do not match.</p>
 </dd></dl>
 
 <p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">Proxy&gt;</span></tt></p>
@@ -195,10 +195,10 @@ major template parameter, <tt class="docutils literal"><span class="pre">RTYPE</
 <dt id="Vector__no_initCR">
  <tt class="descname">Vector</tt><big>(</big>const no_init&amp; <em>obj</em><big>)</big><a class="headerlink" href="#Vector__no_initCR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a vector without initializating the values. An example:</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">noinit</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="n">Rcpp</span><span class="o">::</span><span class="n">no_init</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
-<span class="p">}</span>
+<div class="highlight-r"><div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>Rcpp<span class="p">)</span>
+evalCpp<span class="p">(</span><span class="s">&quot;NumericVector(Rcpp::no_init(10))&quot;</span><span class="p">)</span>
+<span class="c1">## [1] 3.458460e-323 6.946245e-310 4.940656e-324 6.946245e-310 9.881313e-324</span>
+<span class="c1">## [6] 6.946245e-310 6.946245e-310  0.000000e+00 6.946245e-310  0.000000e+00</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -207,17 +207,44 @@ major template parameter, <tt class="docutils literal"><span class="pre">RTYPE</
 <dt id="Vector__iCR.stored_typeCR">
  <tt class="descname">Vector</tt><big>(</big>const int&amp; <em>size</em>, const stored_type&amp; <em>u</em><big>)</big><a class="headerlink" href="#Vector__iCR.stored_typeCR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a vector of length <em>size</em>, and fill it with value <em>u</em>.</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>Rcpp<span class="p">)</span>
+evalCpp<span class="p">(</span><span class="s">&quot;NumericVector(10, 2.0)&quot;</span><span class="p">)</span>
+<span class="c1">## [1] 2 2 2 2 2 2 2 2 2 2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">U&gt;</span></tt></p>
+<dl class="function">
+<dt id="Vector__iCR.UCR">
+ <tt class="descname">Vector</tt><big>(</big>const int&amp; <em>size</em>, const U&amp; <em>u</em><big>)</big><a class="headerlink" href="#Vector__iCR.UCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a vector of length <em>size</em>, and fill it with value <em>u</em>. Type will
+be converted if necessary.</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>Rcpp<span class="p">)</span>
+evalCpp<span class="p">(</span><span class="s">&quot;IntegerVector(10, 2.1)&quot;</span><span class="p">)</span>  <span class="c1">## type conversion</span>
+<span class="c1">## [1] 2 2 2 2 2 2 2 2 2 2</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="Vector__ssCR">
  <tt class="descname">Vector</tt><big>(</big>const std::string&amp; <em>st</em><big>)</big><a class="headerlink" href="#Vector__ssCR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a vector from a given string, as the example below shows:</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">vector_ctor_string</span><span class="p">()</span>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="n">RObject</span> <span class="nf">ex_Vector_string</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Rcpp</span><span class="o">::</span><span class="n">CharacterVector</span> <span class="n">x</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// a length one character vector</span>
+    <span class="n">CharacterVector</span> <span class="n">x</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">));</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// a length-one character vector</span>
 <span class="p">}</span>
+
+<span class="cm">/*** R</span>
+<span class="cm">ex_Vector_string()</span>
+<span class="cm">## [1] &quot;Hello&quot;</span>
+<span class="cm">*/</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -235,45 +262,60 @@ errors with these constructors.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="Vector__iCR.Func">
- <tt class="descname">Vector</tt><big>(</big>const int&amp; <em>size</em>, Func <em>gen</em><big>)</big><a class="headerlink" href="#Vector__iCR.Func" title="Permalink to this definition">¶</a></dt>
-<dd><ul>
-<li><p class="first"><em>size</em>: length of the vector.</p>
-</li>
-<li><p class="first"><em>gen</em>: a function that takes no argument and returns a number of the
-same type of the vector, with the signature</p>
-<p>stored_type <strong>gen</strong>()</p>
-</li>
-</ul>
-<p>Create a vector of length <em>size</em>, and use function <em>gen</em> to fill the elements.
-An example:</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span class="kt">double</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mf">2.0</span><span class="p">;</span> <span class="p">}</span>
-<span class="n">SEXP</span> <span class="nf">vec2</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="c1">// a vector of length 10 filled with 2.0</span>
-    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">f</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
 <dt id="Vector__iCR">
  <tt class="descname">Vector</tt><big>(</big>const int&amp; <em>size</em><big>)</big><a class="headerlink" href="#Vector__iCR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a vector of length <em>size</em>, and fill it with zeros (of the proper type).</p>
+<div class="highlight-r"><div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>Rcpp<span class="p">)</span>
+evalCpp<span class="p">(</span><span class="s">&quot;NumericVector(10)&quot;</span><span class="p">)</span>
+<span class="c1">## [1] 0 0 0 0 0 0 0 0 0 0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="Vector__DimensionCR">
  <tt class="descname">Vector</tt><big>(</big>const Dimension&amp; <em>dims</em><big>)</big><a class="headerlink" href="#Vector__DimensionCR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a vector with the given dimension, and fill it with zeros. The <strong>Dimension</strong>
-class is defined in <tt class="docutils literal"><span class="pre">&lt;Rcpp/Dimension.h&gt;</span></tt>. An example:</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">array3d</span><span class="p">()</span>
+class is defined in <tt class="docutils literal"><span class="pre">&lt;Rcpp/Dimension.h&gt;</span></tt>.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="n">RObject</span> <span class="nf">ex1_Vector_dims</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Rcpp</span><span class="o">::</span><span class="n">Dimension</span> <span class="n">dim</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="n">Dimension</span> <span class="n">dim</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
     <span class="c1">// a 2x3x4 array</span>
-    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="n">dim</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">NumericVector</span><span class="p">(</span><span class="n">dim</span><span class="p">);</span>
 <span class="p">}</span>
+
+<span class="cm">/*** R</span>
+<span class="cm">ex1_Vector_dims()</span>
+
+<span class="cm">## , , 1</span>
+<span class="cm">##</span>
+<span class="cm">##      [,1] [,2] [,3]</span>
+<span class="cm">## [1,]    0    0    0</span>
+<span class="cm">## [2,]    0    0    0</span>
+<span class="cm">##</span>
+<span class="cm">## , , 2</span>
+<span class="cm">##</span>
+<span class="cm">##      [,1] [,2] [,3]</span>
+<span class="cm">## [1,]    0    0    0</span>
+<span class="cm">## [2,]    0    0    0</span>
+<span class="cm">##</span>
+<span class="cm">## , , 3</span>
+<span class="cm">##</span>
+<span class="cm">##      [,1] [,2] [,3]</span>
+<span class="cm">## [1,]    0    0    0</span>
+<span class="cm">## [2,]    0    0    0</span>
+<span class="cm">##</span>
+<span class="cm">## , , 4</span>
+<span class="cm">##</span>
+<span class="cm">##      [,1] [,2] [,3]</span>
+<span class="cm">## [1,]    0    0    0</span>
+<span class="cm">## [2,]    0    0    0</span>
+
+<span class="cm">*/</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -284,6 +326,35 @@ class is defined in <tt class="docutils literal"><span class="pre">&lt;Rcpp/Dime
  <tt class="descname">Vector</tt><big>(</big>const Dimension&amp; <em>dims</em>, const U&amp; <em>u</em><big>)</big><a class="headerlink" href="#Vector__DimensionCR.UCR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a vector with the given dimension, and fill it with value <em>u</em>. Type will
 be converted if necessary.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="n">RObject</span> <span class="nf">ex2_Vector_dims</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Dimension</span> <span class="n">dim</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="c1">// a 2x2x2 array filled with 1</span>
+    <span class="k">return</span> <span class="n">NumericVector</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/*** R</span>
+<span class="cm">ex2_Vector_dims()</span>
+
+<span class="cm">## , , 1</span>
+<span class="cm">##</span>
+<span class="cm">##      [,1] [,2]</span>
+<span class="cm">## [1,]    1    1</span>
+<span class="cm">## [2,]    1    1</span>
+<span class="cm">##</span>
+<span class="cm">## , , 2</span>
+<span class="cm">##</span>
+<span class="cm">##      [,1] [,2]</span>
+<span class="cm">## [1,]    1    1</span>
+<span class="cm">## [2,]    1    1</span>
+
+<span class="cm">*/</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;bool</span> <span class="pre">NA,</span> <span class="pre">typename</span> <span class="pre">VEC&gt;</span></tt></p>
@@ -296,20 +367,58 @@ and copied to the created vector. If <em>other</em> is actually a vector of the 
 this function is equivalent to a copy constructor.</p>
 </dd></dl>
 
-<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">U&gt;</span></tt></p>
-<dl class="function">
-<dt id="Vector__iCR.UCR">
- <tt class="descname">Vector</tt><big>(</big>const int&amp; <em>size</em>, const U&amp; <em>u</em><big>)</big><a class="headerlink" href="#Vector__iCR.UCR" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a vector of length <em>size</em>, and fill it with value <em>u</em>. Type will
-be converted if necessary.</p>
-</dd></dl>
-
 <p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;bool</span> <span class="pre">NA,</span> <span class="pre">typename</span> <span class="pre">T&gt;</span></tt></p>
 <dl class="function">
 <dt id="Vector__sugar::SingleLogicalResult:NA.T:CR">
  <tt class="descname">Vector</tt><big>(</big>const sugar::SingleLogicalResult&lt;NA, T&gt;&amp; <em>obj</em><big>)</big><a class="headerlink" href="#Vector__sugar::SingleLogicalResult:NA.T:CR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a vector of length 1 from an object of class <strong>SingleLogicalResult</strong>, usually the result
 returned by <tt class="docutils literal"><span class="pre">Rcpp::all()</span></tt> or <tt class="docutils literal"><span class="pre">Rcpp::any()</span></tt>.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="n">RObject</span> <span class="nf">ex_Vector_slr</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">IntegerVector</span> <span class="n">v</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// length 5, filled with 2</span>
+    <span class="k">return</span> <span class="n">LogicalVector</span><span class="p">(</span><span class="n">all</span><span class="p">(</span><span class="n">v</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="cm">/*** R</span>
+<span class="cm">ex_Vector_slr() ## TRUE</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="Vector__iCR.Func">
+ <tt class="descname">Vector</tt><big>(</big>const int&amp; <em>size</em>, Func <em>gen</em><big>)</big><a class="headerlink" href="#Vector__iCR.Func" title="Permalink to this definition">¶</a></dt>
+<dd><ul>
+<li><p class="first"><em>size</em>: length of the vector.</p>
+</li>
+<li><p class="first"><em>gen</em>: a function that takes no argument and returns a number of the
+same type of the vector, with the signature</p>
+<p>stored_type <strong>gen</strong>()</p>
+</li>
+</ul>
+<p>Create a vector of length <em>size</em>, and use function <em>gen</em> to fill the elements.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="kt">double</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mf">2.0</span><span class="p">;</span> <span class="p">}</span>
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="n">RObject</span> <span class="nf">ex0_Vector_gen</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// a vector of length 10 filled with 2.0</span>
+    <span class="k">return</span> <span class="n">NumericVector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">f</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/*** R</span>
+<span class="cm">ex0_Vector_gen()</span>
+<span class="cm">## [1] 2 2 2 2 2 2 2 2 2 2</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">U1&gt;</span></tt></p>
@@ -321,14 +430,23 @@ returned by <tt class="docutils literal"><span class="pre">Rcpp::all()</span></t
 <p>stored_type <strong>gen</strong>(U1)</p>
 </li>
 </ul>
-<p>Create a vector of length <em>siz</em>, and fill it with the function call <tt class="docutils literal"><span class="pre">gen(u1)</span></tt>.
-An example:</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">my_rexp</span><span class="p">()</span>
+<p>Create a vector of length <em>siz</em>, and fill it with the function call <tt class="docutils literal"><span class="pre">gen(u1)</span></tt>.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="n">RObject</span> <span class="nf">ex1_Vector_gen</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">Rcpp</span><span class="o">::</span><span class="n">RNGScope</span> <span class="n">scp</span><span class="p">;</span>
-    <span class="c1">// 10 exponential random numbers of mean 1</span>
-    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">R</span><span class="o">::</span><span class="n">rexp</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+    <span class="c1">// 5 exponential random numbers of mean 1</span>
+    <span class="k">return</span> <span class="n">NumericVector</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">R</span><span class="o">::</span><span class="n">rexp</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
 <span class="p">}</span>
+
+<span class="cm">/*** R</span>
+<span class="cm">set.seed(123)</span>
+<span class="cm">ex1_Vector_gen()</span>
+<span class="cm">## [1] 0.84345726 0.57661027 1.32905487 0.03157736 0.05621098</span>
+<span class="cm">*/</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -342,14 +460,23 @@ An example:</p>
 <p>stored_type <strong>gen</strong>(U1, U2)</p>
 </li>
 </ul>
-<p>Create a vector of length <em>siz</em>, and fill it with the function call <tt class="docutils literal"><span class="pre">gen(u1,</span> <span class="pre">u2)</span></tt>.
-An example:</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">my_rnorm</span><span class="p">()</span>
+<p>Create a vector of length <em>siz</em>, and fill it with the function call <tt class="docutils literal"><span class="pre">gen(u1,</span> <span class="pre">u2)</span></tt>.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="n">RObject</span> <span class="nf">ex2_Vector_gen</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">Rcpp</span><span class="o">::</span><span class="n">RNGScope</span> <span class="n">scp</span><span class="p">;</span>
-    <span class="c1">// 10 normal random numbers of mean 1 and sd 0.5</span>
-    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">R</span><span class="o">::</span><span class="n">rnorm</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span>
+    <span class="c1">// 5 exponential random numbers of mean 1 and sd 0.5</span>
+    <span class="k">return</span> <span class="n">NumericVector</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">R</span><span class="o">::</span><span class="n">rnorm</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span>
 <span class="p">}</span>
+
+<span class="cm">/*** R</span>
+<span class="cm">set.seed(123)</span>
+<span class="cm">ex2_Vector_gen()</span>
+<span class="cm">## [1] 0.7197622 0.8849113 1.7793542 1.0352542 1.0646439</span>
+<span class="cm">*/</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -372,11 +499,20 @@ An example:</p>
  <tt class="descname">Vector</tt><big>(</big>InputIterator <em>first</em>, InputIterator <em>last</em><big>)</big><a class="headerlink" href="#Vector__InputIterator.InputIterator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy the data between iterators <em>first</em> and <em>last</em> to the created vector.
 An example:</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">copy_vec</span><span class="p">()</span>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="n">RObject</span> <span class="nf">ex1_Vector_input</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">double</span> <span class="n">src</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">};</span>
-    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">src</span> <span class="o">+</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">NumericVector</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">src</span> <span class="o">+</span> <span class="mi">5</span><span class="p">);</span>
 <span class="p">}</span>
+
+<span class="cm">/*** R</span>
+<span class="cm">ex1_Vector_input()</span>
+<span class="cm">## [1] 1 2 3 4 5</span>
+<span class="cm">*/</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -387,13 +523,23 @@ An example:</p>
  <tt class="descname">Vector</tt><big>(</big>InputIterator <em>first</em>, InputIterator <em>last</em>, int <em>n</em><big>)</big><a class="headerlink" href="#Vector__InputIterator.InputIterator.i" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a vector of length <em>n</em>, and copy the data between iterators <em>first</em> and <em>last</em>
 to the created vector. <em>n</em> should be greater than or equal to the distance betwen
-<em>first</em> and <em>last</em>. An example:</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">copy_vec2</span><span class="p">()</span>
+<em>first</em> and <em>last</em>.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="n">RObject</span> <span class="nf">ex2_Vector_input</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">double</span> <span class="n">src</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">};</span>
-    <span class="c1">// last five values are uninitialized</span>
-    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">src</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="c1">// last three values are uninitialized</span>
+    <span class="k">return</span> <span class="n">NumericVector</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">src</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
 <span class="p">}</span>
+
+<span class="cm">/*** R</span>
+<span class="cm">ex2_Vector_input()</span>
+<span class="cm">## [1]  1.000000e+00  2.000000e+00  3.000000e+00  4.000000e+00  5.000000e+00</span>
+<span class="cm">## [6] 2.121996e-314 6.365987e-314           NaN</span>
+<span class="cm">*/</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -407,13 +553,21 @@ to the created vector. <em>n</em> should be greater than or equal to the distanc
 <strong>InputIterator</strong>, and returns a number convertible to the type of the vector.</li>
 </ul>
 <p>Apply function <em>func</em> to each element in the range [<em>first</em>, <em>last</em>),
-and use the resulting values to create the vector. An example:</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span class="kt">double</span> <span class="nf">dsqrt</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="p">}</span>
-<span class="n">SEXP</span> <span class="nf">sqrt_init</span><span class="p">()</span>
+and use the resulting values to create the vector.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="n">RObject</span> <span class="nf">ex3_Vector_input</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="kt">double</span> <span class="n">src</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">};</span>
-    <span class="k">return</span> <span class="n">Rcpp</span><span class="o">::</span><span class="n">NumericVector</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">src</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">dsqrt</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="n">src</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">};</span>
+    <span class="k">return</span> <span class="n">NumericVector</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">src</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">fabs</span><span class="p">);</span>
 <span class="p">}</span>
+
+<span class="cm">/*** R</span>
+<span class="cm">ex3_Vector_input()</span>
+<span class="cm">## [1] 1 2 3 4 5</span>
+<span class="cm">*/</span>
 </pre></div>
 </div>
 </dd></dl>
