@@ -75,6 +75,22 @@
 <dt id="lengthC">
 R_len_t <tt class="descname">length</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#lengthC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the length of the vector.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="kt">int</span> <span class="nf">ex_Vector_length</span><span class="p">(</span><span class="n">NumericVector</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="cm">/*** R</span>
+
+<span class="cm">ex_Vector_length(rnorm(5))  ## 5</span>
+
+<span class="cm">*/</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -88,28 +104,73 @@ R_len_t <tt class="descname">size</tt><big>(</big><big>)</big><tt class="desccla
 size_t <tt class="descname">offset</tt><big>(</big>const size_t&amp; <em>i</em>, const size_t&amp; <em>j</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#offset__sCR.sCRC" title="Permalink to this definition">¶</a></dt>
 <dd><p>When this is actually a matrix, give the offset (i.e., the index) of the element
 in row <em>i</em> and column <em>j</em> (both 0-based).</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="kt">int</span> <span class="nf">ex1_Vector_offset</span><span class="p">(</span><span class="n">NumericVector</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">offset</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/*** R</span>
+
+<span class="cm">set.seed(123)</span>
+<span class="cm">m = matrix(rnorm(24), 4, 6)</span>
+<span class="cm">ex1_Vector_offset(m, 2, 4)  ## 14</span>
+<span class="cm">m[2, 4]  ## 0.110682</span>
+<span class="cm">m[ex1_Vector_offset(m, 2, 4)]  ## 0.110682</span>
+
+<span class="cm">*/</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="offset__sCRC">
 size_t <tt class="descname">offset</tt><big>(</big>const size_t&amp; <em>i</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#offset__sCRC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Give the offset of the <em>i</em>-th element with bound check.</p>
+<dd><p>Give the offset of the <em>i</em>-th element with bound check. 0-based.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="kt">int</span> <span class="nf">ex2_Vector_offset</span><span class="p">(</span><span class="n">NumericVector</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">offset</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/*** R</span>
+
+<span class="cm">v = c(10, 20, 30)</span>
+<span class="cm">ex2_Vector_offset(v, 1)  ## 1</span>
+<span class="cm">ex2_Vector_offset(v, 3)  ## index out of bounds error</span>
+
+<span class="cm">*/</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="offset__ssCRC">
 size_t <tt class="descname">offset</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#offset__ssCRC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Give the offset of the element whose name is <em>name</em> in the vector. An example:</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span class="n">SEXP</span> <span class="nf">test_offset</span><span class="p">()</span>
+<dd><p>Give the offset of the element whose name is <em>name</em> in the vector. 0-based.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="kt">int</span> <span class="nf">ex3_Vector_offset</span><span class="p">(</span><span class="n">NumericVector</span> <span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
-    <span class="n">NumericVector</span> <span class="n">x</span> <span class="o">=</span> <span class="n">NumericVector</span><span class="o">::</span><span class="n">create</span><span class="p">(</span>
-                          <span class="n">Named</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
-                          <span class="n">Named</span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>
-                          <span class="mf">3.0</span>
-                      <span class="p">);</span>
-    <span class="k">return</span> <span class="n">wrap</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">offset</span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">));</span> <span class="c1">// should be 1</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">offset</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">);</span>
 <span class="p">}</span>
+
+<span class="cm">/*** R</span>
+
+<span class="cm">v1 = c(a = 10, b = 20, 30)</span>
+<span class="cm">ex3_Vector_offset(v1)  ## 0</span>
+<span class="cm">v2 = c(c = 40, d = 50)</span>
+<span class="cm">ex3_Vector_offset(v2)  ## index out of bounds error</span>
+
+<span class="cm">*/</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -121,12 +182,56 @@ size_t <tt class="descname">offset</tt><big>(</big>const std::string&amp; <em>na
 <dt id="fill__UCR">
 void <tt class="descname">fill</tt><big>(</big>const U&amp; <em>u</em><big>)</big><a class="headerlink" href="#fill__UCR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fill the vector with value <em>u</em>.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="n">RObject</span> <span class="nf">ex_Vector_fill</span><span class="p">(</span><span class="n">NumericVector</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NumericVector</span> <span class="n">xx</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">xx</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="mf">2.0</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">xx</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/*** R</span>
+
+<span class="cm">v1 = c(2, 1, 3)</span>
+<span class="cm">ex_Vector_fill(v1)</span>
+<span class="cm">## [1] 2 2 2</span>
+
+<span class="cm">*/</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="begin">
 iterator <tt class="descname">begin</tt><big>(</big><big>)</big><a class="headerlink" href="#begin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an iterator pointing to the first element of the vector.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="kt">int</span> <span class="nf">ex_Vector_iterator</span><span class="p">(</span><span class="n">NumericVector</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// another way to get the length of a vector</span>
+    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">distance</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+    <span class="c1">// iterators can be casted to pointers</span>
+    <span class="kt">double</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+    <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">len</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/*** R</span>
+
+<span class="cm">v = c(2, 1, 3)</span>
+<span class="cm">ex_Vector_iterator(v)  ## 3</span>
+<span class="cm">v</span>
+<span class="cm">## [1] 5 1 3</span>
+
+<span class="cm">*/</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -152,6 +257,26 @@ const_iterator <tt class="descname">end</tt><big>(</big><big>)</big><tt class="d
 Proxy <tt class="descname">operator[]</tt><big>(</big>int <em>i</em><big>)</big><a class="headerlink" href="#subscript-operator__i" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the reference of the <em>i</em>-th element (0-based) of the vector <strong>without</strong>
 bound check.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="kt">double</span> <span class="nf">ex1_Vector_indexer</span><span class="p">(</span><span class="n">NumericVector</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="cm">/*** R</span>
+
+<span class="cm">v = c(2, 1, 5)</span>
+<span class="cm">ex1_Vector_indexer(v)  ## 5</span>
+<span class="cm">v</span>
+<span class="cm">## [1] 5 1 5</span>
+
+<span class="cm">*/</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -165,6 +290,26 @@ const_Proxy <tt class="descname">operator[]</tt><big>(</big>int <em>i</em><big>)
 Proxy <tt class="descname">operator()</tt><big>(</big>const size_t&amp; <em>i</em><big>)</big><a class="headerlink" href="#call-operator__sCR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the reference of the <em>i</em>-th element of the vector <strong>with</strong>
 bound check.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;Rcpp.h&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Rcpp</span><span class="p">;</span>
+
+<span class="c1">// [[Rcpp::export]]</span>
+<span class="kt">double</span> <span class="nf">ex2_Vector_indexer</span><span class="p">(</span><span class="n">NumericVector</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">x</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">(</span><span class="mi">999</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/*** R</span>
+
+<span class="cm">v = c(2, 1, 5)</span>
+<span class="cm">ex2_Vector_indexer(v)  ## index out of bounds error</span>
+<span class="cm">v</span>
+<span class="cm">## [1] 5 1 5</span>
+
+<span class="cm">*/</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
