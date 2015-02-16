@@ -1,17 +1,17 @@
 ---
 title: "Solving Statistical Optimization Problems with the ADMM Package"
-author: Yixuan Qiu
+author: "Yixuan Qiu"
 output:
   html_document:
-    toc: true
-    toc_depth: 2
+    self_contained: no
     theme: flatly
-    highlight: default
+    toc: yes
+    toc_depth: 2
 ---
 
 ```{r setup, include=FALSE}
 library(knitr)
-opts_chunk$set(eval=FALSE)
+opts_chunk$set(eval=FALSE, dpi=72)
 ```
 
 ## Introduction
@@ -44,6 +44,8 @@ using the [devtools](http://cran.r-project.org/web/packages/devtools/index.html)
 package.
 
 ```{r}
+# install devtools package if not present
+if(!require("devtools"))  install.packages("devtools")
 library(devtools)
 install_github("yixuan/ADMM")
 ```
@@ -52,6 +54,7 @@ install_github("yixuan/ADMM")
 [RcppEigen](http://cran.r-project.org/web/packages/RcppEigen/index.html),
 [rARPACK](http://cran.r-project.org/web/packages/rARPACK/index.html) and
 [ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html).
+The `install_github()` command above will also install these dependencies if required.
 
 ## Algorithms
 
@@ -80,11 +83,24 @@ y^{k+1} & :=y^{k}+\rho(Ax^{k+1}+Bz^{k+1}-c)
 where $\rho>0$ is the step size parameter. More details about this algorithm
 can be found in the reference <...>.
 
-## Models And Usages
+## Quick Start
 
-The **ADMM** package has implemented a number of popular models in statistics and
-machine learning using the algorithm introduced above. This section summarizes
-the usage of various functions in **ADMM** that are related to specific models.
+This section provides the basic usage and flavors of the **ADMM** package.
+We will go through some simple examples to illustrate the common use of
+**ADMM** functions. More details will be given in the next section.
+
+We first generate some synthetic random data for the Lasso, Elastic Net and
+Dantzig Selector models:
+
+```{r eval=TRUE}
+set.seed(123)
+n = 100
+p = 20
+nonzero = 5
+b = matrix(c(runif(nonzero), rep(0, p - nonzero)))
+x = matrix(rnorm(n * p, mean = 1.2, sd = 2), n, p)
+y = 5 + x %*% b + rnorm(n)
+```
 
 Unlike most other model building functions in R and extension packages, **ADMM**
 makes use of the Reference Class infrastructure in R to build and fit models,
@@ -98,8 +114,73 @@ object.
 function.
 4. Conduct additional tasks, such as plotting and prediction.
 
-Detailed function reference for a specific model will be given in subsequent
-sections.
+For the first step, functions calls are quite straightforward: simply provide
+the data matrix and response vector as arguments. The following code
+creates three model objects of the corresponding types.
+
+```{r eval=TRUE}
+library(ADMM)
+mod1 = admm_lasso(x, y)
+mod2 = admm_enet(x, y)
+mod3 = admm_dantzig(x, y)
+```
+
+Note that at this stage no real computation has been conducted. The model objects
+are simply descriptions of the model setting, which can be modified by calling
+a number of member functions:
+
+```{r eval=TRUE}
+mod2$penalty(alpha = 0.3)
+mod2$opts(maxit = 1000)
+
+mod3$penalty(lambda_min_ratio = 0.01)
+```
+
+The commands above set the $\alpha$ parameter in the Elastic Net model to be 0.3,
+limit the number of iterations to be 1000, and adjust the tuning parameter
+sequence in the Dantzig Selector model.
+
+After setting necessary parameters and options, models could be fitted by the
+`$fit()` member function. This is where the actual computation is done.
+
+```{r eval=TRUE}
+fit1 = mod1$fit()
+fit2 = mod2$fit()
+fit3 = mod3$fit()
+```
+
+Now the calculated $\beta$ vectors are contained in the `beta` field of the
+obtained results. Solution path plots can also be created by further calling
+the `$plot()` member function on the result objects.
+
+```{r eval=TRUE, out.width="300px", fig.show='hold'}
+print(fit1$beta[1:6, 1:6])
+library(ggplot2)
+fit1$plot() %+% ggtitle("Solution Path for Lasso")
+fit2$plot() %+% ggtitle("Solution Path for Enet")
+fit3$plot() %+% ggtitle("Solution Path for Dantzig Selector")
+```
+
+An appealing feature of the **ADMM** package is that most model building
+functions are "chainable", in the sense that one member function call
+can be followed by another. Hence the commands above can be simplified into
+some shorter code:
+
+```{r}
+admm_lasso(x, y)$fit()$plot()
+
+mod2 = admm_enet(x, y)$penalty(alpha = 0.3)$opts(maxit = 1000)
+mod2$fit()$plot()
+
+fit3 = admm_dantzig(x, y)$penalty(lambda_min_ratio = 0.01)$fit()
+fit3$plot()
+```
+
+## Models And References
+
+The **ADMM** package has implemented a number of popular models in statistics and
+machine learning using the algorithm introduced above. This section summarizes
+the usage of various functions in **ADMM** that are related to specific models.
 
 ### Lasso
 
@@ -191,4 +272,4 @@ res$plot()
 
 ### Basis Pursuit
 
-## Examples
+## Additional Examples
