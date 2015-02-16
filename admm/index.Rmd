@@ -384,7 +384,7 @@ and Basis Pursuit models.
 
 ## Least Absolute Deviation
 
-As introduced in the last section, LAD is a type of robust regression technique.
+As is introduced in the last section, LAD is a type of robust regression technique.
 To gain more sense about this feature, we consider a small data set with one
 independent variable $x$ and one response variable $y$, with the true regression
 function $y=-3+2x+\varepsilon$.
@@ -427,8 +427,82 @@ ggplot(dat, aes(x = x, y = y)) +
 Now it is clear that the OLS regression line is much influenced by the outlier,
 while LAD is resistent to that and gives result very close to the truth.
 
+## Basis Pursuit (Compressed Sensing)
 
+Assume that $\beta$ is a vector of length $n$ that has many elements close to
+zero. Let $X$ be a matrix of dimension $m\times n$ and let $y=X\beta$, then
+$y$ is a linear transformation of $\beta$. If $m<n$, it is easy to find that
+$y$ has a lower dimension than $\beta$, which we can think of as a compressed
+version of $\beta$. The theory of Compressed Sensing claims that when
+$X$ and $\beta$ satisfy a number of conditions, $\beta$ can actually be
+recovered from $y$ with a high precision, and the decompression procedure
+is just the problem of Basis Pursuit.
 
+To illustrate this compress-recover process, we use the portrait image of
+R. A. Fisher as an example.
 
+<div align="center">
+  <img src="index_files/figure-html/RAFisher.jpg" alt="Fisher" width="300px" />
+</div>
 
+We read in this image in R and preprocess each column using Discrete Cosine
+Transform (DCT) to obtain the original signal data:
 
+```{r}
+library(ADMM)
+library(jpeg)
+library(fftw)
+img = readJPEG("RAFisher.jpg")
+nr = nrow(img)
+nc = ncol(img)
+
+## preprocess the image using DCT
+dat = matrix(0, nr, nc)
+for(i in 1:nc)
+{
+    dat[, i] = DCT(img[, i]) / nr
+}
+```
+
+Then we use a random matrix whose elements are i.i.d. $N(0, 1)$ random numbers to
+compress each column of the signal data.
+
+```{r}
+set.seed(123)
+m = nr / 5                    ## compressed dimension
+X = matrix(rnorm(m * nr), m)  ## transformation matrix
+Y = X %*% dat                 ## compressed data
+```
+
+The `m` parameter is the dimension after compression, and in this case the compressed
+matrix is only 1/5 the size of the original data. Next, we use the Basis Pursuit
+solver in **ADMM** package to recover signals from the compressed data `Y`.
+
+```{r}
+recdat = matrix(0, nr, nc)    ## data to be recovered
+for(i in 1:nc)
+{
+    print(i)
+    recdat[, i] = as.numeric(admm_bp(X, Y[, i])$opts(eps_rel = 1e-3)$fit()$beta)
+}
+
+## restore image data using inverse DCT
+recimg = matrix(0, nr, nc)
+for(i in 1:nc)
+{
+    recimg[, i] = IDCT(recdat[, i] * nr)
+}
+recimg[recimg < 0] = 0
+recimg[recimg > 1] = 1
+
+writeJPEG(recimg, "recover.jpg", quality = 0.9)
+```
+
+The picture on the left is the recovered image with a compression ratio of 20%
+(meaning the compressed data are only 20% the size of the original one),
+and the image on the right has a compression ratio of 50%.
+
+<div align="center">
+  <img src="index_files/figure-html/rec_20.jpg" alt="Fisher-20" width="300px" />
+  <img src="index_files/figure-html/rec_50.jpg" alt="Fisher-50" width="300px" />
+</div>
