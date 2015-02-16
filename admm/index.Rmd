@@ -193,7 +193,7 @@ $$\frac{1}{2n}\Vert y-X\beta\Vert_2^2+\lambda\Vert\beta\Vert_1$$
 Here $n$ is the sample size and $\lambda$ is the regularization
 parameter that controls the sparseness of $\beta$.
 
-A Lasso model can be fit using the functions below:
+A Lasso model can be built and fitted using the functions below:
 
 - `admm_lasso(x, y, intercept, standardize, ...)`
     - This creates a model object of class `ADMM_Lasso`. It does not conduct
@@ -210,7 +210,7 @@ A Lasso model can be fit using the functions below:
     meanings as in the [glmnet](http://cran.r-project.org/web/packages/glmnet/index.html)
     package.
     - `model`: Model object, typically returned by `admm_lasso()`
-    - `lambda`, `nlambda` etc.: See `?admm_lasso` for details.
+    - `lambda`, `nlambda`, `lambda_min_ratio`: See `?ADMM::admm_lasso` for details.
 - `model$parallel(nthread)`
     - This member function sets the number of threads for parallel computing.
     - `model`: Model object
@@ -224,7 +224,7 @@ A Lasso model can be fit using the functions below:
     - `rho_ratio`: Step size parameter in the ADMM algorithm
 - `model$fit()`
     - This member function starts the computation to fit the model, and returns
-    an object with fields:
+    an object with fields and member functions:
     - `lambda`: The sequence of $\lambda$ to build the solution path
     - `beta`: A sparse matrix containing the estimated coefficient vectors,
     each column for one $\lambda$. Intercepts are contained in the first row.
