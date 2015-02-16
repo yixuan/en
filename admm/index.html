@@ -73,25 +73,33 @@ img {
 <li><a href="#installation">Installation</a></li>
 <li><a href="#algorithms">Algorithms</a></li>
 <li><a href="#quick-start">Quick Start</a></li>
-<li><a href="#models-and-references">Models And References</a></li>
-<li><a href="#additional-examples">Additional Examples</a></li>
+<li><a href="#models-and-references">Models And References</a><ul>
+<li><a href="#lasso">Lasso</a></li>
+<li><a href="#elastic-net">Elastic Net</a></li>
+<li><a href="#dantzig-selector">Dantzig Selector</a></li>
+<li><a href="#basis-pursuit">Basis Pursuit</a></li>
+<li><a href="#least-absolute-deviation">Least Absolute Deviation</a></li>
+</ul></li>
+<li><a href="#additional-examples">Additional Examples</a><ul>
+<li><a href="#least-absolute-deviation-1">Least Absolute Deviation</a></li>
+</ul></li>
 </ul>
 </div>
 
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
 <p><strong>ADMM</strong> is an R package that utilizes the Alternating Direction Method of Multipliers (ADMM) algorithm to solve a broad range of statistical optimization problems. Presently the models that <strong>ADMM</strong> has implemented include:</p>
 <ul>
 <li>Lasso &amp; Elastic Net</li>
 <li>Dantzig Selector</li>
-<li>Least Absolute Deviation</li>
 <li>Basis Pursuit</li>
+<li>Least Absolute Deviation</li>
 </ul>
 <p>The core part of <strong>ADMM</strong> is written in efficient C++ code, with the help of the <a href="http://eigen.tuxfamily.org">Eigen</a> library and its R wrapper <a href="http://cran.r-project.org/web/packages/RcppEigen/index.html">RcppEigen</a>. The computational performance of <strong>ADMM</strong> is comparable to the most cutting-edge R packages such as <a href="http://cran.r-project.org/web/packages/glmnet/index.html">glmnet</a>, and outperforms most existing solvers on other models.</p>
 <p>The <strong>ADMM</strong> package is especially suitable for large scale problems, in which an acceptable solution can be obtained in a few iterations for a moderate precision. It also supports parallel computing using <a href="http://openmp.org">OpenMP</a> for even bigger data.</p>
 </div>
-<div id="installation" class="section level2">
-<h2>Installation</h2>
+<div id="installation" class="section level1">
+<h1>Installation</h1>
 <p>Currently <strong>ADMM</strong> can be installed from <a href="https://github.com/yixuan/ADMM">GitHub</a> using the <a href="http://cran.r-project.org/web/packages/devtools/index.html">devtools</a> package.</p>
 <pre class="r"><code># install devtools package if not present
 if(!require(&quot;devtools&quot;))  install.packages(&quot;devtools&quot;)
@@ -99,8 +107,8 @@ library(devtools)
 install_github(&quot;yixuan/ADMM&quot;)</code></pre>
 <p><strong>ADMM</strong> relies on extension R packages <a href="http://cran.r-project.org/web/packages/RcppEigen/index.html">RcppEigen</a>, <a href="http://cran.r-project.org/web/packages/rARPACK/index.html">rARPACK</a> and <a href="http://cran.r-project.org/web/packages/ggplot2/index.html">ggplot2</a>. The <code>install_github()</code> command above will also install these dependencies if required.</p>
 </div>
-<div id="algorithms" class="section level2">
-<h2>Algorithms</h2>
+<div id="algorithms" class="section level1">
+<h1>Algorithms</h1>
 <p>The <strong>ADMM</strong> package is an implementation of the ADMM algorithm on a number of popular statistical models. The ADMM algorithm solves problems of the form</p>
 <p><span class="math">\[\begin{aligned}
 \text{minimize}\quad &amp; f(x)+g(z)\\
@@ -116,8 +124,8 @@ y^{k+1} &amp; :=y^{k}+\rho(Ax^{k+1}+Bz^{k+1}-c)
 \end{align}\]</span></p>
 <p>where <span class="math">\(\rho&gt;0\)</span> is the step size parameter. More details about this algorithm can be found in the reference &lt;…&gt;.</p>
 </div>
-<div id="quick-start" class="section level2">
-<h2>Quick Start</h2>
+<div id="quick-start" class="section level1">
+<h1>Quick Start</h1>
 <p>This section provides the basic usage and flavors of the <strong>ADMM</strong> package. We will go through some simple examples to illustrate the common use of <strong>ADMM</strong> functions. More details will be given in the next section.</p>
 <p>We first generate some synthetic random data for the Lasso, Elastic Net and Dantzig Selector models:</p>
 <pre class="r"><code>set.seed(123)
@@ -173,15 +181,15 @@ mod2$fit()$plot()
 fit3 = admm_dantzig(x, y)$penalty(lambda_min_ratio = 0.01)$fit()
 fit3$plot()</code></pre>
 </div>
-<div id="models-and-references" class="section level2">
-<h2>Models And References</h2>
+<div id="models-and-references" class="section level1">
+<h1>Models And References</h1>
 <p>The <strong>ADMM</strong> package has implemented a number of popular models in statistics and machine learning using the algorithm introduced above. This section summarizes the usage of various functions in <strong>ADMM</strong> that are related to specific models.</p>
-<div id="lasso" class="section level3">
-<h3>Lasso</h3>
+<div id="lasso" class="section level2">
+<h2>Lasso</h2>
 <p>Lasso is a popular variable selection technique in high dimensional regression analysis, which tries to find the coefficient vector <span class="math">\(\beta\)</span> that minimizes</p>
 <p><span class="math">\[\frac{1}{2n}\Vert y-X\beta\Vert_2^2+\lambda\Vert\beta\Vert_1\]</span></p>
 <p>Here <span class="math">\(n\)</span> is the sample size and <span class="math">\(\lambda\)</span> is the regularization parameter that controls the sparseness of <span class="math">\(\beta\)</span>.</p>
-<p>A Lasso model can be fit using the functions below:</p>
+<p>A Lasso model can be built and fitted using the functions below:</p>
 <ul>
 <li><code>admm_lasso(x, y, intercept, standardize, ...)</code>
 <ul>
@@ -195,15 +203,15 @@ fit3$plot()</code></pre>
 <ul>
 <li>This member function sets the sequence of <span class="math">\(\lambda\)</span> parameters to create a solution path of the Lasso model. Arguments of this function have similar meanings as in the <a href="http://cran.r-project.org/web/packages/glmnet/index.html">glmnet</a> package.</li>
 <li><code>model</code>: Model object, typically returned by <code>admm_lasso()</code></li>
-<li><code>lambda</code>, <code>nlambda</code> etc.: See <code>?admm_lasso</code> for details.</li>
+<li><code>lambda</code>, <code>nlambda</code>, <code>lambda_min_ratio</code>: See <code>?ADMM::admm_lasso</code> for details.</li>
 </ul></li>
-<li><code>model$parallel(nthread)</code>
+<li><code>model$parallel(nthread, ...)</code>
 <ul>
 <li>This member function sets the number of threads for parallel computing.</li>
 <li><code>model</code>: Model object</li>
 <li><code>nthread</code>: Number of threads to be used</li>
 </ul></li>
-<li><code>model$opts(maxit, eps_abs, eps_rel, rho_ratio)</code>
+<li><code>model$opts(maxit, eps_abs, eps_rel, rho_ratio, ...)</code>
 <ul>
 <li>This member function sets options that relate to the ADMM algorithm</li>
 <li><code>model</code>: Model object</li>
@@ -214,7 +222,7 @@ fit3$plot()</code></pre>
 </ul></li>
 <li><code>model$fit()</code>
 <ul>
-<li>This member function starts the computation to fit the model, and returns an object with fields:</li>
+<li>This member function starts the computation to fit the model, and returns an object with fields and member functions:</li>
 <li><code>lambda</code>: The sequence of <span class="math">\(\lambda\)</span> to build the solution path</li>
 <li><code>beta</code>: A sparse matrix containing the estimated coefficient vectors, each column for one <span class="math">\(\lambda\)</span>. Intercepts are contained in the first row.</li>
 <li><code>niter</code>: Number of ADMM iterations</li>
@@ -235,21 +243,144 @@ res = model$fit()</code></pre>
 <p>Once the model is fitted, we can create a solution path plot by calling the <code>$plot()</code> member function of <code>res</code>:</p>
 <pre class="r"><code>res$plot()</code></pre>
 </div>
-<div id="elastic-net" class="section level3">
-<h3>Elastic Net</h3>
+<div id="elastic-net" class="section level2">
+<h2>Elastic Net</h2>
+<p>Elastic Net is an extension to the Lasso model. It seeks a coefficient vector <span class="math">\(\beta\)</span> that minimizes</p>
+<p><span class="math">\[\frac{1}{2n}\Vert y-X\beta\Vert_2^2+\lambda\alpha\Vert\beta\Vert_1+\frac{\lambda(1-\alpha)}{2}\Vert\beta\Vert_2^2\]</span></p>
+<p>Here <span class="math">\(n\)</span> is the sample size, <span class="math">\(\lambda\)</span> is the regularization parameter for penalty term, and <span class="math">\(\alpha\)</span> is the proportion of <span class="math">\(L_1\)</span> norm in the penalty part.</p>
+<p>An Elastic Net model can be built and fitted using the functions below, much similar to the Lasso model:</p>
+<ul>
+<li><code>admm_enet(x, y, intercept, standardize, ...)</code>
+<ul>
+<li>This creates a model object of class <code>ADMM_Enet</code>. It does not conduct the computation, but rather stores the parameters and settings of this model.</li>
+<li><code>x</code>, <code>y</code>, <code>intercept</code>, <code>standardize</code>: Same as those in the Lasso model</li>
+</ul></li>
+<li><code>model$penalty(lambda, nlambda, lambda_min_ratio, alpha, ...)</code>
+<ul>
+<li>This member function sets the sequence of <span class="math">\(\lambda\)</span> parameters as well as the <span class="math">\(\alpha\)</span> parameter. Arguments of this function have similar meanings as in the <a href="http://cran.r-project.org/web/packages/glmnet/index.html">glmnet</a> package.</li>
+<li><code>model</code>: Model object, typically returned by <code>admm_enet()</code></li>
+<li><code>lambda</code>, <code>nlambda</code>, <code>lambda_min_ratio</code>: See <code>?ADMM::admm_enet</code> for details.</li>
+<li><code>alpha</code>: Parameter to control the proportion of <span class="math">\(L_1\)</span> norm in the penalty term. <span class="math">\(\alpha = 1\)</span> corresponds to Lasso and <span class="math">\(\alpha = 2\)</span> is equivalent to <strong>Ridge Regression</strong>.</li>
+</ul></li>
+<li><code>model$opts(maxit, eps_abs, eps_rel, rho_ratio, ...)</code>
+<ul>
+<li>Sams as those in the Lasso model</li>
+</ul></li>
+<li><code>model$fit()</code>
+<ul>
+<li>Same as those in the Lasso model</li>
+</ul></li>
+</ul>
 </div>
-<div id="dantzig-selector" class="section level3">
-<h3>Dantzig Selector</h3>
+<div id="dantzig-selector" class="section level2">
+<h2>Dantzig Selector</h2>
+<p>Dantzig Selector is a variable selection technique that seeks a coefficient vector <span class="math">\(\beta\)</span> that minimizes <span class="math">\(\Vert\beta\Vert_1\)</span> subject to <span class="math">\[\Vert X&#39;(X\beta-y)\Vert_\infty \le \lambda\]</span></p>
+<p>Here <span class="math">\(n\)</span> is the sample size, <span class="math">\(\lambda\)</span> is the regularization parameter, and <span class="math">\(\Vert\cdot\Vert_1\)</span>, <span class="math">\(\Vert\cdot\Vert_\infty\)</span> stand for the <span class="math">\(L_1\)</span> norm and maximum norm respectively.</p>
+<p>A Dantzig Selector model can be built and fitted using the functions below, much similar to the Lasso model:</p>
+<ul>
+<li><code>admm_dantzig(x, y, intercept, standardize, ...)</code>
+<ul>
+<li>This creates a model object of class <code>ADMM_Dantzig</code>. It does not conduct the computation, but rather stores the parameters and settings of this model.</li>
+<li><code>x</code>, <code>y</code>, <code>intercept</code>, <code>standardize</code>: Same as those in the Lasso model</li>
+</ul></li>
+<li><code>model$penalty(lambda, nlambda, lambda_min_ratio, ...)</code>
+<ul>
+<li>This member function sets the sequence of <span class="math">\(\lambda\)</span> parameters to create a solution path.</li>
+<li><code>model</code>: Model object, typically returned by <code>admm_dantzig()</code></li>
+<li><code>lambda</code>, <code>nlambda</code>, <code>lambda_min_ratio</code>: See <code>?ADMM::admm_dantzig</code> for details.</li>
+</ul></li>
+<li><code>model$opts(maxit, eps_abs, eps_rel, rho_ratio, ...)</code>
+<ul>
+<li>Sams as those in the Lasso model</li>
+</ul></li>
+<li><code>model$fit()</code>
+<ul>
+<li>Same as those in the Lasso model</li>
+</ul></li>
+</ul>
 </div>
-<div id="least-absolute-deviation" class="section level3">
-<h3>Least Absolute Deviation</h3>
+<div id="basis-pursuit" class="section level2">
+<h2>Basis Pursuit</h2>
+<p>Basis Pursuit is an optimization problem that minimizes <span class="math">\(\Vert \beta \Vert_1\)</span> subject to <span class="math">\(y=X\beta\)</span>. Here <span class="math">\(X\)</span> is an <span class="math">\(n\)</span> by <span class="math">\(p\)</span> matrix with <span class="math">\(p &gt; n\)</span>.</p>
+<p>Basis Pursuit is broadly applied in <strong>Compressed Sensing</strong> to recover a sparse vector <span class="math">\(\beta\)</span> from the transformed lower dimensional vector <span class="math">\(y\)</span>.</p>
+<p>A Basis Pursuit model can be built and fitted using the functions below:</p>
+<ul>
+<li><code>admm_bp(x, y, ...)</code>
+<ul>
+<li>This creates a model object of class <code>ADMM_BP</code>. It does not conduct the computation, but rather stores the parameters and settings of this model.</li>
+<li><code>x</code>: The transformation matrix</li>
+<li><code>y</code>: The transformed vector to recover from</li>
+</ul></li>
+<li><code>model$opts(maxit, eps_abs, eps_rel, rho_ratio, ...)</code>
+<ul>
+<li>Same as those in the Lasso model</li>
+</ul></li>
+<li><code>model$fit()</code>
+<ul>
+<li>This member function starts the computation to fit the model, and returns an object with fields and member functions:</li>
+<li><code>beta</code>: The recovered <span class="math">\(\beta\)</span> vector in sparse form</li>
+<li><code>niter</code>: Number of ADMM iterations</li>
+<li><code>$plot()</code>: Member function to plot the coefficients against their indices</li>
+</ul></li>
+</ul>
 </div>
-<div id="basis-pursuit" class="section level3">
-<h3>Basis Pursuit</h3>
+<div id="least-absolute-deviation" class="section level2">
+<h2>Least Absolute Deviation</h2>
+<p>Least Absolute Deviation (LAD) is similar to an OLS regression model, but it minimizes the absolute deviation <span class="math">\(\Vert y-X\beta \Vert_1\)</span> instead of the sum of squares <span class="math">\(\Vert y-X\beta \Vert_2^2\)</span>. LAD is equivalent to the <strong>Median Regression</strong>, a special case of the quantile regression models. LAD is a robust regression technique in the sense that the estimated coefficients are insensitive to outliers.</p>
+<p>A Least Absolute Deviation model can be built and fitted using the functions below:</p>
+<ul>
+<li><code>admm_lad(x, y, intercept, ...)</code>
+<ul>
+<li>This creates a model object of class <code>ADMM_LAD</code>. It does not conduct the computation, but rather stores the parameters and settings of this model.</li>
+<li><code>x</code>: Predictor data matrix</li>
+<li><code>y</code>: Response vector</li>
+<li><code>intercept</code>: Whether to include an intercept term. Default is <code>TRUE</code>.</li>
+</ul></li>
+<li><code>model$opts(maxit, eps_abs, eps_rel, rho_ratio, ...)</code>
+<ul>
+<li>Same as those in the Lasso model</li>
+</ul></li>
+<li><code>model$fit()</code>
+<ul>
+<li>This member function starts the computation to fit the model, and returns an object with fields and member functions:</li>
+<li><code>beta</code>: The estimated regression coefficients, including the intercept.</li>
+<li><code>niter</code>: Number of ADMM iterations</li>
+</ul></li>
+</ul>
 </div>
 </div>
-<div id="additional-examples" class="section level2">
-<h2>Additional Examples</h2>
+<div id="additional-examples" class="section level1">
+<h1>Additional Examples</h1>
+<p>Simple examples have been given for Lasso, Elastic Net and Dantzig Selector in the <strong>Quick Start</strong> section. This part provides illustrations of the LAD and Basis Pursuit models.</p>
+<div id="least-absolute-deviation-1" class="section level2">
+<h2>Least Absolute Deviation</h2>
+<p>As introduced in the last section, LAD is a type of robust regression technique. To gain more sense about this feature, we consider a small data set with one independent variable <span class="math">\(x\)</span> and one response variable <span class="math">\(y\)</span>, with the true regression function <span class="math">\(y=-3+2x+\varepsilon\)</span>.</p>
+<p>We intentionally add an outlier in this set of data, and compare the results of OLS and LAD.</p>
+<pre class="r"><code>library(ADMM)
+library(ggplot2)
+set.seed(123)
+x = sort(rnorm(100))
+y = -3 + 2 * x + rnorm(100, sd = 0.5)
+y[1] = y[1] + 10
+dat = data.frame(x = x, y = y)
+ggplot(dat, aes(x = x, y = y)) + geom_point()</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" title="" alt="" width="500px" style="display: block; margin: auto;" /></p>
+<p>The coefficient vector estimated by OLS and LAD can be obtained using the following code:</p>
+<pre class="r"><code>coef_truth = c(-3, 2)
+coef_ols = coef(lm(y ~ x))
+coef_lad = admm_lad(x, y)$fit()$beta</code></pre>
+<p>Then the regression lines obtained by the two methods can be visualized together:</p>
+<pre class="r"><code>res = rbind(coef_truth, coef_ols, coef_lad)
+colnames(res) = c(&quot;intercept&quot;, &quot;slope&quot;)
+res = as.data.frame(res)
+res$method = c(&quot;Truth&quot;, &quot;OLS&quot;, &quot;LAD&quot;)
+ggplot(dat, aes(x = x, y = y)) +
+    geom_point() +
+    geom_abline(aes(intercept = intercept, slope = slope, color = method),
+                data = res, show_guide = TRUE)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" title="" alt="" width="500px" style="display: block; margin: auto;" /></p>
+<p>Now it is clear that the OLS regression line is much influenced by the outlier, while LAD is resistent to that and gives result very close to the truth.</p>
+</div>
 </div>
 
 

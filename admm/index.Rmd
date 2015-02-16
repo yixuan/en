@@ -14,7 +14,7 @@ library(knitr)
 opts_chunk$set(eval=FALSE, dpi=72)
 ```
 
-## Introduction
+# Introduction
 
 **ADMM** is an R package that utilizes the Alternating Direction Method of Multipliers
 (ADMM) algorithm to solve a broad range of statistical optimization problems.
@@ -22,8 +22,8 @@ Presently the models that **ADMM** has implemented include:
 
 - Lasso & Elastic Net
 - Dantzig Selector
-- Least Absolute Deviation
 - Basis Pursuit
+- Least Absolute Deviation
 
 The core part of **ADMM** is written in efficient C++ code, with the help of
 the [Eigen](http://eigen.tuxfamily.org) library and its R wrapper
@@ -37,7 +37,7 @@ an acceptable solution can be obtained in a few iterations for a moderate
 precision. It also supports parallel computing using [OpenMP](http://openmp.org)
 for even bigger data.
 
-## Installation
+# Installation
 
 Currently **ADMM** can be installed from [GitHub](https://github.com/yixuan/ADMM)
 using the [devtools](http://cran.r-project.org/web/packages/devtools/index.html)
@@ -56,7 +56,7 @@ install_github("yixuan/ADMM")
 [ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html).
 The `install_github()` command above will also install these dependencies if required.
 
-## Algorithms
+# Algorithms
 
 The **ADMM** package is an implementation of the ADMM algorithm on a number of
 popular statistical models. The ADMM algorithm solves problems of the form
@@ -83,7 +83,7 @@ y^{k+1} & :=y^{k}+\rho(Ax^{k+1}+Bz^{k+1}-c)
 where $\rho>0$ is the step size parameter. More details about this algorithm
 can be found in the reference <...>.
 
-## Quick Start
+# Quick Start
 
 This section provides the basic usage and flavors of the **ADMM** package.
 We will go through some simple examples to illustrate the common use of
@@ -176,13 +176,13 @@ fit3 = admm_dantzig(x, y)$penalty(lambda_min_ratio = 0.01)$fit()
 fit3$plot()
 ```
 
-## Models And References
+# Models And References
 
 The **ADMM** package has implemented a number of popular models in statistics and
 machine learning using the algorithm introduced above. This section summarizes
 the usage of various functions in **ADMM** that are related to specific models.
 
-### Lasso
+## Lasso
 
 Lasso is a popular variable selection technique in high dimensional
 regression analysis, which tries to find the coefficient vector $\beta$
@@ -211,11 +211,11 @@ A Lasso model can be built and fitted using the functions below:
     package.
     - `model`: Model object, typically returned by `admm_lasso()`
     - `lambda`, `nlambda`, `lambda_min_ratio`: See `?ADMM::admm_lasso` for details.
-- `model$parallel(nthread)`
+- `model$parallel(nthread, ...)`
     - This member function sets the number of threads for parallel computing.
     - `model`: Model object
     - `nthread`: Number of threads to be used
-- `model$opts(maxit, eps_abs, eps_rel, rho_ratio)`
+- `model$opts(maxit, eps_abs, eps_rel, rho_ratio, ...)`
     - This member function sets options that relate to the ADMM algorithm
     - `model`: Model object
     - `maxit`: Maximum number of iterations
@@ -264,12 +264,171 @@ Once the model is fitted, we can create a solution path plot by calling the
 res$plot()
 ```
 
-### Elastic Net
+## Elastic Net
 
-### Dantzig Selector
+Elastic Net is an extension to the Lasso model. It seeks a coefficient vector
+$\beta$ that minimizes
 
-### Least Absolute Deviation
+$$\frac{1}{2n}\Vert y-X\beta\Vert_2^2+\lambda\alpha\Vert\beta\Vert_1+\frac{\lambda(1-\alpha)}{2}\Vert\beta\Vert_2^2$$
 
-### Basis Pursuit
+Here $n$ is the sample size, $\lambda$ is the regularization
+parameter for penalty term, and $\alpha$ is the proportion of $L_1$ norm
+in the penalty part.
 
-## Additional Examples
+An Elastic Net model can be built and fitted using the functions below, much
+similar to the Lasso model:
+
+- `admm_enet(x, y, intercept, standardize, ...)`
+    - This creates a model object of class `ADMM_Enet`. It does not conduct
+    the computation, but rather stores the parameters and settings of this model.
+    - `x`, `y`, `intercept`, `standardize`: Same as those in the Lasso model
+- `model$penalty(lambda, nlambda, lambda_min_ratio, alpha, ...)`
+    - This member function sets the sequence of $\lambda$ parameters as well as
+    the $\alpha$ parameter. Arguments of this function have similar
+    meanings as in the [glmnet](http://cran.r-project.org/web/packages/glmnet/index.html)
+    package.
+    - `model`: Model object, typically returned by `admm_enet()`
+    - `lambda`, `nlambda`, `lambda_min_ratio`: See `?ADMM::admm_enet` for details.
+    - `alpha`: Parameter to control the proportion of $L_1$ norm in the penalty
+    term. $\alpha = 1$ corresponds to Lasso and $\alpha = 2$ is equivalent to
+    **Ridge Regression**.
+- `model$opts(maxit, eps_abs, eps_rel, rho_ratio, ...)`
+    - Sams as those in the Lasso model
+- `model$fit()`
+    - Same as those in the Lasso model
+
+## Dantzig Selector
+
+Dantzig Selector is a variable selection technique that seeks a
+coefficient vector $\beta$ that minimizes $\Vert\beta\Vert_1$
+subject to
+$$\Vert X'(X\beta-y)\Vert_\infty \le \lambda$$
+
+Here $n$ is the sample size, $\lambda$ is the regularization parameter,
+and $\Vert\cdot\Vert_1$, $\Vert\cdot\Vert_\infty$ stand for the $L_1$ norm and maximum
+norm respectively.
+
+A Dantzig Selector model can be built and fitted using the functions below, much
+similar to the Lasso model:
+
+- `admm_dantzig(x, y, intercept, standardize, ...)`
+    - This creates a model object of class `ADMM_Dantzig`. It does not conduct
+    the computation, but rather stores the parameters and settings of this model.
+    - `x`, `y`, `intercept`, `standardize`: Same as those in the Lasso model
+- `model$penalty(lambda, nlambda, lambda_min_ratio, ...)`
+    - This member function sets the sequence of $\lambda$ parameters to create
+    a solution path.
+    - `model`: Model object, typically returned by `admm_dantzig()`
+    - `lambda`, `nlambda`, `lambda_min_ratio`: See `?ADMM::admm_dantzig` for details.
+- `model$opts(maxit, eps_abs, eps_rel, rho_ratio, ...)`
+    - Sams as those in the Lasso model
+- `model$fit()`
+    - Same as those in the Lasso model
+
+## Basis Pursuit
+
+Basis Pursuit is an optimization problem that minimizes
+$\Vert \beta \Vert_1$ subject to
+$y=X\beta$. Here $X$ is an $n$ by $p$ matrix with $p > n$.
+
+Basis Pursuit is broadly applied in **Compressed Sensing** to recover a sparse
+vector $\beta$ from the transformed lower dimensional vector $y$.
+
+A Basis Pursuit model can be built and fitted using the functions below:
+
+- `admm_bp(x, y, ...)`
+    - This creates a model object of class `ADMM_BP`. It does not conduct
+    the computation, but rather stores the parameters and settings of this model.
+    - `x`: The transformation matrix
+    - `y`: The transformed vector to recover from
+- `model$opts(maxit, eps_abs, eps_rel, rho_ratio, ...)`
+    - Same as those in the Lasso model
+- `model$fit()`
+    - This member function starts the computation to fit the model, and returns
+    an object with fields and member functions:
+    - `beta`: The recovered $\beta$ vector in sparse form
+    - `niter`: Number of ADMM iterations
+    - `$plot()`: Member function to plot the coefficients against their indices
+
+## Least Absolute Deviation
+
+Least Absolute Deviation (LAD) is similar to an OLS regression
+model, but it minimizes the absolute deviation
+$\Vert y-X\beta \Vert_1$ instead of the sum of squares
+$\Vert y-X\beta \Vert_2^2$. LAD is equivalent to the
+**Median Regression**, a special case of the quantile regression models. LAD is
+a robust regression technique in the sense that the estimated coefficients are
+insensitive to outliers.
+
+A Least Absolute Deviation model can be built and fitted using the functions below:
+
+- `admm_lad(x, y, intercept, ...)`
+    - This creates a model object of class `ADMM_LAD`. It does not conduct
+    the computation, but rather stores the parameters and settings of this model.
+    - `x`: Predictor data matrix
+    - `y`: Response vector
+    - `intercept`: Whether to include an intercept term. Default is `TRUE`.
+- `model$opts(maxit, eps_abs, eps_rel, rho_ratio, ...)`
+    - Same as those in the Lasso model
+- `model$fit()`
+    - This member function starts the computation to fit the model, and returns
+    an object with fields and member functions:
+    - `beta`: The estimated regression coefficients, including the intercept.
+    - `niter`: Number of ADMM iterations
+
+# Additional Examples
+
+Simple examples have been given for Lasso, Elastic Net and Dantzig Selector
+in the **Quick Start** section. This part provides illustrations of the LAD
+and Basis Pursuit models.
+
+## Least Absolute Deviation
+
+As introduced in the last section, LAD is a type of robust regression technique.
+To gain more sense about this feature, we consider a small data set with one
+independent variable $x$ and one response variable $y$, with the true regression
+function $y=-3+2x+\varepsilon$.
+
+We intentionally add an outlier in this set of data, and compare the results of OLS and LAD.
+
+```{r eval=TRUE, out.width="500px", fig.align='center'}
+library(ADMM)
+library(ggplot2)
+set.seed(123)
+x = sort(rnorm(100))
+y = -3 + 2 * x + rnorm(100, sd = 0.5)
+y[1] = y[1] + 10
+dat = data.frame(x = x, y = y)
+ggplot(dat, aes(x = x, y = y)) + geom_point()
+```
+
+The coefficient vector estimated by OLS and LAD can be obtained using the following
+code:
+
+```{r eval=TRUE}
+coef_truth = c(-3, 2)
+coef_ols = coef(lm(y ~ x))
+coef_lad = admm_lad(x, y)$fit()$beta
+```
+
+Then the regression lines obtained by the two methods can be visualized together:
+
+```{r eval=TRUE, out.width="500px", fig.align='center'}
+res = rbind(coef_truth, coef_ols, coef_lad)
+colnames(res) = c("intercept", "slope")
+res = as.data.frame(res)
+res$method = c("Truth", "OLS", "LAD")
+ggplot(dat, aes(x = x, y = y)) +
+    geom_point() +
+    geom_abline(aes(intercept = intercept, slope = slope, color = method),
+                data = res, show_guide = TRUE)
+```
+
+Now it is clear that the OLS regression line is much influenced by the outlier,
+while LAD is resistent to that and gives result very close to the truth.
+
+
+
+
+
+
