@@ -70,33 +70,33 @@ img {
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#algorithms">Algorithms</a></li>
-<li><a href="#models">Models</a></li>
-<li><a href="#performance">Performance</a></li>
+<li><a href="#models-and-usages">Models And Usages</a></li>
+<li><a href="#examples">Examples</a></li>
 </ul>
 </div>
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p><code>ADMM</code> is an R package that utilizes the Alternating Direction Method of Multipliers (ADMM) algorithm to solve a broad range of statistical optimization problems. Presently the models that <code>ADMM</code> has implemented include:</p>
+<p><strong>ADMM</strong> is an R package that utilizes the Alternating Direction Method of Multipliers (ADMM) algorithm to solve a broad range of statistical optimization problems. Presently the models that <strong>ADMM</strong> has implemented include:</p>
 <ul>
 <li>Lasso &amp; Elastic Net</li>
 <li>Dantzig Selector</li>
 <li>Least Absolute Deviation</li>
 <li>Basis Pursuit</li>
 </ul>
-<p>The core part of <code>ADMM</code> is written in efficient C++ code, with the help of the <a href="http://eigen.tuxfamily.org">Eigen</a> library and its R wrapper <a href="http://cran.r-project.org/web/packages/RcppEigen/index.html">RcppEigen</a>. The computational performance of <code>ADMM</code> is comparable to the most cutting-edge R packages such as <a href="http://cran.r-project.org/web/packages/glmnet/index.html">glmnet</a>, and outperforms most existing solvers on other models.</p>
-<p>The <code>ADMM</code> package is especially suitable for large scale problems, in which an acceptable solution can be obtained in a few iterations for a moderate precision. It also supports parallel computing using <a href="http://openmp.org">OpenMP</a> for even bigger data.</p>
+<p>The core part of <strong>ADMM</strong> is written in efficient C++ code, with the help of the <a href="http://eigen.tuxfamily.org">Eigen</a> library and its R wrapper <a href="http://cran.r-project.org/web/packages/RcppEigen/index.html">RcppEigen</a>. The computational performance of <strong>ADMM</strong> is comparable to the most cutting-edge R packages such as <a href="http://cran.r-project.org/web/packages/glmnet/index.html">glmnet</a>, and outperforms most existing solvers on other models.</p>
+<p>The <strong>ADMM</strong> package is especially suitable for large scale problems, in which an acceptable solution can be obtained in a few iterations for a moderate precision. It also supports parallel computing using <a href="http://openmp.org">OpenMP</a> for even bigger data.</p>
 </div>
 <div id="installation" class="section level2">
 <h2>Installation</h2>
-<p>Currently <code>ADMM</code> can be installed from <a href="https://github.com/yixuan/ADMM">GitHub</a> using the <a href="http://cran.r-project.org/web/packages/devtools/index.html">devtools</a> package.</p>
+<p>Currently <strong>ADMM</strong> can be installed from <a href="https://github.com/yixuan/ADMM">GitHub</a> using the <a href="http://cran.r-project.org/web/packages/devtools/index.html">devtools</a> package.</p>
 <pre class="r"><code>library(devtools)
 install_github(&quot;yixuan/ADMM&quot;)</code></pre>
-<p><code>ADMM</code> relies on extension R packages <a href="http://cran.r-project.org/web/packages/RcppEigen/index.html">RcppEigen</a>, <a href="http://cran.r-project.org/web/packages/rARPACK/index.html">rARPACK</a> and <a href="http://cran.r-project.org/web/packages/ggplot2/index.html">ggplot2</a>.</p>
+<p><strong>ADMM</strong> relies on extension R packages <a href="http://cran.r-project.org/web/packages/RcppEigen/index.html">RcppEigen</a>, <a href="http://cran.r-project.org/web/packages/rARPACK/index.html">rARPACK</a> and <a href="http://cran.r-project.org/web/packages/ggplot2/index.html">ggplot2</a>.</p>
 </div>
 <div id="algorithms" class="section level2">
 <h2>Algorithms</h2>
-<p>The <code>ADMM</code> package is an implementation of the ADMM algorithm on a number of popular statistical models. The ADMM algorithm solves problems of the form</p>
+<p>The <strong>ADMM</strong> package is an implementation of the ADMM algorithm on a number of popular statistical models. The ADMM algorithm solves problems of the form</p>
 <p><span class="math">\[\begin{aligned}
 \text{minimize}\quad &amp; f(x)+g(z)\\
 \text{subject to}\quad &amp; Ax + Bz = c
@@ -111,11 +111,75 @@ y^{k+1} &amp; :=y^{k}+\rho(Ax^{k+1}+Bz^{k+1}-c)
 \end{align}\]</span></p>
 <p>where <span class="math">\(\rho&gt;0\)</span> is the step size parameter. More details about this algorithm can be found in the reference &lt;…&gt;.</p>
 </div>
-<div id="models" class="section level2">
-<h2>Models</h2>
-<p>The <code>ADMM</code> package has implemented a number of popular models in statistics and machine learning using the algorithm introduced above. This section summarizes the usage of various functions in <code>ADMM</code> that are related to specific models.</p>
+<div id="models-and-usages" class="section level2">
+<h2>Models And Usages</h2>
+<p>The <strong>ADMM</strong> package has implemented a number of popular models in statistics and machine learning using the algorithm introduced above. This section summarizes the usage of various functions in <strong>ADMM</strong> that are related to specific models.</p>
+<p>Unlike most other model building functions in R and extension packages, <strong>ADMM</strong> makes use of the Reference Class infrastructure in R to build and fit models, so that the syntax is in an Object-Oriented Programming (OOP) style. The typical way to fit an model can be expressed in the following steps:</p>
+<ol style="list-style-type: decimal">
+<li>Call a particular model function to create a “model object”.</li>
+<li>Set necessary parameters and options through member functions of this model object.</li>
+<li>Actually run the estimation procedure by calling the model fitting member function.</li>
+<li>Conduct additional tasks, such as plotting and prediction.</li>
+</ol>
+<p>Detailed function reference for a specific model will be given in subsequent sections.</p>
 <div id="lasso" class="section level3">
 <h3>Lasso</h3>
+<p>Lasso is a popular variable selection technique in high dimensional regression analysis, which tries to find the coefficient vector <span class="math">\(\beta\)</span> that minimizes</p>
+<p><span class="math">\[\frac{1}{2n}\Vert y-X\beta\Vert_2^2+\lambda\Vert\beta\Vert_1\]</span></p>
+<p>Here <span class="math">\(n\)</span> is the sample size and <span class="math">\(\lambda\)</span> is the regularization parameter that controls the sparseness of <span class="math">\(\beta\)</span>.</p>
+<p>A Lasso model can be fit using the functions below:</p>
+<ul>
+<li><code>admm_lasso(x, y, intercept, standardize, ...)</code>
+<ul>
+<li>This creates a model object of class <code>ADMM_Lasso</code>. It does not conduct the computation, but rather stores the parameters and settings of this model.</li>
+<li><code>x</code>: Predictor data matrix</li>
+<li><code>y</code>: Response Vector</li>
+<li><code>intercept</code>: Whether to fit an intercept in the model. Default is <code>TRUE</code>.</li>
+<li><code>standardize</code>: Whether to standardize the explanatory variables before fitting the model. Default is <code>TRUE</code>. Fitted coefficients are always returned on the original scale.</li>
+</ul></li>
+<li><code>model$penalty(lambda, nlambda, lambda_min_ratio, ...)</code>
+<ul>
+<li>This member function sets the sequence of <span class="math">\(\lambda\)</span> parameters to create a solution path of the Lasso model. Arguments of this function have similar meanings as in the <a href="http://cran.r-project.org/web/packages/glmnet/index.html">glmnet</a> package.</li>
+<li><code>model</code>: Model object, typically returned by <code>admm_lasso()</code></li>
+<li><code>lambda</code>, <code>nlambda</code> etc.: See <code>?admm_lasso</code> for details.</li>
+</ul></li>
+<li><code>model$parallel(nthread)</code>
+<ul>
+<li>This member function sets the number of threads for parallel computing.</li>
+<li><code>model</code>: Model object</li>
+<li><code>nthread</code>: Number of threads to be used</li>
+</ul></li>
+<li><code>model$opts(maxit, eps_abs, eps_rel, rho_ratio)</code>
+<ul>
+<li>This member function sets options that relate to the ADMM algorithm</li>
+<li><code>model</code>: Model object</li>
+<li><code>maxit</code>: Maximum number of iterations</li>
+<li><code>eps_abs</code>: Absolute tolerance parameter</li>
+<li><code>eps_rel</code>: Relative tolerance parameter</li>
+<li><code>rho_ratio</code>: Step size parameter in the ADMM algorithm</li>
+</ul></li>
+<li><code>model$fit()</code>
+<ul>
+<li>This member function starts the computation to fit the model, and returns an object with fields:</li>
+<li><code>lambda</code>: The sequence of <span class="math">\(\lambda\)</span> to build the solution path</li>
+<li><code>beta</code>: A sparse matrix containing the estimated coefficient vectors, each column for one <span class="math">\(\lambda\)</span>. Intercepts are contained in the first row.</li>
+<li><code>niter</code>: Number of ADMM iterations</li>
+<li><code>$plot()</code>: Member function to create plots</li>
+</ul></li>
+</ul>
+<p>The simplest syntax to obtain the model fitting result is to call</p>
+<pre class="r"><code>res = admm_lasso(x, y)$fit()</code></pre>
+<p>While most member functions of class <code>ADMM_Lasso</code> return the model object itself, it is possible (and recommended) to call a sequence of member functions in a “chain style”:</p>
+<pre class="r"><code>res = admm_lasso(x, y)$penalty(nlambda = 50)$parallel(2)$opts(maxit = 100)$fit()</code></pre>
+<p>which is equivalent to</p>
+<pre class="r"><code>model = admm_lasso(x, y)
+model$penalty(nlambda = 50)
+model$parallel(2)
+model$opts(maxit = 100)
+res = model$fit()</code></pre>
+<p>Clearly, the chain style syntax is more concise and intuitive.</p>
+<p>Once the model is fitted, we can create a solution path plot by calling the <code>$plot()</code> member function of <code>res</code>:</p>
+<pre class="r"><code>res$plot()</code></pre>
 </div>
 <div id="elastic-net" class="section level3">
 <h3>Elastic Net</h3>
@@ -130,8 +194,8 @@ y^{k+1} &amp; :=y^{k}+\rho(Ax^{k+1}+Bz^{k+1}-c)
 <h3>Basis Pursuit</h3>
 </div>
 </div>
-<div id="performance" class="section level2">
-<h2>Performance</h2>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
 </div>
 
 

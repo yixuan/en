@@ -16,30 +16,30 @@ opts_chunk$set(eval=FALSE)
 
 ## Introduction
 
-`ADMM` is an R package that utilizes the Alternating Direction Method of Multipliers
+**ADMM** is an R package that utilizes the Alternating Direction Method of Multipliers
 (ADMM) algorithm to solve a broad range of statistical optimization problems.
-Presently the models that `ADMM` has implemented include:
+Presently the models that **ADMM** has implemented include:
 
 - Lasso & Elastic Net
 - Dantzig Selector
 - Least Absolute Deviation
 - Basis Pursuit
 
-The core part of `ADMM` is written in efficient C++ code, with the help of
+The core part of **ADMM** is written in efficient C++ code, with the help of
 the [Eigen](http://eigen.tuxfamily.org) library and its R wrapper
 [RcppEigen](http://cran.r-project.org/web/packages/RcppEigen/index.html).
-The computational performance of `ADMM` is comparable to the most cutting-edge
+The computational performance of **ADMM** is comparable to the most cutting-edge
 R packages such as [glmnet](http://cran.r-project.org/web/packages/glmnet/index.html),
 and outperforms most existing solvers on other models.
 
-The `ADMM` package is especially suitable for large scale problems, in which
+The **ADMM** package is especially suitable for large scale problems, in which
 an acceptable solution can be obtained in a few iterations for a moderate
 precision. It also supports parallel computing using [OpenMP](http://openmp.org)
 for even bigger data.
 
 ## Installation
 
-Currently `ADMM` can be installed from [GitHub](https://github.com/yixuan/ADMM)
+Currently **ADMM** can be installed from [GitHub](https://github.com/yixuan/ADMM)
 using the [devtools](http://cran.r-project.org/web/packages/devtools/index.html)
 package.
 
@@ -48,14 +48,14 @@ library(devtools)
 install_github("yixuan/ADMM")
 ```
 
-`ADMM` relies on extension R packages
+**ADMM** relies on extension R packages
 [RcppEigen](http://cran.r-project.org/web/packages/RcppEigen/index.html),
 [rARPACK](http://cran.r-project.org/web/packages/rARPACK/index.html) and
 [ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html).
 
 ## Algorithms
 
-The `ADMM` package is an implementation of the ADMM algorithm on a number of
+The **ADMM** package is an implementation of the ADMM algorithm on a number of
 popular statistical models. The ADMM algorithm solves problems of the form
 
 $$\begin{aligned}
@@ -80,13 +80,108 @@ y^{k+1} & :=y^{k}+\rho(Ax^{k+1}+Bz^{k+1}-c)
 where $\rho>0$ is the step size parameter. More details about this algorithm
 can be found in the reference <...>.
 
-## Models
+## Models And Usages
 
-The `ADMM` package has implemented a number of popular models in statistics and
+The **ADMM** package has implemented a number of popular models in statistics and
 machine learning using the algorithm introduced above. This section summarizes
-the usage of various functions in `ADMM` that are related to specific models.
+the usage of various functions in **ADMM** that are related to specific models.
+
+Unlike most other model building functions in R and extension packages, **ADMM**
+makes use of the Reference Class infrastructure in R to build and fit models,
+so that the syntax is in an Object-Oriented Programming (OOP) style. The typical
+way to fit an model can be expressed in the following steps:
+
+1. Call a particular model function to create a "model object".
+2. Set necessary parameters and options through member functions of this model
+object.
+3. Actually run the estimation procedure by calling the model fitting member
+function.
+4. Conduct additional tasks, such as plotting and prediction.
+
+Detailed function reference for a specific model will be given in subsequent
+sections.
 
 ### Lasso
+
+Lasso is a popular variable selection technique in high dimensional
+regression analysis, which tries to find the coefficient vector $\beta$
+that minimizes
+
+$$\frac{1}{2n}\Vert y-X\beta\Vert_2^2+\lambda\Vert\beta\Vert_1$$
+
+Here $n$ is the sample size and $\lambda$ is the regularization
+parameter that controls the sparseness of $\beta$.
+
+A Lasso model can be fit using the functions below:
+
+- `admm_lasso(x, y, intercept, standardize, ...)`
+    - This creates a model object of class `ADMM_Lasso`. It does not conduct
+    the computation, but rather stores the parameters and settings of this model.
+    - `x`: Predictor data matrix
+    - `y`: Response Vector
+    - `intercept`: Whether to fit an intercept in the model. Default is `TRUE`.
+    - `standardize`: Whether to standardize the explanatory variables before
+    fitting the model. Default is `TRUE`. Fitted coefficients are always
+    returned on the original scale.
+- `model$penalty(lambda, nlambda, lambda_min_ratio, ...)`
+    - This member function sets the sequence of $\lambda$ parameters to create
+    a solution path of the Lasso model. Arguments of this function have similar
+    meanings as in the [glmnet](http://cran.r-project.org/web/packages/glmnet/index.html)
+    package.
+    - `model`: Model object, typically returned by `admm_lasso()`
+    - `lambda`, `nlambda` etc.: See `?admm_lasso` for details.
+- `model$parallel(nthread)`
+    - This member function sets the number of threads for parallel computing.
+    - `model`: Model object
+    - `nthread`: Number of threads to be used
+- `model$opts(maxit, eps_abs, eps_rel, rho_ratio)`
+    - This member function sets options that relate to the ADMM algorithm
+    - `model`: Model object
+    - `maxit`: Maximum number of iterations
+    - `eps_abs`: Absolute tolerance parameter
+    - `eps_rel`: Relative tolerance parameter
+    - `rho_ratio`: Step size parameter in the ADMM algorithm
+- `model$fit()`
+    - This member function starts the computation to fit the model, and returns
+    an object with fields:
+    - `lambda`: The sequence of $\lambda$ to build the solution path
+    - `beta`: A sparse matrix containing the estimated coefficient vectors,
+    each column for one $\lambda$. Intercepts are contained in the first row.
+    - `niter`: Number of ADMM iterations
+    - `$plot()`: Member function to create plots
+
+The simplest syntax to obtain the model fitting result is to call
+
+```{r}
+res = admm_lasso(x, y)$fit()
+```
+
+While most member functions of class `ADMM_Lasso` return the model object itself,
+it is possible (and recommended) to call a sequence of member functions in a
+"chain style":
+
+```{r}
+res = admm_lasso(x, y)$penalty(nlambda = 50)$parallel(2)$opts(maxit = 100)$fit()
+```
+
+which is equivalent to
+
+```{r}
+model = admm_lasso(x, y)
+model$penalty(nlambda = 50)
+model$parallel(2)
+model$opts(maxit = 100)
+res = model$fit()
+```
+
+Clearly, the chain style syntax is more concise and intuitive.
+
+Once the model is fitted, we can create a solution path plot by calling the
+`$plot()` member function of `res`:
+
+```{r}
+res$plot()
+```
 
 ### Elastic Net
 
@@ -96,4 +191,4 @@ the usage of various functions in `ADMM` that are related to specific models.
 
 ### Basis Pursuit
 
-## Performance
+## Examples
