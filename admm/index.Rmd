@@ -1,0 +1,99 @@
+---
+title: "Solving Statistical Optimization Problems with the ADMM Package"
+author: Yixuan Qiu
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    theme: flatly
+    highlight: default
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(eval=FALSE)
+```
+
+## Introduction
+
+`ADMM` is an R package that utilizes the Alternating Direction Method of Multipliers
+(ADMM) algorithm to solve a broad range of statistical optimization problems.
+Presently the models that `ADMM` has implemented include:
+
+- Lasso & Elastic Net
+- Dantzig Selector
+- Least Absolute Deviation
+- Basis Pursuit
+
+The core part of `ADMM` is written in efficient C++ code, with the help of
+the [Eigen](http://eigen.tuxfamily.org) library and its R wrapper
+[RcppEigen](http://cran.r-project.org/web/packages/RcppEigen/index.html).
+The computational performance of `ADMM` is comparable to the most cutting-edge
+R packages such as [glmnet](http://cran.r-project.org/web/packages/glmnet/index.html),
+and outperforms most existing solvers on other models.
+
+The `ADMM` package is especially suitable for large scale problems, in which
+an acceptable solution can be obtained in a few iterations for a moderate
+precision. It also supports parallel computing using [OpenMP](http://openmp.org)
+for even bigger data.
+
+## Installation
+
+Currently `ADMM` can be installed from [GitHub](https://github.com/yixuan/ADMM)
+using the [devtools](http://cran.r-project.org/web/packages/devtools/index.html)
+package.
+
+```{r}
+library(devtools)
+install_github("yixuan/ADMM")
+```
+
+`ADMM` relies on extension R packages
+[RcppEigen](http://cran.r-project.org/web/packages/RcppEigen/index.html),
+[rARPACK](http://cran.r-project.org/web/packages/rARPACK/index.html) and
+[ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html).
+
+## Algorithms
+
+The `ADMM` package is an implementation of the ADMM algorithm on a number of
+popular statistical models. The ADMM algorithm solves problems of the form
+
+$$\begin{aligned}
+\text{minimize}\quad & f(x)+g(z)\\
+\text{subject to}\quad & Ax + Bz = c
+\end{aligned}$$
+
+where $x$, $z$ are vectors, $A$ and $B$ are matrices of suitable dimensions,
+and $f$, $g$ are convex functions.
+
+A wide range of statistical optimization problems can be written in this form,
+including the ones that this package has implemented. 
+
+ADMM algorithm can be expressed in the following iterative update equations:
+
+$$\begin{align}
+x^{k+1} & :=\underset{x}{\arg\min}\left(f(x)+\frac{\rho}{2}\Vert Ax+Bz^{k}-c+y^{k}/\rho\Vert_{2}^{2}\right)\\
+z^{k+1} & :=\underset{z}{\arg\min}\left(g(z)+\frac{\rho}{2}\Vert Ax^{k+1}+Bz-c+y^{k}/\rho\Vert_{2}^{2}\right)\\
+y^{k+1} & :=y^{k}+\rho(Ax^{k+1}+Bz^{k+1}-c)
+\end{align}$$
+
+where $\rho>0$ is the step size parameter. More details about this algorithm
+can be found in the reference <...>.
+
+## Models
+
+The `ADMM` package has implemented a number of popular models in statistics and
+machine learning using the algorithm introduced above. This section summarizes
+the usage of various functions in `ADMM` that are related to specific models.
+
+### Lasso
+
+### Elastic Net
+
+### Dantzig Selector
+
+### Least Absolute Deviation
+
+### Basis Pursuit
+
+## Performance
