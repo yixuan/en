@@ -24,7 +24,6 @@
     <script type="text/javascript" src="../static/jquery.js"></script>
     <script type="text/javascript" src="../static/underscore.js"></script>
     <script type="text/javascript" src="../static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../static/jquery-ui.min.js"></script>
     <script>
       $( document ).ready(function() {
@@ -37,13 +36,23 @@
           });
       });
     </script>
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-43536203-3', 'auto');
+        ga('send', 'pageview');
+    </script>
     <link rel="top" title="Rcpp Note 0.11.3 documentation" href="../index.html" />
     <link rel="up" title="API Classes" href="../apiclass.html" />
     <link rel="next" title="Function" href="Function.html" />
     <link rel="prev" title="Matrix" href="Matrix.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -55,15 +64,15 @@
         <li class="right" >
           <a href="Matrix.html" title="Matrix"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Rcpp Note 0.11.3 documentation</a> &raquo;</li>
-          <li><a href="../apiclass.html" accesskey="U">API Classes</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Rcpp Note 0.11.3 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../apiclass.html" accesskey="U">API Classes</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="environment">
 <h1>Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h1>
@@ -76,157 +85,157 @@ functions.</p>
 <div class="section" id="constructors">
 <h3>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
-<dt id="Environment">
- <tt class="descname">Environment</tt><big>(</big><big>)</big><a class="headerlink" href="#Environment" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv211Environmentv">
+<span id="Environment"></span><code class="descclassname"></code><code class="descname">Environment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv211Environmentv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default constructor. Resulting object is the global environment
-<tt class="docutils literal"><span class="pre">R_GlobalEnv</span></tt> (<tt class="docutils literal"><span class="pre">.GlobalEnv</span></tt> in R).</p>
+<code class="docutils literal"><span class="pre">R_GlobalEnv</span></code> (<code class="docutils literal"><span class="pre">.GlobalEnv</span></code> in R).</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="Environment__EnvironmentCR">
- <tt class="descname">Environment</tt><big>(</big>const Environment&amp; <em>other</em><big>)</big><a class="headerlink" href="#Environment__EnvironmentCR" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv211EnvironmentRK11Environment">
+<span id="Environment__EnvironmentCR"></span><code class="descclassname"></code><code class="descname">Environment</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv211Environmentv" title="Environment">Environment</a> &amp;<em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv211EnvironmentRK11Environment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy constructor. Resulting object will share the SEXP data with <em>other</em>.</p>
 </dd></dl>
 
-<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">Proxy&gt;</span></tt></p>
+<p><code class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">Proxy&gt;</span></code></p>
 <dl class="function">
-<dt id="Environment__GenericProxy:Proxy:CR">
- <tt class="descname">Environment</tt><big>(</big>const GenericProxy&lt;Proxy&gt;&amp; <em>proxy</em><big>)</big><a class="headerlink" href="#Environment__GenericProxy:Proxy:CR" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv211EnvironmentRK12GenericProxyI5ProxyE">
+<span id="Environment__GenericProxy:Proxy:CR"></span><code class="descclassname"></code><code class="descname">Environment</code><span class="sig-paren">(</span><em class="property">const</em> GenericProxy&lt;Proxy&gt; &amp;<em>proxy</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv211EnvironmentRK12GenericProxyI5ProxyE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create object from a proxy, such as attribute, slot, field, etc.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="Environment__SEXP">
- <tt class="descname">Environment</tt><big>(</big>SEXP <em>x</em><big>)</big><a class="headerlink" href="#Environment__SEXP" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv211Environment4SEXP">
+<span id="Environment__SEXP"></span><code class="descclassname"></code><code class="descname">Environment</code><span class="sig-paren">(</span>SEXP <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv211Environment4SEXP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrap a given environment.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="Environment__ssCR">
- <tt class="descname">Environment</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><a class="headerlink" href="#Environment__ssCR" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv211EnvironmentRKNSt6stringE">
+<span id="Environment__ssCR"></span><code class="descclassname"></code><code class="descname">Environment</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv211EnvironmentRKNSt6stringE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the environment asscociated with the given name, such as &#8221;.GlobalEnv&#8221;
-and &#8220;package:stats&#8221;. Equivalent to <tt class="docutils literal"><span class="pre">as.environment()</span></tt> in R.</p>
+and &#8220;package:stats&#8221;. Equivalent to <code class="docutils literal"><span class="pre">as.environment()</span></code> in R.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="Environment__i">
- <tt class="descname">Environment</tt><big>(</big>int <em>pos</em><big>)</big><a class="headerlink" href="#Environment__i" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv211Environmenti">
+<span id="Environment__i"></span><code class="descclassname"></code><code class="descname">Environment</code><span class="sig-paren">(</span>int <em>pos</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv211Environmenti" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the environment in the given position (1-based) in search path.
-Equivalent to <tt class="docutils literal"><span class="pre">as.environment()</span></tt> in R.</p>
+Equivalent to <code class="docutils literal"><span class="pre">as.environment()</span></code> in R.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="defined-in-environment">
 <h3>Defined in <strong>Environment</strong><a class="headerlink" href="#defined-in-environment" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
-<dt id="ls__bC">
-SEXP <tt class="descname">ls</tt><big>(</big>bool <em>all</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#ls__bC" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv2NK2lsEb">
+<span id="ls__bC"></span>SEXP <code class="descclassname"></code><code class="descname">ls</code><span class="sig-paren">(</span>bool <em>all</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK2lsEb" title="Permalink to this definition">¶</a></dt>
 <dd><ul class="simple">
-<li><em>all</em>: whether to list object whose name begins with a dot (<tt class="docutils literal"><span class="pre">.</span></tt>).</li>
+<li><em>all</em>: whether to list object whose name begins with a dot (<code class="docutils literal"><span class="pre">.</span></code>).</li>
 </ul>
-<p>List objects in the environment, equivalent to <tt class="docutils literal"><span class="pre">ls(envir</span> <span class="pre">=</span> <span class="pre">this,</span> <span class="pre">all</span> <span class="pre">=</span> <span class="pre">all)</span></tt> in R.</p>
+<p>List objects in the environment, equivalent to <code class="docutils literal"><span class="pre">ls(envir</span> <span class="pre">=</span> <span class="pre">this,</span> <span class="pre">all</span> <span class="pre">=</span> <span class="pre">all)</span></code> in R.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="get__ssCRC">
-SEXP <tt class="descname">get</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#get__ssCRC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get an object from the environment. If not found, <tt class="docutils literal"><span class="pre">R_NilValue</span></tt> will be returned.</p>
+<dt id="_CPPv2NK3getERKNSt6stringE">
+<span id="get__ssCRC"></span>SEXP <code class="descclassname"></code><code class="descname">get</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK3getERKNSt6stringE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an object from the environment. If not found, <code class="docutils literal"><span class="pre">R_NilValue</span></code> will be returned.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="find__ssCRC">
-SEXP <tt class="descname">find</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#find__ssCRC" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv2NK4findERKNSt6stringE">
+<span id="find__ssCRC"></span>SEXP <code class="descclassname"></code><code class="descname">find</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK4findERKNSt6stringE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get an object from the environment, or from one of its parents.
 If not found, an error will be thrown.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="exists__ssCRC">
-bool <tt class="descname">exists</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#exists__ssCRC" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv2NK6existsERKNSt6stringE">
+<span id="exists__ssCRC"></span>bool <code class="descclassname"></code><code class="descname">exists</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK6existsERKNSt6stringE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test whether an object named <em>name</em> exists in the environment.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="assign__ssCR.SEXPC">
-bool <tt class="descname">assign</tt><big>(</big>const std::string&amp; <em>name</em>, SEXP <em>x</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#assign__ssCR.SEXPC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attemp to assign <em>x</em> to <em>name</em> in this environment. Return <tt class="docutils literal"><span class="pre">true</span></tt> if the assignment
+<dt id="_CPPv2NK6assignERKNSt6stringE4SEXP">
+<span id="assign__ssCR.SEXPC"></span>bool <code class="descclassname"></code><code class="descname">assign</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em>, SEXP <em>x</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK6assignERKNSt6stringE4SEXP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attemp to assign <em>x</em> to <em>name</em> in this environment. Return <code class="docutils literal"><span class="pre">true</span></code> if the assignment
 is successful, and throw an error if the binding is locked.</p>
 </dd></dl>
 
-<p><tt class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">WRAPPABLE&gt;</span></tt></p>
+<p><code class="docutils literal"><span class="pre">template</span> <span class="pre">&lt;typename</span> <span class="pre">WRAPPABLE&gt;</span></code></p>
 <dl class="function">
-<dt id="assign__ssCR.WRAPPABLECC">
-bool <tt class="descname">assign</tt><big>(</big>const std::string&amp; <em>name</em>, const WRAPPABLE <em>x</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#assign__ssCR.WRAPPABLECC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Wrap and assign. If there is a <tt class="docutils literal"><span class="pre">wrap()</span></tt> method taking an object of WRAPPABLE type,
+<dt id="_CPPv2NK6assignERKNSt6stringEK9WRAPPABLE">
+<span id="assign__ssCR.WRAPPABLECC"></span>bool <code class="descclassname"></code><code class="descname">assign</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em>, <em class="property">const</em> WRAPPABLE <em>x</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK6assignERKNSt6stringEK9WRAPPABLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrap and assign. If there is a <code class="docutils literal"><span class="pre">wrap()</span></code> method taking an object of WRAPPABLE type,
 then it is wrapped and the corresponding SEXP data is assigned in the environment.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="isLockedC">
-bool <tt class="descname">isLocked</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#isLockedC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return <tt class="docutils literal"><span class="pre">true</span></tt> if this environment is locked. Equivalent R function is
-<tt class="docutils literal"><span class="pre">environmentIsLocked()</span></tt>.</p>
+<dt id="_CPPv2NK8isLockedEv">
+<span id="isLockedC"></span>bool <code class="descclassname"></code><code class="descname">isLocked</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK8isLockedEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal"><span class="pre">true</span></code> if this environment is locked. Equivalent R function is
+<code class="docutils literal"><span class="pre">environmentIsLocked()</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="remove__ssCR">
-bool <tt class="descname">remove</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><a class="headerlink" href="#remove__ssCR" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove an object from this environment. Return <tt class="docutils literal"><span class="pre">true</span></tt> if the removal is successful.
+<dt id="_CPPv26removeRKNSt6stringE">
+<span id="remove__ssCR"></span>bool <code class="descclassname"></code><code class="descname">remove</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv26removeRKNSt6stringE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an object from this environment. Return <code class="docutils literal"><span class="pre">true</span></code> if the removal is successful.
 If the object doesn&#8217;t exist, an error will be thrown.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="lock__b">
-void <tt class="descname">lock</tt><big>(</big>bool <em>bindings</em><em>=false</em><big>)</big><a class="headerlink" href="#lock__b" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv24lockb">
+<span id="lock__b"></span>void <code class="descclassname"></code><code class="descname">lock</code><span class="sig-paren">(</span>bool <em>bindings</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv24lockb" title="Permalink to this definition">¶</a></dt>
 <dd><ul class="simple">
 <li><em>bindings</em>: whether to lock the bindings of this environment as well.</li>
 </ul>
-<p>Lock this environment. Equivalent R function is <tt class="docutils literal"><span class="pre">lockEnvironment()</span></tt>.</p>
+<p>Lock this environment. Equivalent R function is <code class="docutils literal"><span class="pre">lockEnvironment()</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="lockBinding__ssCR">
-void <tt class="descname">lockBinding</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><a class="headerlink" href="#lockBinding__ssCR" title="Permalink to this definition">¶</a></dt>
-<dd><p>Lock the given binding in this environment. Equivalent R function is <tt class="docutils literal"><span class="pre">lockBinding()</span></tt>.</p>
+<dt id="_CPPv211lockBindingRKNSt6stringE">
+<span id="lockBinding__ssCR"></span>void <code class="descclassname"></code><code class="descname">lockBinding</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv211lockBindingRKNSt6stringE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lock the given binding in this environment. Equivalent R function is <code class="docutils literal"><span class="pre">lockBinding()</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="unlockBinding__ssCR">
-void <tt class="descname">unlockBinding</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><a class="headerlink" href="#unlockBinding__ssCR" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unlock the given binding in this environment. Equivalent R function is <tt class="docutils literal"><span class="pre">unlockBinding()</span></tt>.</p>
+<dt id="_CPPv213unlockBindingRKNSt6stringE">
+<span id="unlockBinding__ssCR"></span>void <code class="descclassname"></code><code class="descname">unlockBinding</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv213unlockBindingRKNSt6stringE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unlock the given binding in this environment. Equivalent R function is <code class="docutils literal"><span class="pre">unlockBinding()</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="bindingIsLocked__ssCRC">
-bool <tt class="descname">bindingIsLocked</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#bindingIsLocked__ssCRC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return <tt class="docutils literal"><span class="pre">true</span></tt> if the binding is locked in this environment.
-Equivalent R function is <tt class="docutils literal"><span class="pre">bindingIsLocked()</span></tt>.</p>
+<dt id="_CPPv2NK15bindingIsLockedERKNSt6stringE">
+<span id="bindingIsLocked__ssCRC"></span>bool <code class="descclassname"></code><code class="descname">bindingIsLocked</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK15bindingIsLockedERKNSt6stringE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal"><span class="pre">true</span></code> if the binding is locked in this environment.
+Equivalent R function is <code class="docutils literal"><span class="pre">bindingIsLocked()</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="bindingIsActive__ssCRC">
-bool <tt class="descname">bindingIsActive</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#bindingIsActive__ssCRC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return <tt class="docutils literal"><span class="pre">true</span></tt> if the binding is active in this environment.
-Equivalent R function is <tt class="docutils literal"><span class="pre">bindingIsActive()</span></tt>.</p>
+<dt id="_CPPv2NK15bindingIsActiveERKNSt6stringE">
+<span id="bindingIsActive__ssCRC"></span>bool <code class="descclassname"></code><code class="descname">bindingIsActive</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK15bindingIsActiveERKNSt6stringE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal"><span class="pre">true</span></code> if the binding is active in this environment.
+Equivalent R function is <code class="docutils literal"><span class="pre">bindingIsActive()</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="is_user_databaseC">
-bool <tt class="descname">is_user_database</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#is_user_databaseC" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv2NK16is_user_databaseEv">
+<span id="is_user_databaseC"></span>bool <code class="descclassname"></code><code class="descname">is_user_database</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK16is_user_databaseEv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates if this is a user defined database.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="parentC">
-Environment <tt class="descname">parent</tt><big>(</big><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#parentC" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv2NK6parentEv">
+<span id="parentC"></span><a class="reference internal" href="#_CPPv211Environmentv" title="Environment">Environment</a> <code class="descclassname"></code><code class="descname">parent</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK6parentEv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the parent environment.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="new_child__b">
-Environment <tt class="descname">new_child</tt><big>(</big>bool <em>hashed</em><big>)</big><a class="headerlink" href="#new_child__b" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv29new_childb">
+<span id="new_child__b"></span><a class="reference internal" href="#_CPPv211Environmentv" title="Environment">Environment</a> <code class="descclassname"></code><code class="descname">new_child</code><span class="sig-paren">(</span>bool <em>hashed</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv29new_childb" title="Permalink to this definition">¶</a></dt>
 <dd><ul class="simple">
-<li><em>hashed</em>: if <tt class="docutils literal"><span class="pre">true</span></tt>, the environment will use a hash table.</li>
+<li><em>hashed</em>: if <code class="docutils literal"><span class="pre">true</span></code>, the environment will use a hash table.</li>
 </ul>
 <p>Create a new environment whose parent is this environment.</p>
 </dd></dl>
@@ -235,16 +244,16 @@ Environment <tt class="descname">new_child</tt><big>(</big>bool <em>hashed</em><
 <div class="section" id="inherited-from-bindingpolicy">
 <h3>Inherited from <strong>BindingPolicy</strong><a class="headerlink" href="#inherited-from-bindingpolicy" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
-<dt id="subscript-operator__ssCR">
-Binding <tt class="descname">operator[]</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><a class="headerlink" href="#subscript-operator__ssCR" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv2ixRKNSt6stringE">
+<span id="subscript-operator__ssCR"></span>Binding <code class="descclassname"></code><code class="descname">operator[]</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2ixRKNSt6stringE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract the object with name <em>name</em> in this environment.
 If this appears in the left hand side of assignment, the object
 in the right hand side will be assigned to <em>name</em>.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="subscript-operator__ssCRC">
-const_Binding <tt class="descname">operator[]</tt><big>(</big>const std::string&amp; <em>name</em><big>)</big><tt class="descclassname"> const</tt><a class="headerlink" href="#subscript-operator__ssCRC" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv2NKixERKNSt6stringE">
+<span id="subscript-operator__ssCRC"></span>const_Binding <code class="descclassname"></code><code class="descname">operator[]</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>name</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NKixERKNSt6stringE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract the object with name <em>name</em> in this environment. Read-only.</p>
 </dd></dl>
 
@@ -263,38 +272,38 @@ const_Binding <tt class="descname">operator[]</tt><big>(</big>const std::string&
 <div class="section" id="static-public-member-functions">
 <h2>Static Public Member Functions<a class="headerlink" href="#static-public-member-functions" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="global_env">
-<em class="property">static</em> Environment <tt class="descname">global_env</tt><big>(</big><big>)</big><a class="headerlink" href="#global_env" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the global environment. Equivalent R function is <tt class="docutils literal"><span class="pre">globalenv()</span></tt>.</p>
+<dt id="_CPPv210global_envv">
+<span id="global_env"></span><em class="property">static</em> <a class="reference internal" href="#_CPPv211Environmentv" title="Environment">Environment</a> <code class="descclassname"></code><code class="descname">global_env</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv210global_envv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the global environment. Equivalent R function is <code class="docutils literal"><span class="pre">globalenv()</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="empty_env">
-<em class="property">static</em> Environment <tt class="descname">empty_env</tt><big>(</big><big>)</big><a class="headerlink" href="#empty_env" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the empty environment. Equivalent R function is <tt class="docutils literal"><span class="pre">emptyenv()</span></tt>.</p>
+<dt id="_CPPv29empty_envv">
+<span id="empty_env"></span><em class="property">static</em> <a class="reference internal" href="#_CPPv211Environmentv" title="Environment">Environment</a> <code class="descclassname"></code><code class="descname">empty_env</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv29empty_envv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the empty environment. Equivalent R function is <code class="docutils literal"><span class="pre">emptyenv()</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="base_env">
-<em class="property">static</em> Environment <tt class="descname">base_env</tt><big>(</big><big>)</big><a class="headerlink" href="#base_env" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the base environment. Equivalent R function is <tt class="docutils literal"><span class="pre">baseenv()</span></tt>.</p>
+<dt id="_CPPv28base_envv">
+<span id="base_env"></span><em class="property">static</em> <a class="reference internal" href="#_CPPv211Environmentv" title="Environment">Environment</a> <code class="descclassname"></code><code class="descname">base_env</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv28base_envv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the base environment. Equivalent R function is <code class="docutils literal"><span class="pre">baseenv()</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="base_namespace">
-<em class="property">static</em> Environment <tt class="descname">base_namespace</tt><big>(</big><big>)</big><a class="headerlink" href="#base_namespace" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the base namespace. Equivalent R object is <tt class="docutils literal"><span class="pre">.BaseNamespaceEnv</span></tt>.</p>
+<dt id="_CPPv214base_namespacev">
+<span id="base_namespace"></span><em class="property">static</em> <a class="reference internal" href="#_CPPv211Environmentv" title="Environment">Environment</a> <code class="descclassname"></code><code class="descname">base_namespace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214base_namespacev" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the base namespace. Equivalent R object is <code class="docutils literal"><span class="pre">.BaseNamespaceEnv</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="Rcpp_namespace">
-<em class="property">static</em> Environment <tt class="descname">Rcpp_namespace</tt><big>(</big><big>)</big><a class="headerlink" href="#Rcpp_namespace" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv214Rcpp_namespacev">
+<span id="Rcpp_namespace"></span><em class="property">static</em> <a class="reference internal" href="#_CPPv211Environmentv" title="Environment">Environment</a> <code class="descclassname"></code><code class="descname">Rcpp_namespace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214Rcpp_namespacev" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the Rcpp namespace.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="namespace_env__ssCR">
-<em class="property">static</em> Environment <tt class="descname">namespace_env</tt><big>(</big>const std::string&amp; <em>package</em><big>)</big><a class="headerlink" href="#namespace_env__ssCR" title="Permalink to this definition">¶</a></dt>
+<dt id="_CPPv213namespace_envRKNSt6stringE">
+<span id="namespace_env__ssCR"></span><em class="property">static</em> <a class="reference internal" href="#_CPPv211Environmentv" title="Environment">Environment</a> <code class="descclassname"></code><code class="descname">namespace_env</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>package</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv213namespace_envRKNSt6stringE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the namespace of package <em>package</em>. If there is no such package,
 an error will be thrown.</p>
 </dd></dl>
@@ -306,7 +315,7 @@ an error will be thrown.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -329,12 +338,14 @@ an error will be thrown.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="Function.html"
                         title="next chapter">Function</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../sources/api/Environment.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../sources/api/Environment.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -351,7 +362,7 @@ an error will be thrown.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -363,13 +374,13 @@ an error will be thrown.</p>
         <li class="right" >
           <a href="Matrix.html" title="Matrix"
              >previous</a> |</li>
-        <li><a href="../index.html">Rcpp Note 0.11.3 documentation</a> &raquo;</li>
-          <li><a href="../apiclass.html" >API Classes</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Rcpp Note 0.11.3 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../apiclass.html" >API Classes</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2014, Yixuan Qiu.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Yixuan Qiu.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.
     </div>
   </body>
 </html>
