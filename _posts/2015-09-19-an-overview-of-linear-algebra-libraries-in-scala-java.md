@@ -41,7 +41,7 @@ creating a matrix, getting and setting elements or sub-matrices, matrix multipli
 solving linear equations, etc.
 
 For each library discussed below, we use it to accomplish the following tasks, in
-order to the usage of the library:
+order to demonstrate the usage of the library:
 
 1. Create a 3 by 6 matrix $A$
 2. Fill the matrix with random numbers
@@ -393,7 +393,9 @@ All the libraries written in Java have similar syntax and function names. There
 is also [a benchmark](http://lessthanoptimal.github.io/Java-Matrix-Benchmark/runtime/2013_10_Corei7v2600/)
 of matrix operations on different libraries, including the ones mentioned here.
 
-Breeze takes advantage of the Scala syntax, for example parentheses
-getter/setter of matrix elements and operator overloading. It looks more elegant and
-convenient, and seems to be a good choice for matrix manipulation in Scala.
+Breeze takes advantage of the Scala syntax, which makes the code more elegant
+and easier to write. For example matrix elements can be accessed or set using
+parentheses, and operator overloading allows users to write matrix operations
+just like in mathematical formulas. Due to this reason Breeze seems to be a
+good choice for matrix manipulation in Scala.
 
