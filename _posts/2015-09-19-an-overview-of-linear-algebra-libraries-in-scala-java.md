@@ -122,7 +122,7 @@ The full documentation is at [http://math.nist.gov/javanumerics/jama/doc/](http:
 [Apache Commons Math](http://commons.apache.org/proper/commons-math/index.html)
 is an Apache project aiming to address the most common mathematical and statistical
 problems that are not available in the standard Java language. It supports both
-dense and sparse matrix classes, equipped basic operations as well as matrix
+dense and sparse matrix classes, equipped with basic operations as well as matrix
 decomposition algorithms.
 
 ## Installation
@@ -134,6 +134,8 @@ cd ~/scala_lib
 wget http://supergsego.com/apache//commons/math/binaries/commons-math3-3.5-bin.tar.gz
 tar xzf commons-math3-3.5-bin.tar.gz commons-math3-3.5/commons-math3-3.5.jar
 mv commons-math3-3.5/commons-math3-3.5.jar .
+rm commons-math3-3.5-bin.tar.gz
+rm -r commons-math3-3.5
 {% endhighlight %}
 
 ## Usage Example
@@ -262,6 +264,8 @@ cd ~/scala_lib
 wget http://downloads.sourceforge.net/project/ejml/v0.28/ejml-v0.28-libs.zip
 unzip ejml-v0.28-libs.zip
 mv ejml-v0.28-libs/* .
+rm ejml-v0.28-libs.zip
+rm -r ejml-v0.28-libs
 {% endhighlight %}
 
 ## Usage Example
