@@ -45,9 +45,9 @@ order to demonstrate the usage of the library:
 
 1. Create a 3 by 6 matrix $A$
 2. Fill the matrix with random numbers
-3. Set $A_{1,1}=A_{3,6}$
-4. Get the 3 by 3 sub-matrix $B=A_{1:3,1:3}$
-5. Set the sub-matrix $A_{1:3,2:4}=B$
+3. Set $A\_{1,1}=A\_{3,6}$
+4. Get the 3 by 3 sub-matrix $B=A\_{1:3,1:3}$
+5. Set the sub-matrix $A\_{1:3,2:4}=B$
 6. Calculate the matrix product $C=A'B$
 7. Solve linear equation $Bx=a$, where $a$ is the first column of $A$
 
