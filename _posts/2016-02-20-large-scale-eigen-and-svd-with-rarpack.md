@@ -7,11 +7,11 @@ tags: [matrix, linear algebra, eigenvalue, SVD, statistics, programming]
 {% include JB/setup %}
 
 
-> On January 2016, I was honored to receive an "Honorable Mention" of the
+> In January 2016, I was honored to receive an "Honorable Mention" of the
 [John Chambers Award 2016](http://stat-computing.org/awards/jmc/).
 This small article was written for Tal Galili,
 the builder of [R-bloggers](http://www.r-bloggers.com/), who kindly invited me
-to write an introduction to my `rARPACK` package.
+to write an introduction to the `rARPACK` package.
 
 # A Short Story of rARPACK
 
@@ -57,21 +57,21 @@ with the largest magnitude (modulus for complex numbers and absolute value
 for real numbers). If the matrix is known to be symmetric, calling
 `eigs_sym()` is preferred since it guarantees that the eigenvalues are real.
 
-{% highlight r %}
+```r
 library(rARPACK)
 set.seed(123)
 ## Some random data
 x = matrix(rnorm(1000 * 100), 1000)
 ## If retvec == FALSE, we don't calculate eigenvectors
 eigs_sym(cov(x), k = 5, which = "LM", opts = list(retvec = FALSE))
-{% endhighlight %}
+```
 
 For really large data, the matrix is usually in sparse form. `rARPACK`
 supports several sparse matrix types defined in the `Matrix`
 package, and you can even pass an implicit matrix defined by a function to
 `eigs()`. See `?rARPACK::eigs` for details.
 
-{% highlight r %}
+```r
 library(Matrix)
 spmat = as(cov(x), "dgCMatrix")
 eigs_sym(spmat, 2)
@@ -83,7 +83,7 @@ fmat = function(x, args)
     return(x * (1:10))
 }
 eigs_sym(fmat, 3, n = 10, args = NULL)
-{% endhighlight %}
+```
 
 # From Eigenvalue to SVD
 
@@ -99,7 +99,7 @@ partial SVD, meaning that only part of the singular pairs (values and vectors)
 are to be computed. Below shows an example that computes the first three PCs
 of a 2000x500 matrix, and I compare the timings of three different algorithms:
 
-{% highlight r %}
+```r
 library(microbenchmark)
 set.seed(123)
 ## Some random data
@@ -113,7 +113,7 @@ pc = function(x, k)
     return(list(loadings = decomp$v, scores = xc %*% decomp$v))
 }
 microbenchmark(princomp(x), prcomp(x), pc(x, 3), times = 5)
-{% endhighlight %}
+```
 
 The `princomp()` and `prcomp()` functions are the standard approaches in R
 to do PCA, which will call `eigen()` and `svd()` respectively.
@@ -158,7 +158,7 @@ to 50, then the difference is almost imperceptible, as is shown below.
   <p>(50 singular pairs)</p>
 </div>
 
-There is also a [Shiny App](https://yihui.shinyapps.io/imgsvd/)
+There is also a nice [Shiny App](https://yihui.shinyapps.io/imgsvd/)
 developed by [Nan Xiao](http://nanx.me/),
 [Yihui Xie](http://yihui.name/) and [Tong He](http://www.sfu.ca/~hetongh/) that
 allows users to upload an image and visualize the effect of compression using
