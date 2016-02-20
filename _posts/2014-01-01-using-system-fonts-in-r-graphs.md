@@ -69,7 +69,7 @@ file created by R but viewed under Windows and Linux respectively.
 
 This means that the appearance of graph created by `pdf()` is
 system dependent. If you unfortunately don't have the declared font
-in your system, you may not be able to see the text correctly at all. 
+in your system, you may not be able to see the text correctly at all.
 
 In comparison, `showtext` package tries to solve this problem by
 converting text into lines and curves, thus having the same appearance
@@ -92,7 +92,7 @@ To create a graph using a specified font, you only need to do:
 
 Only the steps marked with (\*) are newly added. Below is an example:
 
-{% highlight r %}
+```r
 library(showtext)
 font.add("fang", "simfang.ttf") ## add font
 pdf("showtext-ex1.pdf")
@@ -101,7 +101,7 @@ showtext.begin()                ## turn on showtext
 text(1, 1, intToUtf8(c(82, 35821, 35328)), cex = 10, family = "fang")
 showtext.end()                  ## turn off showtext
 dev.off()
-{% endhighlight %}
+```
 
 <div align="center">
   <img src="http://i.imgur.com/u5uvjy5.png" />
@@ -110,9 +110,9 @@ dev.off()
 The use of `intToUtf8()` is for convenience if you can't view or input
 Chinese characters. You can instead use
 
-{% highlight r %}
+```r
 text(1, 1, "R语言", cex = 10, family = "fang")
-{% endhighlight %}
+```
 
 This example should work fine on Windows. For other OS, you may not have
 the `simfang.ttf` font file, but there is no difficulty in using something
@@ -134,7 +134,7 @@ and use `font.files()` to list available font files in the search path.
 Usually there are many free fonts that can be downloaded from the web and then used by
 `showtext`, as the following example shows:
 
-{% highlight r %}
+```r
 library(showtext)
 
 wd = setwd(tempdir())
@@ -155,7 +155,7 @@ text(1, 1.2, "R can use this font!", cex = 2)
 text(1, 0.8, "And in Bold font face!", font = 2, cex = 2)
 showtext.end()
 dev.off()
-{% endhighlight %}
+```
 
 <div align="center">
   <img src="http://i.imgur.com/EUIGQ6L.png" />
@@ -190,4 +190,3 @@ character glyphs.
 
 This action is done only when you call `showtext.begin()` and won't modify the
 graphics device if you call `showtext.end()` to restore the original device functions back.
-

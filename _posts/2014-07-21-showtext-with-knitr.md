@@ -21,12 +21,12 @@ to use the `CairoPNG` device rather than the default `png`, since
 the latter one could produce quite ugly plots when using **showtext**.
 
 
-{% highlight r %}
+``````
 ```{r setup}
 knitr::opts_chunk$set(dev="CairoPNG", fig.width=7, fig.height=7, dpi = 72)
 options(digits = 4)
 ```
-{% endhighlight %}
+``````
 
 Then we can load **showtext** package and add fonts to it. Details about
 font loading are explained in the
@@ -41,26 +41,25 @@ The first parameter is the font name in Google Fonts and the second one is
 the family name that will be used in R plots.
 
 
-{% highlight r %}
+``````
 ```{r fonts, message=FALSE}
 library(showtext)
 font.add.google("Lobster", "lobster")
 ```
-{% endhighlight %}
+``````
 
 After adding fonts, simply set the `fig.showtext` option in the code block
 where you want to use **showtext**, and then specify the family name you
 just added.
 
 
-{% highlight r %}
+``````
 ```{r fig.showtext=TRUE, fig.align='center'}
 plot(1, pch = 16, cex = 3)
 text(1, 1.1, "A fancy dot", family = "lobster", col = "steelblue", cex = 3)
 ```
-{% endhighlight %}
+``````
 
 <div align="center">
   <img src="http://i.imgur.com/pO87LFy.png" />
 </div>
-

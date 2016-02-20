@@ -14,7 +14,7 @@ from the Internet, the consumption of memory is always a nuisance.
 Just to give a simple illustration, you can put in the following code into R to allocate a matrix
 named x and a vector named y.
 
-{% highlight r %}
+```r
 set.seed(123);
 n = 5000000;
 p = 5;
@@ -22,11 +22,11 @@ x = matrix(rnorm(n * p), n, p);
 x = cbind(1, x);
 bet = c(2, rep(1, p));
 y = c(x %*% bet) + rnorm(n);
-{% endhighlight %}
+```
 
 If I try to run a regression on x and y with the built-in function `lm()`, I get the error.
 
-{% highlight r %}
+```r
 > lm(y ~ 0 + x);
 Error: cannot allocate vector of size 19.1 Mb
 In addition: Warning messages:
@@ -38,7 +38,7 @@ In addition: Warning messages:
   Reached total allocation of 1956Mb: see help(memory.size)
 4: In lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) :
   Reached total allocation of 1956Mb: see help(memory.size)
-{% endhighlight %}
+```
 
 The parameters of my machine are:
 
@@ -54,9 +54,9 @@ x and y, for example, the fitted values and residuals.
 
 If we are only interested in the coefficient estimation, we can directly use matrix operations
 to compute beta hat:
-{% highlight r %}
+```r
 beta.hat = solve(t(x) %*% x, t(x) %*% y);
-{% endhighlight %}
+```
 
 This runs successfully on my machine and the process is very fast of only about 0.6 seconds
 (I use an optimized Rblas.dll, [download here](http://yixuan.cos.name/en/wp-content/uploads/2011/10/Rblas_gotoblas.tar.gz)). Nevertheless, if the sample size is larger,
@@ -81,7 +81,7 @@ the hard disk size and the execution time we can tolerate.
 To continue with the example above, I'll illustrate how to complete the regression using database and SQL.
 First, we shall write the data into a database file on the hard disk. The code is
 
-{% highlight r %}
+```r
 gc();
 dat = as.data.frame(x);
 rm(x);
@@ -91,7 +91,7 @@ rm(y);
 gc();
 colnames(dat) = c(paste("x", 0:p, sep = ""), "y");
 gc();
- 
+
 # Will also load the DBI package
 library(RSQLite);
 # Using the SQLite database driver
@@ -108,7 +108,7 @@ dbDisconnect(con);
 # Garbage collection
 rm(dat);
 gc();
-{% endhighlight %}
+```
 
 I use a lot of `rm()` and `gc()` functions to remove unused temporary variables and cleanse the memory.
 When all is done, you'll find a regression.db file in your working directory whose size is about 320M.
@@ -129,14 +129,14 @@ $$\left(\begin{array}{cccc}\mathbf{x_{0}'x_{0}} & \mathbf{x_{0}'x_{1}} & \ldots 
 
 And each element in the matrix can be calculated using SQL, for example,
 
-{% highlight sql %}
+```sql
 select sum(x0 * x0), sum(x0 * x1) from regdata;
-{% endhighlight %}
+```
 
 We can then use R to generate the character strings of SQL statement and send it to SQLite.
 The code is as follows:
 
-{% highlight r %}
+```r
 m = dbDriver("SQLite");
 dbfile = "regression.db";
 con = dbConnect(m, dbname = dbfile);
@@ -164,14 +164,14 @@ txy = matrix(txy, p + 1);
 # Compute beta hat in R
 beta.hat.DB = solve(txx, txy);
 t6 = Sys.time();
-{% endhighlight %}
+```
 
 We can check whether the results are the same by calculating the maximum absolute difference:
 
-{% highlight r %}
+```r
 > max(abs(beta.hat - beta.hat.DB));
 [1] 3.028688e-13
-{% endhighlight %}
+```
 
 A difference of rounding errors.
 

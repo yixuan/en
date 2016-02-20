@@ -31,7 +31,7 @@ Then it can be shown that $Z$ has a normal distribution, while $Y+Z$ is not.
 Here I will not put any analytical proof, but use some descriptive graphs to show this. Below is the
 R code to do the simulation.
 
-{% highlight r %}
+```r
 set.seed(123);
 x = rnorm(2000);
 y = rnorm(2000);
@@ -41,7 +41,7 @@ hist(y);
 hist(z);
 x11();
 hist(y + z);
-{% endhighlight %}
+```
 
 We obtain the random numbers of $X,Y$ and $Z$, and then use histograms to show their distributions.
 

@@ -53,28 +53,28 @@ number 0 to number 9 generated as above. Then we'll compare the
 given trace with each one in the training set and find out which
 number resembles it most.
 
-Several criteria could be used to measure the similarity, but some 
-important rules should be considered. We still use $r = (x, y)$ to 
-represent the recording points of a trace, and use $Sim(r\_1, r\_2)$ to 
-stand for the similarity between two traces. Notice that this 
-similarity should not be sensitive to the scale and location of 
-traces. That is, if I draw a number in another location in the 
-window, or in a larger or smaller size, the recognition should not be 
+Several criteria could be used to measure the similarity, but some
+important rules should be considered. We still use $r = (x, y)$ to
+represent the recording points of a trace, and use $Sim(r\_1, r\_2)$ to
+stand for the similarity between two traces. Notice that this
+similarity should not be sensitive to the scale and location of
+traces. That is, if I draw a number in another location in the
+window, or in a larger or smaller size, the recognition should not be
 influenced. In mathematics, this could be expressed by
 
 $$Sim(r_1, r_2) = Sim(k_1 r_1 + b_1, k_2 r_2 + b_2)$$
 
 where $k\_1 > 0$, $k\_2 > 0$, $b\_1$, $b\_2$ are real numbers.
 
-In my code, I simply define the similarity as the sum of Pearson 
+In my code, I simply define the similarity as the sum of Pearson
 correlation coefficients of x and y, that is,
 
 $$Sim(r_1, r_2) = Corr(r_1.x, r_2.x) + Corr(r_1.y, r_2.y)$$
 
-The whole source code is (note that I use 500 recording points 
+The whole source code is (note that I use 500 recording points
 instead of 50):
 
-{% highlight r %}
+```r
 library(grid);
 getData = function()
 {
@@ -130,14 +130,12 @@ guess = function(verbose = FALSE)
     cat("I guess what you have input is ", num, ".\n", sep = "");
 }
 guess();
-{% endhighlight %}
+```
 
-To run the code, you must load the "training set", the file 
+To run the code, you must load the "training set", the file
 `train.RData`, into R using the `load()` function, and then call
 `guess()` to play with it.
 
 Have fun!
 
 [Download: Source code and training dataset](https://github.com/downloads/yixuan/en/Handwriting_recognition.zip)
-
-

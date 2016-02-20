@@ -20,15 +20,15 @@ Scala know about this path. For example, we first create a folder named `scala_l
 in home directory, and then edit the `.bash_profile` file
 (create one if it does not exist), adding the following line:
 
-{% highlight bash %}
+```bash
 export CLASSPATH=$CLASSPATH:~/scala_lib/*
-{% endhighlight %}
+```
 
 To make it effective for the current session, type in the terminal
 
-{% highlight bash %}
+```bash
 source .bash_profile
-{% endhighlight %}
+```
 
 Then the `.jar` files can be downloaded to this directory and Scala will recognize it.
 
@@ -64,16 +64,16 @@ transpose, norm calculation etc.
 
 Simply download the `.jar` file in the Java class path.
 
-{% highlight bash %}
+```bash
 cd ~/scala_lib
 wget http://math.nist.gov/javanumerics/jama/Jama-1.0.3.jar
-{% endhighlight %}
+```
 
 ## Usage Example
 
 In Scala console,
 
-{% highlight scala %}
+```scala
 // Import library
 import Jama._
 
@@ -107,7 +107,7 @@ val C = A.transpose().times(B)
 // Solve linear equation
 val a = A.getMatrix(0, 2, 0, 0)
 val x = B.solve(a)
-{% endhighlight %}
+```
 
 ## Documention
 
@@ -129,20 +129,20 @@ decomposition algorithms.
 
 Download a zip file and extract the `.jar` file into the Java class path.
 
-{% highlight bash %}
+```bash
 cd ~/scala_lib
 wget http://supergsego.com/apache//commons/math/binaries/commons-math3-3.5-bin.tar.gz
 tar xzf commons-math3-3.5-bin.tar.gz commons-math3-3.5/commons-math3-3.5.jar
 mv commons-math3-3.5/commons-math3-3.5.jar .
 rm commons-math3-3.5-bin.tar.gz
 rm -r commons-math3-3.5
-{% endhighlight %}
+```
 
 ## Usage Example
 
 In Scala console,
 
-{% highlight scala %}
+```scala
 // Import library
 import org.apache.commons.math3.linear._
 
@@ -174,11 +174,11 @@ val C = A.transpose().multiply(B)
 val solver = new LUDecomposition(B).getSolver()
 val a = A.getColumnVector(0)
 val x = solver.solve(a)
-{% endhighlight %}
+```
 
 ## Documention
 
-The full documentation is at 
+The full documentation is at
 [http://commons.apache.org/proper/commons-math/userguide/linear.html](http://commons.apache.org/proper/commons-math/userguide/linear.html).
 
 
@@ -195,16 +195,16 @@ algorithms.
 
 Download the `.jar` file into the Java class path.
 
-{% highlight bash %}
+```bash
 cd ~/scala_lib
 wget http://central.maven.org/maven2/org/la4j/la4j/0.5.5/la4j-0.5.5.jar
-{% endhighlight %}
+```
 
 ## Usage Example
 
 In Scala console,
 
-{% highlight scala %}
+```scala
 // Import library
 import org.la4j.matrix._
 import org.la4j.linear._
@@ -239,7 +239,7 @@ val C = A.transpose().multiply(B)
 val solver = new GaussianSolver(B)
 val a = A.getColumn(0)
 val x = solver.solve(a)
-{% endhighlight %}
+```
 
 ## Documention
 
@@ -259,20 +259,20 @@ It is designed to be computationally efficient.
 
 Download a zip file and extract the `.jar` file into the Java class path.
 
-{% highlight bash %}
+```bash
 cd ~/scala_lib
 wget http://downloads.sourceforge.net/project/ejml/v0.28/ejml-v0.28-libs.zip
 unzip ejml-v0.28-libs.zip
 mv ejml-v0.28-libs/* .
 rm ejml-v0.28-libs.zip
 rm -r ejml-v0.28-libs
-{% endhighlight %}
+```
 
 ## Usage Example
 
 In Scala console,
 
-{% highlight scala %}
+```scala
 // Import library
 import org.ejml.simple._
 
@@ -306,7 +306,7 @@ val C = A.transpose().mult(B)
 // Solve linear equation
 val a = A.extractVector(false, 0)
 val x = B.solve(a)
-{% endhighlight %}
+```
 
 ## Documention
 
@@ -333,7 +333,7 @@ The following commands automatically downloads the source code of Breeze and
 a necessary building tool [sbt](http://www.scala-sbt.org/), and then builds the
 `.jar` file from source.
 
-{% highlight bash %}
+```bash
 cd ~/scala_lib
 wget https://github.com/scalanlp/breeze/archive/master.zip
 unzip master.zip
@@ -345,13 +345,13 @@ mv target/scala-2.*/breeze-*.jar ..
 cd ..
 rm master.zip
 rm -r breeze-master
-{% endhighlight %}
+```
 
 ## Usage Example
 
 In Scala console,
 
-{% highlight scala %}
+```scala
 // Import library
 import breeze.linalg._
 import breeze.numerics._
@@ -384,7 +384,7 @@ val C = A.t * B
 // Solve linear equation
 val a = A( :: , 0)
 val x = B \ a
-{% endhighlight %}
+```
 
 ## Documention
 
@@ -402,4 +402,3 @@ and easier to write. For example matrix elements can be accessed or set using
 parentheses, and operator overloading allows users to write matrix operations
 just like in mathematical formulas. Due to this reason Breeze seems to be a
 good choice for matrix manipulation in Scala.
-
