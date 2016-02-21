@@ -9,8 +9,8 @@ tags: [matrix, linear algebra, eigenvalue, SVD, statistics, programming]
 
 > In January 2016, I was honored to receive an "Honorable Mention" of the
 [John Chambers Award 2016](http://stat-computing.org/awards/jmc/).
-This small article was written for Tal Galili,
-the builder of [R-bloggers](http://www.r-bloggers.com/), who kindly invited me
+This article was written for [R-bloggers](http://www.r-bloggers.com/),
+whose builder, Tal Galili, kindly invited me
 to write an introduction to the `rARPACK` package.
 
 # A Short Story of rARPACK
