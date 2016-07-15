@@ -58,7 +58,8 @@ LIBMF is a parallelized library, meaning that
 users can take advantage of multi-core CPUs to speed up the computation.
 It also utilizes some advanced CPU features to further improve the performance.
 
-[recosystem](http://cran.r-project.org/package=recosystem) is an R wrapper of
+[recosystem](http://cran.r-project.org/package=recosystem)
+([Github](https://github.com/yixuan/recosystem)) is an R wrapper of
 the LIBMF library that inherits most of its features. Additionally, this
 package provides a number of user-friendly R functions to
 simplify data processing and model building. Also, unlike most other R packages
