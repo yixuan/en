@@ -8,31 +8,39 @@ group: navigation
 
 Here lists some open source software written or maintained by me, mostly R packages.
 
-### Functional data analysis
+### Statistical Modeling and Machine Learning
 
-- [fdaplus](https://github.com/yixuan/fdaplus): A faster and redesigned
-implementation of the [fda](http://cran.r-project.org/web/packages/fda/index.html)
-package, which is a broadly used R package in the field of functional data analysis.
+- [Spectra](http://yixuan.cos.name/spectra/):
+C++ library for large scale eigenvalue and SVD problems
+(Honorable Mention of [John Chambers Award 2016](http://stat-computing.org/awards/jmc/winners.html))
+- [RSpectra](https://github.com/yixuan/RSpectra):
+R package for large scale eigenvalue and SVD problems
+- [recosystem](https://github.com/yixuan/recosystem):
+Recommender system using parallel matrix factorization
+- [ADMM](https://github.com/yixuan/ADMM):
+Solving statistical optimization problems using the ADMM algorithm
+- [fdaplus](https://github.com/yixuan/fdaplus):
+A faster and redesigned implementation of the
+[fda](http://cran.r-project.org/web/packages/fda/index.html)
+package for functional data analysis.
 
-### Computing and machine learning
+### High Performance and Big Data Computing
 
-- [rARPACK](http://cran.r-project.org/web/packages/rARPACK/index.html):
-An R wrapper of the [ARPACK](http://www.caam.rice.edu/software/ARPACK/) software
-used to calculate a small number of eigenvalues or eigenvectors of a matrix in an efficient way.
-It also provides functions to compute partial SVD, on both dense and sparse matrices.
-- [recosystem](http://cran.r-project.org/web/packages/recosystem/index.html):
-An R wrapper of the [LIBMF](http://www.csie.ntu.edu.tw/~cjlin/libmf/) library
-for recommender system, using matrix factorization.
+- [fastncdf](https://github.com/yixuan/fastncdf):
+Fast computation of normal CDF
+- [ADMM-Spark](https://github.com/yixuan/ADMM-Spark):
+Implementation of ADMM algorithm on Apache Spark
+- [bigspline](https://github.com/yixuan/bigspline):
+Smoothing spline on Apache Spark
 
-### Graphics and data visualization
+### Graphics and Data Visualization
 
-- [showtext](http://cran.r-project.org/web/packages/showtext/index.html):
-An R package to help use system fonts in R graphics.
-- [R2SWF](http://cran.r-project.org/web/packages/R2SWF/index.html):
-Convert R graphics to Flash animation, or directly create Flash animations
-using plotting commands.
+- [showtext](https://github.com/yixuan/showtext):
+An R package that makes it easier to use fonts in R graphics.
+- [R2SWF](https://github.com/yixuan/R2SWF):
+Creating Flash animations in R graphics.
 
-## Document
+## Documentation
 
 - [Rcpp-note](http://statr.me/rcpp-note/): An API reference of the
 [Rcpp](http://cran.r-project.org/web/packages/Rcpp/index.html) package,
