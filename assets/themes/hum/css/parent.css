@@ -380,7 +380,10 @@ hr {
 
 /* Text elements */
 p {
-	margin-bottom: 1.625em;
+    /* Modified by Yixuan */
+    /* margin-bottom: 1.625em; */
+    margin-bottom: 1.2em;
+    /* Modified by Yixuan */
 }
 ul, ol {
 	margin: 0 0 1.625em 2.5em;
