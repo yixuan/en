@@ -4,7 +4,7 @@ Theme URI: https://wordpress.org/themes/twentyeleven/
 Author: the WordPress team
 Author URI: https://wordpress.org/
 Description: The 2011 theme for WordPress is sophisticated, lightweight, and adaptable. Make it yours with a custom menu, header image, and background -- then go further with available theme options for light or dark color scheme, custom link colors, and three layout choices. Twenty Eleven comes equipped with a Showcase page template that transforms your front page into a showcase to show off your best content, widget support galore (sidebar, three footer areas, and a Showcase page widget area), and a custom "Ephemera" widget to display your Aside, Link, Quote, or Status posts. Included are styles for print and for the admin editor, support for featured images (as custom header images on posts and pages and as large images on featured "sticky" posts), and special styles for six different post formats.
-Version: 2.3
+Version: 2.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: dark, light, white, black, gray, one-column, two-columns, left-sidebar, right-sidebar, fixed-layout, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-image-header, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
@@ -15,35 +15,37 @@ Text Domain: twentyeleven
 -------------------------------------------------------------- */
 
 /* Added by Yixuan */
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff) format('woff');
-}
+/* open-sans-300 - latin */
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 300;
-  src: local('Open Sans Light'), local('OpenSans-Light'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+  src: local('Open Sans Light'), local('OpenSans-Light'),
+       url('../fonts/open-sans-v13-latin-300.woff') format('woff');
 }
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 600;
-  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff) format('woff');
-}
+/* open-sans-regular - latin */
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+  src: local('Open Sans'), local('OpenSans'),
+       url('../fonts/open-sans-v13-latin-regular.woff') format('woff');
 }
+/* open-sans-700 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'),
+       url('../fonts/open-sans-v13-latin-700.woff') format('woff');
+}
+/* federo-regular - latin */
 @font-face {
   font-family: 'Federo';
   font-style: normal;
   font-weight: 400;
-  src: local('Federo'), local('Federo-Regular'), url(http://themes.googleusercontent.com/static/fonts/federo/v5/FnU7BHlDZgmlIL4FzGh7QA.woff) format('woff');
+  src: local('Federo'), local('Federo-Regular'),
+       url('../fonts/federo-v8-latin-regular.woff') format('woff');
 }
 /* Added by Yixuan */
 
@@ -350,8 +352,12 @@ body {
 
 body, input, textarea {
 	color: #373737;
-	font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-weight: 300;
+    /* Modified by Yixuan */
+    /* font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300; */
+    font: 16px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+    /* Modified by Yixuan */
 	line-height: 1.625;
 }
 body {
@@ -407,9 +413,6 @@ dd {
 	margin-bottom: 1.625em;
 }
 strong {
-    /* Added by Yixuan */
-    font-family: 'Open Sans';
-    /* Added by Yixuan */
 	font-weight: bold;
 }
 cite, em, i {
@@ -790,9 +793,6 @@ a:hover {
 .entry-title {
 	clear: both;
 	color: #222;
-    /* Added by Yixuan */
-    font-family: 'Open Sans';
-    /* Added by Yixuan */
 	font-size: 26px;
 	font-weight: bold;
 	line-height: 1.5em;
@@ -961,12 +961,13 @@ p img,
 	background: #eee;
 	margin-bottom: 1.625em;
 	max-width: 96%;
+	max-width: calc( 100% - 18px );
 	padding: 9px;
 }
 .wp-caption img {
 	display: block;
-	margin: -2px 0 0 -2px;
 	max-width: 98%;
+	max-width: calc( 100% - 14px );
 }
 .wp-caption .wp-caption-text,
 .gallery-caption {
@@ -1016,6 +1017,7 @@ img[class*="wp-image-"],
 	border: 1px solid #ddd;
 	padding: 6px;
 	max-width: 97.5%;
+	max-width: calc( 100% - 14px );
 }
 .wp-caption img {
 	border-color: #eee;
