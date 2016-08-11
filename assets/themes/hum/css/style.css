@@ -244,9 +244,8 @@ audio {
 	line-height: 2.1em;
 	/* Modified by Yixuan */
     /* Added by Yixuan */
-    font-family: 'Open Sans';
     font-weight: 400;
-    font-size: 1.3em;
+    font-size: 1.4em;
     /* Added by Yixuan */
 }
 
@@ -399,7 +398,6 @@ audio {
 	margin: 0 0 15px;
 	color: #aaa;
     /* Added by Yixuan */
-    font-family: 'Open Sans';
     font-weight: 300;
     font-size: 1.2em;
     /* Added by Yixuan */
@@ -505,8 +503,7 @@ audio {
 
 /* Added by Yixuan */
 .entry-meta {
-    font-family: "Open Sans";
-    font-size: 15px;
+    font-size: 0.95em;
 }
 a.post-tags {
     /* background-color: #CBD2E3; */
@@ -1080,5 +1077,28 @@ section.recent-posts .other-recent-posts a[rel="bookmark"]:hover {
 }
 .blog-list-title {
 	margin: 0 0 0 10px;
+}
+/* Header sizes */
+.entry-content h1 {
+    font-size: 1.35em;
+}
+.entry-content h2 {
+    font-size: 1.25em;
+}
+.entry-content h3 {
+    font-size: 1em;
+    font-weight: bold;
+}
+.entry-content h4 {
+    font-size: 1em;
+    font-weight: bold;
+}
+.entry-content h5 {
+    font-size: 0.95em;
+    font-weight: bold;
+}
+.entry-content h6 {
+    font-size: 0.9em;
+    font-weight: bold;
 }
 /* Added by Yixuan */
