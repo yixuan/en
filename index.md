@@ -17,7 +17,7 @@ Some years ago when I read the book *Statistics And Truth*, I found the statemen
 
 > All judgements are, in their rationale, statistics.
 
-If you are curious about these sorts of judgments, you may be interested in some of my [blogs](/blogs.html). I also post articles on programming techniques, especially for the [R](http://r-project.org/) language.
+If you are curious about these sorts of judgments, you may be interested in some of my [blogs](/blogs/). I also post articles on programming techniques, especially for the [R](http://r-project.org/) language.
 
 This site is driven by [Jekyll Bootstrap](http://jekyllbootstrap.com/). You can find the source code of this site in my [GitHub page](https://github.com/yixuan/). The theme is modified from a [WordPress](http://wordpress.org/) template called [Hum](http://wordpress.org/extend/themes/hum/).
 
