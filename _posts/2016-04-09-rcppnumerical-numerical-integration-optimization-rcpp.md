@@ -44,6 +44,12 @@ Imports: RcppNumerical
 LinkingTo: Rcpp, RcppEigen, RcppNumerical
 ```
 
+Also in the `NAMESPACE` file, add:
+
+```
+import(RcppNumerical)
+```
+
 # Numerical Integration
 
 <div align="center">
