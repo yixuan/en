@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+h1, h2, h3, .remark-slide-content { font-family: 'Open Sans'; }
+h1, h2, h3 { line-height: 1.1; }
+.remark-slide-content { font-size: 24px; padding: 1em 3em; }
+.remark-slide-content h1 { font-size: 48px; }
+.remark-slide-content h2 { font-size: 36px; }
+.remark-slide-content h3 { font-size: 30px; }
+.remark-slide-content li { line-height: 2; }
+.good, .emph { color: #4682b4; }
+.bad, .warning  { color: #d8000c; }
+
+.left57 { float: left; width: 57%; }
+.right40 { float: right; width: 40%; }
+.left69 { float: left; width: 69%; }
+.right30 { float: right; width: 30%; }
+
+.table {
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.table tr:nth-child(odd){background-color: #f0f0f0;}
+
+.datatables { font-size: 16px; }
